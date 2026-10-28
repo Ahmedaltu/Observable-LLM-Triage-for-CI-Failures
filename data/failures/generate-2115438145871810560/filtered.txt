@@ -1,0 +1,18 @@
+1: Environment setup
+2: # Final SHA: 
+3: # Total runtime: 0s
+4: # FAILED
+5: # Cloning metal3-io/baremetal-operator at release-0.13(ef741d67fa5fff18dec8da76dac434316d2acde7)
+6: # Checking out pulls:
+7: #	3764(7685099d9bad3260da85174859cd35d2b8aa1553)
+...
+327: $ PWD=/home/prow/go/src/github.com/metal3-io/baremetal-operator  git fetch https://github.com/metal3-io/baremetal-operator.git 7685099d9bad3260da85174859cd35d2b8aa1553 (runtime: 682.643664ms)
+328: From https://github.com/metal3-io/baremetal-operator
+329:  * branch                7685099d9bad3260da85174859cd35d2b8aa1553 -> FETCH_HEAD
+330: $ PWD=/home/prow/go/src/github.com/metal3-io/baremetal-operator GIT_AUTHOR_DATE=1791872262 GIT_COMMITTER_DATE=1791872262 git merge --no-ff 7685099d9bad3260da85174859cd35d2b8aa1553 (runtime: 27.123673ms)
+331: Auto-merging Dockerfile
+332: CONFLICT (content): Merge conflict in Dockerfile
+333: Automatic merge failed; fix conflicts and then commit the result.
+334: # Error: exit status 1
+335: # Final SHA: 
+336: # Total runtime: 0s

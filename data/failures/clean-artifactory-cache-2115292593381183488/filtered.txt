@@ -1,0 +1,2 @@
+1: curl: option : blank argument where content is expected
+2: curl: try 'curl --help' or 'curl --manual' for more information

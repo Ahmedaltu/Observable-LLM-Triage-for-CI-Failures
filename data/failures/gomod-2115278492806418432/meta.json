@@ -1,0 +1,36 @@
+{
+  "type": "presubmit",
+  "refs": {
+    "org": "metal3-io",
+    "repo": "ironic-standalone-operator",
+    "repo_link": "https://github.com/metal3-io/ironic-standalone-operator",
+    "base_ref": "main",
+    "base_sha": "ba5c2806dd14db425f1397336c5f1e63595fc36a",
+    "base_link": "https://github.com/metal3-io/ironic-standalone-operator/commit/ba5c2806dd14db425f1397336c5f1e63595fc36a",
+    "pulls": [
+      {
+        "number": 926,
+        "author": "dependabot[bot]",
+        "sha": "9bc84250756f1c48f38e0b68c47d0821523464f7",
+        "title": ":seedling: Bump github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring from 0.94.1 to 0.94.2",
+        "head_ref": "dependabot/go_modules/main/github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring-0.94.2",
+        "link": "https://github.com/metal3-io/ironic-standalone-operator/pull/926",
+        "commit_link": "https://github.com/metal3-io/ironic-standalone-operator/pull/926/commits/9bc84250756f1c48f38e0b68c47d0821523464f7",
+        "author_link": "https://github.com/apps/dependabot"
+      }
+    ]
+  },
+  "refs_key": "main:ba5c2806dd14db425f1397336c5f1e63595fc36a,926:9bc84250756f1c48f38e0b68c47d0821523464f7",
+  "job": "gomod",
+  "build_id": "2115278492806418432",
+  "context": "gomod",
+  "started": "1793156667",
+  "finished": "2026-10-28T03:04:51Z",
+  "duration": "24s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/pr-logs/pull/metal3-io_ironic-standalone-operator/926/gomod/2115278492806418432",
+  "pod_name": "a3149d71-b52a-4b77-a577-0f781d84f734",
+  "agent": "kubernetes",
+  "prow_job": "a3149d71-b52a-4b77-a577-0f781d84f734"
+}

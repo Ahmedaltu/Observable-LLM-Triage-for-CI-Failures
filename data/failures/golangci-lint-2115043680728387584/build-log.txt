@@ -1,0 +1,154 @@
+hack/ensure-golangci-lint.sh hack/tools/bin
++++ dirname hack/ensure-golangci-lint.sh
+++ cd hack/..
+++ pwd -P
++ IPAM_DIR=/home/prow/go/src/github.com/metal3-io/ip-address-manager
++ download_and_install_golangci_lint hack/tools/bin
++ local tmp_dir
++ local bin_dir=hack/tools/bin
++ command -v sha256sum
+++ mktemp -d
++ tmp_dir=/tmp/tmp.PmoeqGaSjL
++ pushd /tmp/tmp.PmoeqGaSjL
+/tmp/tmp.PmoeqGaSjL /home/prow/go/src/github.com/metal3-io/ip-address-manager
+++ uname
+++ tr '[:upper:]' '[:lower:]'
++ KERNEL_OS=linux
+++ uname -m
+++ sed -e s/x86_64/amd64/ -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/'
++ ARCH=amd64
++ GOLANGCI_LINT=golangci-lint
++ GOLANGCI_VERSION=2.10.1
++ CHECKSUMS_URL=https://github.com/golangci/golangci-lint/releases/download/v2.10.1/golangci-lint-2.10.1-checksums.txt
++ CHECKSUMS_FILE=checksums.txt
++ BINARY_FILE=golangci-lint-2.10.1-linux-amd64.tar.gz
++ URL=https://github.com/golangci/golangci-lint/releases/download/v2.10.1/golangci-lint-2.10.1-linux-amd64.tar.gz
++ curl --proto =https --tlsv1.3 -sSfL --retry 3 --retry-delay 5 --max-time 120 -o checksums.txt https://github.com/golangci/golangci-lint/releases/download/v2.10.1/golangci-lint-2.10.1-checksums.txt
+++ grep -F -- golangci-lint-2.10.1-linux-amd64.tar.gz checksums.txt
+++ awk '{print $1;}'
++ GOLANGCI_SHA256=dfa775874cf0561b404a02a8f4481fc69b28091da95aa697259820d429b09c99
++ [[ -z dfa775874cf0561b404a02a8f4481fc69b28091da95aa697259820d429b09c99 ]]
++ curl --proto =https --tlsv1.3 -sSfL --retry 3 --retry-delay 5 --max-time 120 -o golangci-lint-2.10.1-linux-amd64.tar.gz https://github.com/golangci/golangci-lint/releases/download/v2.10.1/golangci-lint-2.10.1-linux-amd64.tar.gz
+++ sha256sum golangci-lint-2.10.1-linux-amd64.tar.gz
+++ awk '{print $1;}'
++ checksum=dfa775874cf0561b404a02a8f4481fc69b28091da95aa697259820d429b09c99
++ [[ dfa775874cf0561b404a02a8f4481fc69b28091da95aa697259820d429b09c99 != \d\f\a\7\7\5\8\7\4\c\f\0\5\6\1\b\4\0\4\a\0\2\a\8\f\4\4\8\1\f\c\6\9\b\2\8\0\9\1\d\a\9\5\a\a\6\9\7\2\5\9\8\2\0\d\4\2\9\b\0\9\c\9\9 ]]
++ tar zxvf golangci-lint-2.10.1-linux-amd64.tar.gz
+golangci-lint-2.10.1-linux-amd64/LICENSE
+golangci-lint-2.10.1-linux-amd64/README.md
+golangci-lint-2.10.1-linux-amd64/golangci-lint
++ rm -f golangci-lint-2.10.1-linux-amd64.tar.gz
++ mkdir -p /home/prow/go/src/github.com/metal3-io/ip-address-manager/hack/tools/bin
++ mv golangci-lint-2.10.1-linux-amd64/golangci-lint /home/prow/go/src/github.com/metal3-io/ip-address-manager/hack/tools/bin/
++ chmod 0755 /home/prow/go/src/github.com/metal3-io/ip-address-manager/hack/tools/bin/golangci-lint
++ popd
+/home/prow/go/src/github.com/metal3-io/ip-address-manager
++ rm -rf /tmp/tmp.PmoeqGaSjL
+/home/prow/go/src/github.com/metal3-io/ip-address-manager/hack/tools/bin/golangci-lint run -v  --timeout=10m
+level=info msg="golangci-lint has version 2.10.1 built with go1.26.0 from 5d1e709b on 2026-02-17T15:27:33Z"
+level=info msg="[config_reader] Config search paths: [./ /home/prow/go/src/github.com/metal3-io/ip-address-manager /home/prow/go/src/github.com/metal3-io /home/prow/go/src/github.com /home/prow/go/src /home/prow/go /home/prow /home / /root]"
+level=info msg="[config_reader] Used config file .golangci.yaml"
+level=info msg="[goenv] Read go env for 3.391246ms: map[string]string{\"GOCACHE\":\"/root/.cache/go-build\", \"GOROOT\":\"/usr/local/go\"}"
+level=info msg="[lintersdb] Active 66 linters: [asasalint asciicheck bidichk bodyclose containedctx copyloopvar decorder dogsled dupl dupword durationcheck errcheck errchkjson errname errorlint exhaustive exptostd fatcontext forbidigo forcetypeassert gci ginkgolinter gocheckcompilerdirectives gochecksumtype goconst gocritic godot gofmt goimports goprintffuncname gosec gosmopolitan govet iface importas ineffassign intrange loggercheck makezero mirror misspell mnd nakedret nilerr nilnesserr nilnil noctx nolintlint nosprintfhostport perfsprint prealloc predeclared reassign revive rowserrcheck staticcheck tagliatelle testifylint thelper tparallel unconvert unparam unused usestdlibvars usetesting whitespace]"
+level=info msg="[loader] Go packages loading at mode 8767 (files|imports|name|types_sizes|deps|compiled_files|exports_file) took 36.850288091s"
+level=info msg="[runner/filename_unadjuster] Pre-built 0 adjustments in 5.339804ms"
+level=info msg="[linters_context/goanalysis] analyzers took 1m43.931879267s with top 10 stages: buildir: 1m26.307334765s, exhaustive: 3.40386113s, printf: 2.358659726s, nilness: 1.908683221s, fact_purity: 1.411190427s, inspect: 1.293625146s, fact_deprecated: 1.248611069s, typedness: 916.949471ms, gocritic: 882.993307ms, ctrlflow: 778.906794ms"
+level=info msg="[runner/exclusion_paths] Skipped 2 issues by pattern \"zz_generated.*\\\\.go$\""
+level=info msg="[runner/exclusion_paths] Skipped 0 issues by pattern \".*conversion.*\\\\.go$\""
+level=info msg="[runner/exclusion_paths] Skipped 0 issues by pattern \"mock*\""
+level=info msg="[runner/exclusion_paths] Skipped 0 issues by pattern \"third_party$\""
+level=info msg="[runner/exclusion_paths] Skipped 0 issues by pattern \"builtin$\""
+level=info msg="[runner/exclusion_paths] Skipped 0 issues by pattern \"examples$\""
+level=info msg="[runner/exclusion_rules] Skipped 17 issues by rules: [Text: \"should not use dot imports\", Path: \"_test\\\\.go\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019: \\\"sigs.k8s.io/cluster-api/api/core/v1beta1\\\" is deprecated: This package is deprecated and is going to be removed when support for v1beta1 will be dropped.\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 3 issues by rules: [Text: \"exported: exported method .*\\\\.(Reconcile|SetupWithManager|SetupWebhookWithManager) should have comment or be unexported\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 2 issues by rules: [Text: \"QF1004: could use strings.ReplaceAll instead\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"use of `fmt.Printf` forbidden by pattern || use of `fmt.Println` forbidden by pattern\", Path: \"notes\\\\.go\", Linters: \"forbidigo\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"zz_generated.*\\\\.go$\", Linters: \"gci, gofmt, goimports\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \".*conversion.*\\\\.go$\", Linters: \"gci, gofmt, goimports\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"should not use dot imports\", Path: \"(test|e2e)/.*.go\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019: \\\"sigs.k8s.io/cluster-api/util/deprecated/v1beta1/.*\\\" is deprecated\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported (method|function|type|const) (.+) should have comment or be unexported\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"receiver-naming: receiver name\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"QF1007: could merge conditional assignment into variable declaration\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"mock*\", Linters: \"gci, gofmt, goimports\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"third_party$\", Linters: \"gci, gofmt, goimports\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"examples$\", Linters: \"gci, gofmt, goimports\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"var-naming: don't use underscores in Go names;\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"ST1003: should not use underscores in Go names;\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"ST1016: methods on the same type should have the same receiver name\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"builtin$\", Linters: \"gci, gofmt, goimports\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019:\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019: \\\"sigs.k8s.io/cluster-api/api/ipam/v1beta1\\\" is deprecated: This package is deprecated and is going to be removed when support for v1beta1 will be dropped.\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported (method|function|type|const) (.+) should have comment or be unexported\", Source: \"(func|type).*Fake.*\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported (method|function|type|const) (.+) should have comment or be unexported\", Path: \"fake_\\\\.go\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 15 issues by rules: [Text: \"QF1008: could remove embedded field .* from selector\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 10 issues by rules: [Path: \"_test\\\\.go\", Linters: \"dupl, unused\"]"
+level=info msg="[runner] Issues before processing: 66, after processing: 0"
+level=info msg="[runner] Processors filtering stat (in/out): path_absoluter: 66/66, filename_unadjuster: 66/66, path_relativity: 66/66, exclusion_rules: 64/2, exclusion_paths: 66/64, generated_file_filter: 64/64, cgo: 66/66, invalid_issue: 66/66, nolint_filter: 2/0"
+level=info msg="[runner] processing took 3.034476ms with stages: nolint_filter: 1.671078ms, exclusion_rules: 620.609µs, generated_file_filter: 584.11µs, exclusion_paths: 99.219µs, path_relativity: 46.21µs, cgo: 2.91µs, path_absoluter: 2.66µs, invalid_issue: 2.53µs, sort_results: 1.46µs, filename_unadjuster: 1.1µs, max_same_issues: 600ns, fixer: 590ns, diff: 240ns, uniq_by_line: 220ns, path_prettifier: 220ns, path_shortener: 210ns, severity-rules: 170ns, max_from_linter: 140ns, source_code: 100ns, max_per_file_from_linter: 100ns"
+level=info msg="[runner] linters took 17.788265223s with stages: goanalysis_metalinter: 17.785176736s"
+0 issues.
+level=info msg="File cache stats: 7 entries of total size 76.3KiB"
+level=info msg="Memory: 548 samples, avg is 600.1MB, max is 3003.6MB"
+level=info msg="Execution took 54.652380448s"
+cd api; /home/prow/go/src/github.com/metal3-io/ip-address-manager/hack/tools/bin/golangci-lint run -v  --timeout=10m
+level=info msg="golangci-lint has version 2.10.1 built with go1.26.0 from 5d1e709b on 2026-02-17T15:27:33Z"
+level=info msg="[config_reader] Config search paths: [./ /home/prow/go/src/github.com/metal3-io/ip-address-manager/api /home/prow/go/src/github.com/metal3-io/ip-address-manager /home/prow/go/src/github.com/metal3-io /home/prow/go/src/github.com /home/prow/go/src /home/prow/go /home/prow /home / /root]"
+level=info msg="[config_reader] Used config file ../.golangci.yaml"
+level=info msg="[goenv] Read go env for 4.318635ms: map[string]string{\"GOCACHE\":\"/root/.cache/go-build\", \"GOROOT\":\"/usr/local/go\"}"
+level=info msg="[lintersdb] Active 66 linters: [asasalint asciicheck bidichk bodyclose containedctx copyloopvar decorder dogsled dupl dupword durationcheck errcheck errchkjson errname errorlint exhaustive exptostd fatcontext forbidigo forcetypeassert gci ginkgolinter gocheckcompilerdirectives gochecksumtype goconst gocritic godot gofmt goimports goprintffuncname gosec gosmopolitan govet iface importas ineffassign intrange loggercheck makezero mirror misspell mnd nakedret nilerr nilnesserr nilnil noctx nolintlint nosprintfhostport perfsprint prealloc predeclared reassign revive rowserrcheck staticcheck tagliatelle testifylint thelper tparallel unconvert unparam unused usestdlibvars usetesting whitespace]"
+level=info msg="[loader] Go packages loading at mode 8767 (compiled_files|imports|name|deps|exports_file|files|types_sizes) took 19.098957372s"
+level=info msg="[runner/filename_unadjuster] Pre-built 0 adjustments in 1.361178ms"
+level=info msg="[linters_context/goanalysis] analyzers took 1m23.29247992s with top 10 stages: buildir: 1m11.167060352s, exhaustive: 2.497800921s, printf: 1.933806857s, nilness: 1.544388415s, inspect: 1.059182796s, fact_purity: 981.934185ms, typedness: 724.824141ms, goimports: 682.629662ms, gocritic: 650.298326ms, fact_deprecated: 645.836821ms"
+level=info msg="[runner/exclusion_paths] Skipped 2 issues by pattern \"zz_generated.*\\\\.go$\""
+level=info msg="[runner/exclusion_paths] Skipped 3 issues by pattern \".*conversion.*\\\\.go$\""
+level=info msg="[runner/exclusion_paths] Skipped 0 issues by pattern \"mock*\""
+level=info msg="[runner/exclusion_paths] Skipped 0 issues by pattern \"third_party$\""
+level=info msg="[runner/exclusion_paths] Skipped 0 issues by pattern \"builtin$\""
+level=info msg="[runner/exclusion_paths] Skipped 0 issues by pattern \"examples$\""
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"use of `fmt.Printf` forbidden by pattern || use of `fmt.Println` forbidden by pattern\", Path: \"notes\\\\.go\", Linters: \"forbidigo\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"mock*\", Linters: \"gci, gofmt, goimports\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"should not use dot imports\", Path: \"(test|e2e)/.*.go\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019: \\\"sigs.k8s.io/cluster-api/api/core/v1beta1\\\" is deprecated: This package is deprecated and is going to be removed when support for v1beta1 will be dropped.\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019: \\\"sigs.k8s.io/cluster-api/util/deprecated/v1beta1/.*\\\" is deprecated\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"QF1004: could use strings.ReplaceAll instead\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"zz_generated.*\\\\.go$\", Linters: \"gci, gofmt, goimports\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"third_party$\", Linters: \"gci, gofmt, goimports\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"builtin$\", Linters: \"gci, gofmt, goimports\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"examples$\", Linters: \"gci, gofmt, goimports\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019:\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported: exported method .*\\\\.(Reconcile|SetupWithManager|SetupWebhookWithManager) should have comment or be unexported\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"var-naming: don't use underscores in Go names;\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 4 issues by rules: [Text: \"should not use dot imports\", Path: \"_test\\\\.go\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019: \\\"sigs.k8s.io/cluster-api/api/ipam/v1beta1\\\" is deprecated: This package is deprecated and is going to be removed when support for v1beta1 will be dropped.\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported (method|function|type|const) (.+) should have comment or be unexported\", Path: \"fake_\\\\.go\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"receiver-naming: receiver name\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"ST1003: should not use underscores in Go names;\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \".*conversion.*\\\\.go$\", Linters: \"gci, gofmt, goimports\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"_test\\\\.go\", Linters: \"dupl, unused\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported (method|function|type|const) (.+) should have comment or be unexported\", Source: \"(func|type).*Fake.*\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported (method|function|type|const) (.+) should have comment or be unexported\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"ST1016: methods on the same type should have the same receiver name\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"QF1008: could remove embedded field .* from selector\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"QF1007: could merge conditional assignment into variable declaration\", Linters: \"staticcheck\"]"
+level=info msg="[runner] Issues before processing: 20, after processing: 0"
+level=info msg="[runner] Processors filtering stat (in/out): cgo: 20/20, path_absoluter: 20/20, invalid_issue: 20/20, generated_file_filter: 15/15, exclusion_rules: 15/0, exclusion_paths: 20/15, filename_unadjuster: 20/20, path_relativity: 20/20"
+level=info msg="[runner] processing took 514.259µs with stages: exclusion_rules: 273.37µs, generated_file_filter: 146.749µs, exclusion_paths: 70.48µs, path_relativity: 15.5µs, sort_results: 1.23µs, cgo: 1.19µs, invalid_issue: 1.15µs, nolint_filter: 780ns, filename_unadjuster: 660ns, max_same_issues: 630ns, fixer: 600ns, uniq_by_line: 310ns, path_absoluter: 310ns, path_shortener: 290ns, diff: 220ns, max_from_linter: 220ns, path_prettifier: 200ns, severity-rules: 160ns, source_code: 110ns, max_per_file_from_linter: 100ns"
+level=info msg="[runner] linters took 15.713599494s with stages: goanalysis_metalinter: 15.713041785s"
+0 issues.
+level=info msg="File cache stats: 0 entries of total size 0B"
+level=info msg="Memory: 348 samples, avg is 732.8MB, max is 2848.1MB"
+level=info msg="Execution took 34.823189024s"
+cd hack/tools/release; /home/prow/go/src/github.com/metal3-io/ip-address-manager/hack/tools/bin/golangci-lint run -v --build-tags=tools --modules-download-mode=readonly  --timeout=10m
+level=info msg="golangci-lint has version 2.10.1 built with go1.26.0 from 5d1e709b on 2026-02-17T15:27:33Z"
+level=info msg="[config_reader] Config search paths: [./ /home/prow/go/src/github.com/metal3-io/ip-address-manager/hack/tools/release /home/prow/go/src/github.com/metal3-io/ip-address-manager/hack/tools /home/prow/go/src/github.com/metal3-io/ip-address-manager/hack /home/prow/go/src/github.com/metal3-io/ip-address-manager /home/prow/go/src/github.com/metal3-io /home/prow/go/src/github.com /home/prow/go/src /home/prow/go /home/prow /home / /root]"
+level=info msg="[config_reader] Used config file ../../../.golangci.yaml"
+level=info msg="[goenv] Read go env for 3.706406ms: map[string]string{\"GOCACHE\":\"/root/.cache/go-build\", \"GOROOT\":\"/usr/local/go\"}"
+level=info msg="[lintersdb] Active 66 linters: [asasalint asciicheck bidichk bodyclose containedctx copyloopvar decorder dogsled dupl dupword durationcheck errcheck errchkjson errname errorlint exhaustive exptostd fatcontext forbidigo forcetypeassert gci ginkgolinter gocheckcompilerdirectives gochecksumtype goconst gocritic godot gofmt goimports goprintffuncname gosec gosmopolitan govet iface importas ineffassign intrange loggercheck makezero mirror misspell mnd nakedret nilerr nilnesserr nilnil noctx nolintlint nosprintfhostport perfsprint prealloc predeclared reassign revive rowserrcheck staticcheck tagliatelle testifylint thelper tparallel unconvert unparam unused usestdlibvars usetesting whitespace]"
+level=info msg="[loader] Using build tags: [tools]"
+level=info msg="[loader] Go packages loading at mode 8767 (exports_file|name|compiled_files|deps|files|imports|types_sizes) took 7.774171ms"
+level=error msg="Running error: context loading failed: failed to load packages: failed to load packages: failed to load with go/packages: err: exit status 1: stderr: go: ../go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)\n"
+level=info msg="Memory: 2 samples, avg is 36.9MB, max is 38.9MB"
+level=info msg="Execution took 11.688687ms"
+make: *** [Makefile:189: lint] Error 3

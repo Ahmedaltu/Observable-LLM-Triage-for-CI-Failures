@@ -1,0 +1,336 @@
+Environment setup
+# Final SHA: 
+# Total runtime: 0s
+# FAILED
+# Cloning metal3-io/baremetal-operator at release-0.13(ef741d67fa5fff18dec8da76dac434316d2acde7)
+# Checking out pulls:
+#	3764(7685099d9bad3260da85174859cd35d2b8aa1553)
+$ PWD=/  mkdir -p /home/prow/go/src/github.com/metal3-io/baremetal-operator (runtime: 2.237743ms)
+$ PWD=/home/prow/go/src/github.com/metal3-io/baremetal-operator  git init (runtime: 7.387947ms)
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: will change to "main" in Git 3.0. To configure the initial branch name
+hint: to use in all of your new repositories, which will suppress this warning,
+hint: call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+hint:
+hint: Disable this message with "git config set advice.defaultBranchName false"
+Initialized empty Git repository in /home/prow/go/src/github.com/metal3-io/baremetal-operator/.git/
+$ PWD=/home/prow/go/src/github.com/metal3-io/baremetal-operator  git config user.name ci-robot (runtime: 2.553992ms)
+$ PWD=/home/prow/go/src/github.com/metal3-io/baremetal-operator  git config user.email ci-robot@k8s.io (runtime: 1.648994ms)
+$ PWD=/home/prow/go/src/github.com/metal3-io/baremetal-operator  git fetch https://github.com/metal3-io/baremetal-operator.git --tags --prune (runtime: 7.64671143s)
+From https://github.com/metal3-io/baremetal-operator
+ * branch                HEAD                      -> FETCH_HEAD
+ * [new tag]             apis/v0.1.0               -> apis/v0.1.0
+ * [new tag]             apis/v0.1.1               -> apis/v0.1.1
+ * [new tag]             apis/v0.1.2               -> apis/v0.1.2
+ * [new tag]             apis/v0.10.0              -> apis/v0.10.0
+ * [new tag]             apis/v0.10.0-beta.0       -> apis/v0.10.0-beta.0
+ * [new tag]             apis/v0.10.1              -> apis/v0.10.1
+ * [new tag]             apis/v0.10.2              -> apis/v0.10.2
+ * [new tag]             apis/v0.10.3              -> apis/v0.10.3
+ * [new tag]             apis/v0.10.4              -> apis/v0.10.4
+ * [new tag]             apis/v0.10.5              -> apis/v0.10.5
+ * [new tag]             apis/v0.10.6              -> apis/v0.10.6
+ * [new tag]             apis/v0.11.0              -> apis/v0.11.0
+ * [new tag]             apis/v0.11.0-alpha.0      -> apis/v0.11.0-alpha.0
+ * [new tag]             apis/v0.11.0-rc.0         -> apis/v0.11.0-rc.0
+ * [new tag]             apis/v0.11.1              -> apis/v0.11.1
+ * [new tag]             apis/v0.11.2              -> apis/v0.11.2
+ * [new tag]             apis/v0.11.3              -> apis/v0.11.3
+ * [new tag]             apis/v0.11.4              -> apis/v0.11.4
+ * [new tag]             apis/v0.11.5              -> apis/v0.11.5
+ * [new tag]             apis/v0.11.6              -> apis/v0.11.6
+ * [new tag]             apis/v0.11.7              -> apis/v0.11.7
+ * [new tag]             apis/v0.12.0              -> apis/v0.12.0
+ * [new tag]             apis/v0.12.0-beta.0       -> apis/v0.12.0-beta.0
+ * [new tag]             apis/v0.12.0-rc.0         -> apis/v0.12.0-rc.0
+ * [new tag]             apis/v0.12.1              -> apis/v0.12.1
+ * [new tag]             apis/v0.12.2              -> apis/v0.12.2
+ * [new tag]             apis/v0.12.3              -> apis/v0.12.3
+ * [new tag]             apis/v0.12.4              -> apis/v0.12.4
+ * [new tag]             apis/v0.12.5              -> apis/v0.12.5
+ * [new tag]             apis/v0.12.6              -> apis/v0.12.6
+ * [new tag]             apis/v0.12.7              -> apis/v0.12.7
+ * [new tag]             apis/v0.13.0              -> apis/v0.13.0
+ * [new tag]             apis/v0.13.0-beta.0       -> apis/v0.13.0-beta.0
+ * [new tag]             apis/v0.13.0-rc.0         -> apis/v0.13.0-rc.0
+ * [new tag]             apis/v0.13.1              -> apis/v0.13.1
+ * [new tag]             apis/v0.13.2              -> apis/v0.13.2
+ * [new tag]             apis/v0.13.3              -> apis/v0.13.3
+ * [new tag]             apis/v0.13.4              -> apis/v0.13.4
+ * [new tag]             apis/v0.13.5              -> apis/v0.13.5
+ * [new tag]             apis/v0.13.6              -> apis/v0.13.6
+ * [new tag]             apis/v0.14.0              -> apis/v0.14.0
+ * [new tag]             apis/v0.14.0-beta.0       -> apis/v0.14.0-beta.0
+ * [new tag]             apis/v0.14.0-rc.0         -> apis/v0.14.0-rc.0
+ * [new tag]             apis/v0.14.1              -> apis/v0.14.1
+ * [new tag]             apis/v0.14.2              -> apis/v0.14.2
+ * [new tag]             apis/v0.2.0               -> apis/v0.2.0
+ * [new tag]             apis/v0.3.0               -> apis/v0.3.0
+ * [new tag]             apis/v0.3.0-rc.0          -> apis/v0.3.0-rc.0
+ * [new tag]             apis/v0.3.1               -> apis/v0.3.1
+ * [new tag]             apis/v0.4.0               -> apis/v0.4.0
+ * [new tag]             apis/v0.4.1               -> apis/v0.4.1
+ * [new tag]             apis/v0.4.2               -> apis/v0.4.2
+ * [new tag]             apis/v0.5.0               -> apis/v0.5.0
+ * [new tag]             apis/v0.5.1               -> apis/v0.5.1
+ * [new tag]             apis/v0.5.2               -> apis/v0.5.2
+ * [new tag]             apis/v0.6.0               -> apis/v0.6.0
+ * [new tag]             apis/v0.6.1               -> apis/v0.6.1
+ * [new tag]             apis/v0.6.2               -> apis/v0.6.2
+ * [new tag]             apis/v0.6.3               -> apis/v0.6.3
+ * [new tag]             apis/v0.7.0-rc.0          -> apis/v0.7.0-rc.0
+ * [new tag]             apis/v0.8.0               -> apis/v0.8.0
+ * [new tag]             apis/v0.8.0-rc.0          -> apis/v0.8.0-rc.0
+ * [new tag]             apis/v0.8.1               -> apis/v0.8.1
+ * [new tag]             apis/v0.9.0               -> apis/v0.9.0
+ * [new tag]             apis/v0.9.1               -> apis/v0.9.1
+ * [new tag]             apis/v0.9.2               -> apis/v0.9.2
+ * [new tag]             apis/v0.9.3               -> apis/v0.9.3
+ * [new tag]             before-rename             -> before-rename
+ * [new tag]             capm3-v0.3.0              -> capm3-v0.3.0
+ * [new tag]             capm3-v0.3.2              -> capm3-v0.3.2
+ * [new tag]             capm3-v0.4.0              -> capm3-v0.4.0
+ * [new tag]             capm3-v0.4.1              -> capm3-v0.4.1
+ * [new tag]             capm3-v0.4.3              -> capm3-v0.4.3
+ * [new tag]             capm3-v0.5.0              -> capm3-v0.5.0
+ * [new tag]             capm3-v0.5.1              -> capm3-v0.5.1
+ * [new tag]             capm3-v0.5.2              -> capm3-v0.5.2
+ * [new tag]             capm3-v0.5.3              -> capm3-v0.5.3
+ * [new tag]             capm3-v0.5.4              -> capm3-v0.5.4
+ * [new tag]             capm3-v0.5.5              -> capm3-v0.5.5
+ * [new tag]             capm3-v1.1.0              -> capm3-v1.1.0
+ * [new tag]             capm3-v1.1.1              -> capm3-v1.1.1
+ * [new tag]             capm3-v1.1.2              -> capm3-v1.1.2
+ * [new tag]             pkg/hardwareutils/v0.1.0  -> pkg/hardwareutils/v0.1.0
+ * [new tag]             pkg/hardwareutils/v0.1.1  -> pkg/hardwareutils/v0.1.1
+ * [new tag]             pkg/hardwareutils/v0.1.2  -> pkg/hardwareutils/v0.1.2
+ * [new tag]             pkg/hardwareutils/v0.10.0 -> pkg/hardwareutils/v0.10.0
+ * [new tag]             pkg/hardwareutils/v0.10.0-beta.0 -> pkg/hardwareutils/v0.10.0-beta.0
+ * [new tag]             pkg/hardwareutils/v0.10.1 -> pkg/hardwareutils/v0.10.1
+ * [new tag]             pkg/hardwareutils/v0.10.2 -> pkg/hardwareutils/v0.10.2
+ * [new tag]             pkg/hardwareutils/v0.10.3 -> pkg/hardwareutils/v0.10.3
+ * [new tag]             pkg/hardwareutils/v0.10.4 -> pkg/hardwareutils/v0.10.4
+ * [new tag]             pkg/hardwareutils/v0.10.5 -> pkg/hardwareutils/v0.10.5
+ * [new tag]             pkg/hardwareutils/v0.10.6 -> pkg/hardwareutils/v0.10.6
+ * [new tag]             pkg/hardwareutils/v0.11.0 -> pkg/hardwareutils/v0.11.0
+ * [new tag]             pkg/hardwareutils/v0.11.0-alpha.0 -> pkg/hardwareutils/v0.11.0-alpha.0
+ * [new tag]             pkg/hardwareutils/v0.11.0-rc.0 -> pkg/hardwareutils/v0.11.0-rc.0
+ * [new tag]             pkg/hardwareutils/v0.11.1 -> pkg/hardwareutils/v0.11.1
+ * [new tag]             pkg/hardwareutils/v0.11.2 -> pkg/hardwareutils/v0.11.2
+ * [new tag]             pkg/hardwareutils/v0.11.3 -> pkg/hardwareutils/v0.11.3
+ * [new tag]             pkg/hardwareutils/v0.11.4 -> pkg/hardwareutils/v0.11.4
+ * [new tag]             pkg/hardwareutils/v0.11.5 -> pkg/hardwareutils/v0.11.5
+ * [new tag]             pkg/hardwareutils/v0.11.6 -> pkg/hardwareutils/v0.11.6
+ * [new tag]             pkg/hardwareutils/v0.11.7 -> pkg/hardwareutils/v0.11.7
+ * [new tag]             pkg/hardwareutils/v0.12.0 -> pkg/hardwareutils/v0.12.0
+ * [new tag]             pkg/hardwareutils/v0.12.0-beta.0 -> pkg/hardwareutils/v0.12.0-beta.0
+ * [new tag]             pkg/hardwareutils/v0.12.0-rc.0 -> pkg/hardwareutils/v0.12.0-rc.0
+ * [new tag]             pkg/hardwareutils/v0.12.1 -> pkg/hardwareutils/v0.12.1
+ * [new tag]             pkg/hardwareutils/v0.12.2 -> pkg/hardwareutils/v0.12.2
+ * [new tag]             pkg/hardwareutils/v0.12.3 -> pkg/hardwareutils/v0.12.3
+ * [new tag]             pkg/hardwareutils/v0.12.4 -> pkg/hardwareutils/v0.12.4
+ * [new tag]             pkg/hardwareutils/v0.12.5 -> pkg/hardwareutils/v0.12.5
+ * [new tag]             pkg/hardwareutils/v0.12.6 -> pkg/hardwareutils/v0.12.6
+ * [new tag]             pkg/hardwareutils/v0.12.7 -> pkg/hardwareutils/v0.12.7
+ * [new tag]             pkg/hardwareutils/v0.13.0 -> pkg/hardwareutils/v0.13.0
+ * [new tag]             pkg/hardwareutils/v0.13.0-beta.0 -> pkg/hardwareutils/v0.13.0-beta.0
+ * [new tag]             pkg/hardwareutils/v0.13.0-rc.0 -> pkg/hardwareutils/v0.13.0-rc.0
+ * [new tag]             pkg/hardwareutils/v0.13.1 -> pkg/hardwareutils/v0.13.1
+ * [new tag]             pkg/hardwareutils/v0.13.2 -> pkg/hardwareutils/v0.13.2
+ * [new tag]             pkg/hardwareutils/v0.13.3 -> pkg/hardwareutils/v0.13.3
+ * [new tag]             pkg/hardwareutils/v0.13.4 -> pkg/hardwareutils/v0.13.4
+ * [new tag]             pkg/hardwareutils/v0.13.5 -> pkg/hardwareutils/v0.13.5
+ * [new tag]             pkg/hardwareutils/v0.13.6 -> pkg/hardwareutils/v0.13.6
+ * [new tag]             pkg/hardwareutils/v0.14.0 -> pkg/hardwareutils/v0.14.0
+ * [new tag]             pkg/hardwareutils/v0.14.0-beta.0 -> pkg/hardwareutils/v0.14.0-beta.0
+ * [new tag]             pkg/hardwareutils/v0.14.0-rc.0 -> pkg/hardwareutils/v0.14.0-rc.0
+ * [new tag]             pkg/hardwareutils/v0.14.1 -> pkg/hardwareutils/v0.14.1
+ * [new tag]             pkg/hardwareutils/v0.14.2 -> pkg/hardwareutils/v0.14.2
+ * [new tag]             pkg/hardwareutils/v0.2.0  -> pkg/hardwareutils/v0.2.0
+ * [new tag]             pkg/hardwareutils/v0.3.0  -> pkg/hardwareutils/v0.3.0
+ * [new tag]             pkg/hardwareutils/v0.3.0-rc.0 -> pkg/hardwareutils/v0.3.0-rc.0
+ * [new tag]             pkg/hardwareutils/v0.3.1  -> pkg/hardwareutils/v0.3.1
+ * [new tag]             pkg/hardwareutils/v0.4.0  -> pkg/hardwareutils/v0.4.0
+ * [new tag]             pkg/hardwareutils/v0.4.1  -> pkg/hardwareutils/v0.4.1
+ * [new tag]             pkg/hardwareutils/v0.4.2  -> pkg/hardwareutils/v0.4.2
+ * [new tag]             pkg/hardwareutils/v0.5.0  -> pkg/hardwareutils/v0.5.0
+ * [new tag]             pkg/hardwareutils/v0.5.1  -> pkg/hardwareutils/v0.5.1
+ * [new tag]             pkg/hardwareutils/v0.5.2  -> pkg/hardwareutils/v0.5.2
+ * [new tag]             pkg/hardwareutils/v0.6.0  -> pkg/hardwareutils/v0.6.0
+ * [new tag]             pkg/hardwareutils/v0.6.1  -> pkg/hardwareutils/v0.6.1
+ * [new tag]             pkg/hardwareutils/v0.6.2  -> pkg/hardwareutils/v0.6.2
+ * [new tag]             pkg/hardwareutils/v0.6.3  -> pkg/hardwareutils/v0.6.3
+ * [new tag]             pkg/hardwareutils/v0.7.0-rc.0 -> pkg/hardwareutils/v0.7.0-rc.0
+ * [new tag]             pkg/hardwareutils/v0.8.0  -> pkg/hardwareutils/v0.8.0
+ * [new tag]             pkg/hardwareutils/v0.8.0-rc.0 -> pkg/hardwareutils/v0.8.0-rc.0
+ * [new tag]             pkg/hardwareutils/v0.8.1  -> pkg/hardwareutils/v0.8.1
+ * [new tag]             pkg/hardwareutils/v0.9.0  -> pkg/hardwareutils/v0.9.0
+ * [new tag]             pkg/hardwareutils/v0.9.1  -> pkg/hardwareutils/v0.9.1
+ * [new tag]             pkg/hardwareutils/v0.9.2  -> pkg/hardwareutils/v0.9.2
+ * [new tag]             pkg/hardwareutils/v0.9.3  -> pkg/hardwareutils/v0.9.3
+ * [new tag]             test/v0.10.0              -> test/v0.10.0
+ * [new tag]             test/v0.10.0-beta.0       -> test/v0.10.0-beta.0
+ * [new tag]             test/v0.10.1              -> test/v0.10.1
+ * [new tag]             test/v0.10.2              -> test/v0.10.2
+ * [new tag]             test/v0.10.3              -> test/v0.10.3
+ * [new tag]             test/v0.10.4              -> test/v0.10.4
+ * [new tag]             test/v0.10.5              -> test/v0.10.5
+ * [new tag]             test/v0.10.6              -> test/v0.10.6
+ * [new tag]             test/v0.11.0              -> test/v0.11.0
+ * [new tag]             test/v0.11.0-alpha.0      -> test/v0.11.0-alpha.0
+ * [new tag]             test/v0.11.0-rc.0         -> test/v0.11.0-rc.0
+ * [new tag]             test/v0.11.1              -> test/v0.11.1
+ * [new tag]             test/v0.11.2              -> test/v0.11.2
+ * [new tag]             test/v0.11.3              -> test/v0.11.3
+ * [new tag]             test/v0.11.4              -> test/v0.11.4
+ * [new tag]             test/v0.11.5              -> test/v0.11.5
+ * [new tag]             test/v0.11.6              -> test/v0.11.6
+ * [new tag]             test/v0.11.7              -> test/v0.11.7
+ * [new tag]             test/v0.12.0              -> test/v0.12.0
+ * [new tag]             test/v0.12.0-beta.0       -> test/v0.12.0-beta.0
+ * [new tag]             test/v0.12.0-rc.0         -> test/v0.12.0-rc.0
+ * [new tag]             test/v0.12.1              -> test/v0.12.1
+ * [new tag]             test/v0.12.2              -> test/v0.12.2
+ * [new tag]             test/v0.12.3              -> test/v0.12.3
+ * [new tag]             test/v0.12.4              -> test/v0.12.4
+ * [new tag]             test/v0.12.5              -> test/v0.12.5
+ * [new tag]             test/v0.12.6              -> test/v0.12.6
+ * [new tag]             test/v0.12.7              -> test/v0.12.7
+ * [new tag]             test/v0.13.0              -> test/v0.13.0
+ * [new tag]             test/v0.13.0-beta.0       -> test/v0.13.0-beta.0
+ * [new tag]             test/v0.13.0-rc.0         -> test/v0.13.0-rc.0
+ * [new tag]             test/v0.13.1              -> test/v0.13.1
+ * [new tag]             test/v0.13.2              -> test/v0.13.2
+ * [new tag]             test/v0.13.3              -> test/v0.13.3
+ * [new tag]             test/v0.13.4              -> test/v0.13.4
+ * [new tag]             test/v0.13.5              -> test/v0.13.5
+ * [new tag]             test/v0.13.6              -> test/v0.13.6
+ * [new tag]             test/v0.14.0              -> test/v0.14.0
+ * [new tag]             test/v0.14.0-beta.0       -> test/v0.14.0-beta.0
+ * [new tag]             test/v0.14.0-rc.0         -> test/v0.14.0-rc.0
+ * [new tag]             test/v0.14.1              -> test/v0.14.1
+ * [new tag]             test/v0.14.2              -> test/v0.14.2
+ * [new tag]             test/v0.5.0               -> test/v0.5.0
+ * [new tag]             test/v0.5.1               -> test/v0.5.1
+ * [new tag]             test/v0.5.2               -> test/v0.5.2
+ * [new tag]             test/v0.6.0               -> test/v0.6.0
+ * [new tag]             test/v0.6.1               -> test/v0.6.1
+ * [new tag]             test/v0.6.2               -> test/v0.6.2
+ * [new tag]             test/v0.6.3               -> test/v0.6.3
+ * [new tag]             test/v0.7.0-rc.0          -> test/v0.7.0-rc.0
+ * [new tag]             test/v0.8.0               -> test/v0.8.0
+ * [new tag]             test/v0.8.0-rc.0          -> test/v0.8.0-rc.0
+ * [new tag]             test/v0.8.1               -> test/v0.8.1
+ * [new tag]             test/v0.9.0               -> test/v0.9.0
+ * [new tag]             test/v0.9.1               -> test/v0.9.1
+ * [new tag]             test/v0.9.2               -> test/v0.9.2
+ * [new tag]             test/v0.9.3               -> test/v0.9.3
+ * [new tag]             v0.1.0                    -> v0.1.0
+ * [new tag]             v0.1.1                    -> v0.1.1
+ * [new tag]             v0.1.2                    -> v0.1.2
+ * [new tag]             v0.10.0                   -> v0.10.0
+ * [new tag]             v0.10.0-beta.0            -> v0.10.0-beta.0
+ * [new tag]             v0.10.1                   -> v0.10.1
+ * [new tag]             v0.10.2                   -> v0.10.2
+ * [new tag]             v0.10.3                   -> v0.10.3
+ * [new tag]             v0.10.4                   -> v0.10.4
+ * [new tag]             v0.10.5                   -> v0.10.5
+ * [new tag]             v0.10.6                   -> v0.10.6
+ * [new tag]             v0.11.0                   -> v0.11.0
+ * [new tag]             v0.11.0-alpha.0           -> v0.11.0-alpha.0
+ * [new tag]             v0.11.0-rc.0              -> v0.11.0-rc.0
+ * [new tag]             v0.11.1                   -> v0.11.1
+ * [new tag]             v0.11.2                   -> v0.11.2
+ * [new tag]             v0.11.3                   -> v0.11.3
+ * [new tag]             v0.11.4                   -> v0.11.4
+ * [new tag]             v0.11.5                   -> v0.11.5
+ * [new tag]             v0.11.6                   -> v0.11.6
+ * [new tag]             v0.11.7                   -> v0.11.7
+ * [new tag]             v0.12.0                   -> v0.12.0
+ * [new tag]             v0.12.0-beta.0            -> v0.12.0-beta.0
+ * [new tag]             v0.12.0-rc.0              -> v0.12.0-rc.0
+ * [new tag]             v0.12.1                   -> v0.12.1
+ * [new tag]             v0.12.2                   -> v0.12.2
+ * [new tag]             v0.12.3                   -> v0.12.3
+ * [new tag]             v0.12.4                   -> v0.12.4
+ * [new tag]             v0.12.5                   -> v0.12.5
+ * [new tag]             v0.12.6                   -> v0.12.6
+ * [new tag]             v0.12.7                   -> v0.12.7
+ * [new tag]             v0.13.0                   -> v0.13.0
+ * [new tag]             v0.13.0-beta.0            -> v0.13.0-beta.0
+ * [new tag]             v0.13.0-rc.0              -> v0.13.0-rc.0
+ * [new tag]             v0.13.1                   -> v0.13.1
+ * [new tag]             v0.13.2                   -> v0.13.2
+ * [new tag]             v0.13.3                   -> v0.13.3
+ * [new tag]             v0.13.4                   -> v0.13.4
+ * [new tag]             v0.13.5                   -> v0.13.5
+ * [new tag]             v0.13.6                   -> v0.13.6
+ * [new tag]             v0.14.0                   -> v0.14.0
+ * [new tag]             v0.14.0-beta.0            -> v0.14.0-beta.0
+ * [new tag]             v0.14.0-rc.0              -> v0.14.0-rc.0
+ * [new tag]             v0.14.1                   -> v0.14.1
+ * [new tag]             v0.14.2                   -> v0.14.2
+ * [new tag]             v0.2.0                    -> v0.2.0
+ * [new tag]             v0.3.0                    -> v0.3.0
+ * [new tag]             v0.3.0-rc.0               -> v0.3.0-rc.0
+ * [new tag]             v0.3.1                    -> v0.3.1
+ * [new tag]             v0.4.0                    -> v0.4.0
+ * [new tag]             v0.4.1                    -> v0.4.1
+ * [new tag]             v0.4.2                    -> v0.4.2
+ * [new tag]             v0.5.0                    -> v0.5.0
+ * [new tag]             v0.5.1                    -> v0.5.1
+ * [new tag]             v0.5.2                    -> v0.5.2
+ * [new tag]             v0.6.0                    -> v0.6.0
+ * [new tag]             v0.6.1                    -> v0.6.1
+ * [new tag]             v0.6.2                    -> v0.6.2
+ * [new tag]             v0.6.3                    -> v0.6.3
+ * [new tag]             v0.7.0-rc.0               -> v0.7.0-rc.0
+ * [new tag]             v0.8.0                    -> v0.8.0
+ * [new tag]             v0.8.0-rc.0               -> v0.8.0-rc.0
+ * [new tag]             v0.8.1                    -> v0.8.1
+ * [new tag]             v0.9.0                    -> v0.9.0
+ * [new tag]             v0.9.1                    -> v0.9.1
+ * [new tag]             v0.9.2                    -> v0.9.2
+ * [new tag]             v0.9.3                    -> v0.9.3
+$ PWD=/home/prow/go/src/github.com/metal3-io/baremetal-operator  git fetch https://github.com/metal3-io/baremetal-operator.git ef741d67fa5fff18dec8da76dac434316d2acde7 (runtime: 647.354906ms)
+From https://github.com/metal3-io/baremetal-operator
+ * branch                ef741d67fa5fff18dec8da76dac434316d2acde7 -> FETCH_HEAD
+$ PWD=/home/prow/go/src/github.com/metal3-io/baremetal-operator  git checkout ef741d67fa5fff18dec8da76dac434316d2acde7 (runtime: 90.482431ms)
+Note: switching to 'ef741d67fa5fff18dec8da76dac434316d2acde7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at ef741d67f Merge pull request #3716 from metal3-io/dependabot/go_modules/release-0.13/capi-c0982ff428
+$ PWD=/home/prow/go/src/github.com/metal3-io/baremetal-operator  git branch --force release-0.13 ef741d67fa5fff18dec8da76dac434316d2acde7 (runtime: 1.656895ms)
+$ PWD=/home/prow/go/src/github.com/metal3-io/baremetal-operator  git checkout release-0.13 (runtime: 8.936462ms)
+Switched to branch 'release-0.13'
+$ PWD=/home/prow/go/src/github.com/metal3-io/baremetal-operator  git fetch https://github.com/metal3-io/baremetal-operator.git 7685099d9bad3260da85174859cd35d2b8aa1553 (runtime: 682.643664ms)
+From https://github.com/metal3-io/baremetal-operator
+ * branch                7685099d9bad3260da85174859cd35d2b8aa1553 -> FETCH_HEAD
+$ PWD=/home/prow/go/src/github.com/metal3-io/baremetal-operator GIT_AUTHOR_DATE=1791872262 GIT_COMMITTER_DATE=1791872262 git merge --no-ff 7685099d9bad3260da85174859cd35d2b8aa1553 (runtime: 27.123673ms)
+Auto-merging Dockerfile
+CONFLICT (content): Merge conflict in Dockerfile
+Automatic merge failed; fix conflicts and then commit the result.
+# Error: exit status 1
+# Final SHA: 
+# Total runtime: 0s

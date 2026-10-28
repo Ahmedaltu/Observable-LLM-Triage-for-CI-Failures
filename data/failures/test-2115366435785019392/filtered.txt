@@ -1,0 +1,22 @@
+...
+360: level=info msg="[runner] Processors filtering stat (in/out): invalid_issue: 289/289, path_relativity: 289/289, exclusion_paths: 289/289, max_same_issues: 4/4, path_absoluter: 289/289, cgo: 289/289, filename_unadjuster: 289/289, diff: 4/4, max_from_linter: 4/4, source_code: 4/4, severity-rules: 4/4, fixer: 4/4, max_per_file_from_linter: 4/4, path_shortener: 4/4, generated_file_filter: 289/289, exclusion_rules: 289/128, nolint_filter: 128/4, uniq_by_line: 4/4, path_prettifier: 4/4, sort_results: 4
+361: level=info msg="[runner] processing took 9.06959ms with stages: nolint_filter: 5.192415ms, exclusion_rules: 2.490397ms, generated_file_filter: 881.198µs, exclusion_paths: 239.84µs, path_relativity: 191.95µs, source_code: 43.66µs, cgo: 8.54µs, invalid_issue: 7.41µs, path_absoluter: 3.65µs, uniq_by_line: 2.46µs, sort_results: 2.23µs, filename_unadjuster: 1.99µs, path_shortener: 870ns, max_same_issues: 730ns, fixer: 730ns, path_prettifier: 500ns, max_per_file_from_linter: 400ns, diff: 360ns, max_fr
+362: level=info msg="[runner] linters took 19.814565342s with stages: goanalysis_metalinter: 19.805438722s"
+363: test/vbmctl/pkg/libvirt/pool.go:308:5: shadow: declaration of "err" shadows declaration at line 302 (govet)
+364: 	if err := pool.Refresh(0); err != nil { // pick up files added outside libvirt
+365: 	   ^
+366: test/vbmctl/pkg/libvirt/vm.go:161:6: shadow: declaration of "err" shadows declaration at line 128 (govet)
+367: 		if err := domain.Destroy(); err != nil {
+368: 		   ^
+369: test/vbmctl/pkg/libvirt/vm.go:168:5: shadow: declaration of "err" shadows declaration at line 128 (govet)
+370: 	if err := domain.UndefineFlags(libvirt.DOMAIN_UNDEFINE_NVRAM); err != nil {
+371: 	   ^
+372: test/vbmctl/pkg/libvirt/vm.go:179:6: shadow: declaration of "err" shadows declaration at line 128 (govet)
+373: 		if err := m.deleteVMVolumes(ctx, name); err != nil {
+374: 		   ^
+375: 4 issues:
+376: * govet: 4
+377: level=info msg="File cache stats: 11 entries of total size 113.1KiB"
+378: level=info msg="Memory: 472 samples, avg is 795.6MB, max is 3129.3MB"
+379: level=info msg="Execution took 47.453932776s"
+380: make: *** [Makefile:205: lint] Error 1

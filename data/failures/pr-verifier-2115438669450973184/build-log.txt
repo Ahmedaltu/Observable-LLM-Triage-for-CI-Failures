@@ -1,0 +1,8 @@
+Error: No matching PR type indicator found in title.
+You need to have one of these as the prefix of your PR title:
+- Breaking change: ⚠ (:warning:)
+- Non-breaking feature: ✨ (:sparkles:)
+- Patch fix: 🐛 (:bug:)
+- Docs: 📖 (:book:)
+- Release: 🚀 (:rocket:)
+- Infra/Tests/Other: 🌱 (:seedling:)

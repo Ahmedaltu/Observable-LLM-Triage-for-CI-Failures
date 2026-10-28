@@ -1,0 +1,36 @@
+{
+  "type": "presubmit",
+  "refs": {
+    "org": "metal3-io",
+    "repo": "baremetal-operator",
+    "repo_link": "https://github.com/metal3-io/baremetal-operator",
+    "base_ref": "release-0.13",
+    "base_sha": "ef741d67fa5fff18dec8da76dac434316d2acde7",
+    "base_link": "https://github.com/metal3-io/baremetal-operator/commit/ef741d67fa5fff18dec8da76dac434316d2acde7",
+    "pulls": [
+      {
+        "number": 3764,
+        "author": "Rozzii",
+        "sha": "7685099d9bad3260da85174859cd35d2b8aa1553",
+        "title": "bump distroless container base image",
+        "head_ref": "ca-trust-bump",
+        "link": "https://github.com/metal3-io/baremetal-operator/pull/3764",
+        "commit_link": "https://github.com/metal3-io/baremetal-operator/pull/3764/commits/7685099d9bad3260da85174859cd35d2b8aa1553",
+        "author_link": "https://github.com/Rozzii"
+      }
+    ]
+  },
+  "refs_key": "release-0.13:ef741d67fa5fff18dec8da76dac434316d2acde7,3764:7685099d9bad3260da85174859cd35d2b8aa1553",
+  "job": "pr-verifier",
+  "build_id": "2115438146001833984",
+  "context": "pr-verifier",
+  "started": "1793194731",
+  "finished": "2026-10-28T13:39:04Z",
+  "duration": "13s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/pr-logs/pull/metal3-io_baremetal-operator/3764/pr-verifier/2115438146001833984",
+  "pod_name": "5ef22be3-0d72-48f9-b550-006e2b210921",
+  "agent": "kubernetes",
+  "prow_job": "5ef22be3-0d72-48f9-b550-006e2b210921"
+}

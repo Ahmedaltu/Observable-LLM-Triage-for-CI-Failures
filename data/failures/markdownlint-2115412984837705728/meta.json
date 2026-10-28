@@ -1,0 +1,36 @@
+{
+  "type": "presubmit",
+  "refs": {
+    "org": "metal3-io",
+    "repo": "metal3-docs",
+    "repo_link": "https://github.com/metal3-io/metal3-docs",
+    "base_ref": "main",
+    "base_sha": "3312d0fd1c65fc653ecee296a0138e1ee18e07e1",
+    "base_link": "https://github.com/metal3-io/metal3-docs/commit/3312d0fd1c65fc653ecee296a0138e1ee18e07e1",
+    "pulls": [
+      {
+        "number": 734,
+        "author": "nuhakala",
+        "sha": "5ea9e97e04cad733940fbfa329e1c9e9f177aae5",
+        "title": "Design: provisioner-based pre-boot file injection",
+        "head_ref": "nuhakala/file-injection-proposal",
+        "link": "https://github.com/metal3-io/metal3-docs/pull/734",
+        "commit_link": "https://github.com/metal3-io/metal3-docs/pull/734/commits/5ea9e97e04cad733940fbfa329e1c9e9f177aae5",
+        "author_link": "https://github.com/nuhakala"
+      }
+    ]
+  },
+  "refs_key": "main:3312d0fd1c65fc653ecee296a0138e1ee18e07e1,734:5ea9e97e04cad733940fbfa329e1c9e9f177aae5",
+  "job": "markdownlint",
+  "build_id": "2115412984837705728",
+  "context": "markdownlint",
+  "started": "1793188732",
+  "finished": "2026-10-28T11:59:05Z",
+  "duration": "13s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/pr-logs/pull/metal3-io_metal3-docs/734/markdownlint/2115412984837705728",
+  "pod_name": "d606d06e-21a1-4790-97b8-086ab42730c1",
+  "agent": "kubernetes",
+  "prow_job": "d606d06e-21a1-4790-97b8-086ab42730c1"
+}

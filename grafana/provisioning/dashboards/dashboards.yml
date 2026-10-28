@@ -1,0 +1,5 @@
+apiVersion: 1
+providers:
+  - name: project
+    options:
+      path: /var/lib/grafana/dashboards

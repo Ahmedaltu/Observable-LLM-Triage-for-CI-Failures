@@ -1,0 +1,36 @@
+{
+  "type": "presubmit",
+  "refs": {
+    "org": "metal3-io",
+    "repo": "baremetal-operator",
+    "repo_link": "https://github.com/metal3-io/baremetal-operator",
+    "base_ref": "main",
+    "base_sha": "46ceefff4882cb17f2401ca3cf62fd2b7bf5dffd",
+    "base_link": "https://github.com/metal3-io/baremetal-operator/commit/46ceefff4882cb17f2401ca3cf62fd2b7bf5dffd",
+    "pulls": [
+      {
+        "number": 3760,
+        "author": "terror96",
+        "sha": "b9b5bc04e6597ce33eb822adc2cd840ab422c79c",
+        "title": ":seedling: Clean up vbmctl-managed BML resources",
+        "head_ref": "tero/clean-cleanup",
+        "link": "https://github.com/metal3-io/baremetal-operator/pull/3760",
+        "commit_link": "https://github.com/metal3-io/baremetal-operator/pull/3760/commits/b9b5bc04e6597ce33eb822adc2cd840ab422c79c",
+        "author_link": "https://github.com/terror96"
+      }
+    ]
+  },
+  "refs_key": "main:46ceefff4882cb17f2401ca3cf62fd2b7bf5dffd,3760:b9b5bc04e6597ce33eb822adc2cd840ab422c79c",
+  "job": "golangci-lint",
+  "build_id": "2115039946258518016",
+  "context": "golangci-lint",
+  "started": "1793099793",
+  "finished": "2026-10-27T11:23:15Z",
+  "duration": "6m42s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/pr-logs/pull/metal3-io_baremetal-operator/3760/golangci-lint/2115039946258518016",
+  "pod_name": "e16f62ea-83f5-46a6-874f-1ec3525faaed",
+  "agent": "kubernetes",
+  "prow_job": "e16f62ea-83f5-46a6-874f-1ec3525faaed"
+}

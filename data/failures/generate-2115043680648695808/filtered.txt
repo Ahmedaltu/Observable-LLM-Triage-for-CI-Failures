@@ -1,0 +1,11 @@
+...
+48: + export VERBOSE=--verbose
+49: + make generate
+50: make generate-go
+51: make[1]: Entering directory '/tmp/codegen.vYK5H4'
+52: cd hack/tools; go build -tags=tools -o bin/controller-gen sigs.k8s.io/controller-tools/cmd/controller-gen
+53: go: go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)
+54: make[1]: *** [Makefile:161: hack/tools/bin/controller-gen] Error 1
+55: make[1]: Leaving directory '/tmp/codegen.vYK5H4'
+56: make: *** [Makefile:213: generate] Error 2
+57: + rm -rf /tmp/codegen.vYK5H4

@@ -1,0 +1,11 @@
+...
+174:  M test/go.sum ]
+175: + echo one of the go.mod and/or go.sum files changed
+176: one of the go.mod and/or go.sum files changed
+177: + echo  M test/go.mod
+178:  M test/go.sum
+179:  M test/go.mod
+180:  M test/go.sum
+181: + echo Please run 'go mod tidy' and commit the changes
+182: Please run 'go mod tidy' and commit the changes
+183: + exit 1

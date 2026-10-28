@@ -1,0 +1,57 @@
++ IS_CONTAINER=TRUE
++ ARTIFACTS=/logs/artifacts
++ CONTAINER_RUNTIME=podman
++ [ TRUE != false ]
++ export XDG_CACHE_HOME=/tmp/.cache
++ mktemp -d -t codegen.XXXXXX
++ CODEGEN_DIR=/tmp/codegen.vYK5H4
++ trap rm -rf "${CODEGEN_DIR}" EXIT
++ cp -a . /tmp/codegen.vYK5H4
++ cd /tmp/codegen.vYK5H4
++ find config -type f
++ find . -name zz_generated* -type f
++ INPUT_FILES=config/certmanager/kustomizeconfig.yaml
+config/certmanager/certificate.yaml
+config/certmanager/kustomization.yaml
+config/webhook/service.yaml
+config/webhook/manifests.yaml
+config/webhook/kustomizeconfig.yaml
+config/webhook/kustomization.yaml
+config/crd/kustomizeconfig.yaml
+config/crd/bases/ipam.metal3.io_ipaddresses.yaml
+config/crd/bases/ipam.metal3.io_ipclaims.yaml
+config/crd/bases/ipam.metal3.io_ippools.yaml
+config/crd/patches/cainjection_in_ipaddresses.yaml
+config/crd/patches/webhook_in_ipclaims.yaml
+config/crd/patches/cainjection_in_ippools.yaml
+config/crd/patches/cainjection_in_ipclaims.yaml
+config/crd/patches/webhook_in_ipaddresses.yaml
+config/crd/patches/webhook_in_ippools.yaml
+config/crd/kustomization.yaml
+config/rbac/role.yaml
+config/rbac/role_binding.yaml
+config/rbac/leader_election_role_binding.yaml
+config/rbac/service_account.yaml
+config/rbac/kustomization.yaml
+config/rbac/leader_election_role.yaml
+config/manager/manager.yaml
+config/manager/kustomization.yaml
+config/default/kustomizeconfig.yaml
+config/default/webhookcainjection_patch.yaml
+config/default/manager_pull_policy_patch.yaml
+config/default/kustomization.yaml
+config/default/manager_webhook_patch.yaml
+config/default/manager_image_patch.yaml ./ipam/mocks/zz_generated.manager_factory.go
+./ipam/mocks/zz_generated.ippool_manager.go
+./api/v1alpha1/zz_generated.deepcopy.go
++ cksum config/certmanager/kustomizeconfig.yaml config/certmanager/certificate.yaml config/certmanager/kustomization.yaml config/webhook/service.yaml config/webhook/manifests.yaml config/webhook/kustomizeconfig.yaml config/webhook/kustomization.yaml config/crd/kustomizeconfig.yaml config/crd/bases/ipam.metal3.io_ipaddresses.yaml config/crd/bases/ipam.metal3.io_ipclaims.yaml config/crd/bases/ipam.metal3.io_ippools.yaml config/crd/patches/cainjection_in_ipaddresses.yaml config/crd/patches/webhook_in_ipclaims.yaml config/crd/patches/cainjection_in_ippools.yaml config/crd/patches/cainjection_in_ipclaims.yaml config/crd/patches/webhook_in_ipaddresses.yaml config/crd/patches/webhook_in_ippools.yaml config/crd/kustomization.yaml config/rbac/role.yaml config/rbac/role_binding.yaml config/rbac/leader_election_role_binding.yaml config/rbac/service_account.yaml config/rbac/kustomization.yaml config/rbac/leader_election_role.yaml config/manager/manager.yaml config/manager/kustomization.yaml config/default/kustomizeconfig.yaml config/default/webhookcainjection_patch.yaml config/default/manager_pull_policy_patch.yaml config/default/kustomization.yaml config/default/manager_webhook_patch.yaml config/default/manager_image_patch.yaml ./ipam/mocks/zz_generated.manager_factory.go ./ipam/mocks/zz_generated.ippool_manager.go ./api/v1alpha1/zz_generated.deepcopy.go
++ export VERBOSE=--verbose
++ make generate
+make generate-go
+make[1]: Entering directory '/tmp/codegen.vYK5H4'
+cd hack/tools; go build -tags=tools -o bin/controller-gen sigs.k8s.io/controller-tools/cmd/controller-gen
+go: go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)
+make[1]: *** [Makefile:161: hack/tools/bin/controller-gen] Error 1
+make[1]: Leaving directory '/tmp/codegen.vYK5H4'
+make: *** [Makefile:213: generate] Error 2
++ rm -rf /tmp/codegen.vYK5H4

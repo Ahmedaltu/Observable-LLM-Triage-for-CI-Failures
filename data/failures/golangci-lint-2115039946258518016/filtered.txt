@@ -1,0 +1,13 @@
+...
+325: level=info msg="[runner] Processors filtering stat (in/out): path_relativity: 288/288, exclusion_rules: 288/127, source_code: 1/1, severity-rules: 1/1, sort_results: 1/1, uniq_by_line: 1/1, path_shortener: 1/1, fixer: 1/1, max_per_file_from_linter: 1/1, max_same_issues: 1/1, invalid_issue: 288/288, exclusion_paths: 288/288, generated_file_filter: 288/288, nolint_filter: 127/1, path_prettifier: 1/1, path_absoluter: 288/288, diff: 1/1, max_from_linter: 1/1, cgo: 288/288, filename_unadjuster: 288/2
+326: level=info msg="[runner] processing took 10.249567ms with stages: nolint_filter: 6.231736ms, exclusion_rules: 2.259528ms, generated_file_filter: 1.207393ms, exclusion_paths: 248.878µs, path_relativity: 239.113µs, source_code: 19.458µs, cgo: 13.568µs, invalid_issue: 7.422µs, sort_results: 6.099µs, path_absoluter: 4.689µs, filename_unadjuster: 4.058µs, uniq_by_line: 2.027µs, fixer: 1.274µs, max_same_issues: 961ns, path_shortener: 894ns, max_per_file_from_linter: 736ns, diff: 611ns, path_prettifier
+327: level=info msg="[runner] linters took 47.699954025s with stages: goanalysis_metalinter: 47.68956148s"
+328: test/vbmctl/cmd/vbmctl/delete.go:185:4: use of `fmt.Println` forbidden by pattern `^(fmt\.Print(|f|ln)|print|println)$` (forbidigo)
+329: 			fmt.Println("Deleting the storage pool...")
+330: 			^
+331: 1 issues:
+332: * forbidigo: 1
+333: level=info msg="File cache stats: 10 entries of total size 103.1KiB"
+334: level=info msg="Memory: 1307 samples, avg is 642.5MB, max is 2898.3MB"
+335: level=info msg="Execution took 2m12.348421094s"
+336: make: *** [Makefile:205: lint] Error 1

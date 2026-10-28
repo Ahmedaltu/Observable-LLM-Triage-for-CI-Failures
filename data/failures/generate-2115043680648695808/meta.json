@@ -1,0 +1,36 @@
+{
+  "type": "presubmit",
+  "refs": {
+    "org": "metal3-io",
+    "repo": "ip-address-manager",
+    "repo_link": "https://github.com/metal3-io/ip-address-manager",
+    "base_ref": "main",
+    "base_sha": "cec58eebf6bf4c4ff685091c8c75342bcb9b6223",
+    "base_link": "https://github.com/metal3-io/ip-address-manager/commit/cec58eebf6bf4c4ff685091c8c75342bcb9b6223",
+    "pulls": [
+      {
+        "number": 1667,
+        "author": "dependabot[bot]",
+        "sha": "8b2099e8f2b620db30fee0a8f747dabafa439793",
+        "title": ":seedling: Bump sigs.k8s.io/kustomize/kustomize/v5 from 5.8.1 to 5.8.3 in /hack/tools",
+        "head_ref": "dependabot/go_modules/hack/tools/main/sigs.k8s.io/kustomize/kustomize/v5-5.8.3",
+        "link": "https://github.com/metal3-io/ip-address-manager/pull/1667",
+        "commit_link": "https://github.com/metal3-io/ip-address-manager/pull/1667/commits/8b2099e8f2b620db30fee0a8f747dabafa439793",
+        "author_link": "https://github.com/apps/dependabot"
+      }
+    ]
+  },
+  "refs_key": "main:cec58eebf6bf4c4ff685091c8c75342bcb9b6223,1667:8b2099e8f2b620db30fee0a8f747dabafa439793",
+  "job": "generate",
+  "build_id": "2115043680648695808",
+  "context": "generate",
+  "started": "1793100683",
+  "finished": "2026-10-27T11:31:35Z",
+  "duration": "12s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/pr-logs/pull/metal3-io_ip-address-manager/1667/generate/2115043680648695808",
+  "pod_name": "8f04d332-6dc8-4c88-b440-cb7a79401434",
+  "agent": "kubernetes",
+  "prow_job": "8f04d332-6dc8-4c88-b440-cb7a79401434"
+}

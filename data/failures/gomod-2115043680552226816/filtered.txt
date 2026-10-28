@@ -1,0 +1,11 @@
+...
+143: go: downloading github.com/grpc-ecosystem/grpc-gateway/v2 v2.30.0
+144: go: downloading golang.org/x/exp v0.0.0-20251219203646-944ab1f22d93
+145: go: downloading github.com/golang/protobuf v1.5.4
+146: go: downloading gonum.org/v1/gonum v0.17.0
+147: go mod verify
+148: all modules verified
+149: cd hack/tools; go mod tidy
+150: go: go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)
+151: make: *** [Makefile:204: modules] Error 1
+152: + rm -rf /tmp/gomod.vP1EJm

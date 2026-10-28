@@ -1,0 +1,9 @@
+1: + IS_CONTAINER=TRUE
+2: + CONTAINER_RUNTIME=podman
+3: + '[' TRUE '!=' false ]
+4: + markdownlint-cli2 '**/*.md' '#.github'
+5: markdownlint-cli2 v0.14.0 (markdownlint v0.35.0)
+6: Finding: **/*.md !.github
+7: Linting: 155 file(s)
+8: Summary: 1 error(s)
+9: design/baremetal-operator/pre-boot-file-injection.md:106:69 MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]

@@ -1,0 +1,11 @@
+...
+145: level=info msg="[config_reader] Config search paths: [./ /home/prow/go/src/github.com/metal3-io/ip-address-manager/hack/tools/release /home/prow/go/src/github.com/metal3-io/ip-address-manager/hack/tools /home/prow/go/src/github.com/metal3-io/ip-address-manager/hack /home/prow/go/src/github.com/metal3-io/ip-address-manager /home/prow/go/src/github.com/metal3-io /home/prow/go/src/github.com /home/prow/go/src /home/prow/go /home/prow /home / /root]"
+146: level=info msg="[config_reader] Used config file ../../../.golangci.yaml"
+147: level=info msg="[goenv] Read go env for 3.706406ms: map[string]string{\"GOCACHE\":\"/root/.cache/go-build\", \"GOROOT\":\"/usr/local/go\"}"
+148: level=info msg="[lintersdb] Active 66 linters: [asasalint asciicheck bidichk bodyclose containedctx copyloopvar decorder dogsled dupl dupword durationcheck errcheck errchkjson errname errorlint exhaustive exptostd fatcontext forbidigo forcetypeassert gci ginkgolinter gocheckcompilerdirectives gochecksumtype goconst gocritic godot gofmt goimports goprintffuncname gosec gosmopolitan govet iface importas ineffassign intrange loggercheck makezero mirror misspell mnd nakedret nilerr nilnesserr nilnil
+149: level=info msg="[loader] Using build tags: [tools]"
+150: level=info msg="[loader] Go packages loading at mode 8767 (exports_file|name|compiled_files|deps|files|imports|types_sizes) took 7.774171ms"
+151: level=error msg="Running error: context loading failed: failed to load packages: failed to load packages: failed to load with go/packages: err: exit status 1: stderr: go: ../go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)\n"
+152: level=info msg="Memory: 2 samples, avg is 36.9MB, max is 38.9MB"
+153: level=info msg="Execution took 11.688687ms"
+154: make: *** [Makefile:189: lint] Error 3
