@@ -1,0 +1,44 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The job failed due to linting errors caused by shadowed variable declarations in the code.",
+  "cited_lines": [
+    360,
+    363,
+    366,
+    369,
+    372
+  ],
+  "latency_s": 90.83,
+  "input_tokens": 974,
+  "output_tokens": 52,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 360,
+      "found": true,
+      "text": "level=info msg=\"[runner] Processors filtering stat (in/out): invalid_issue: 289/289, path_relativity: 289/289, exclusion_paths: 289/289, max_same_issues: 4/4, path_absoluter: 289/289, cgo: 289/289, filename_unadjuster: 289/289, diff: 4/4, max_from_linter: 4/4, source_code: 4/4, severity-rules: 4/4, fixer: 4/4, max_per_file_from_linter: 4/4, path_shortener: 4/4, generated_file_filter: 289/289, exclusion_rules: 289/128, nolint_filter: 128/4, uniq_by_line: 4/4, path_prettifier: 4/4, sort_results: 4"
+    },
+    {
+      "line": 363,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/pool.go:308:5: shadow: declaration of \"err\" shadows declaration at line 302 (govet)"
+    },
+    {
+      "line": 366,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:161:6: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 369,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:168:5: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 372,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:179:6: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    }
+  ],
+  "citation_validity": 1.0
+}

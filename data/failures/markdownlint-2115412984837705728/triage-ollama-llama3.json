@@ -1,0 +1,26 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The job failed due to a markdownlint error in a specific file.",
+  "cited_lines": [
+    8,
+    9
+  ],
+  "latency_s": 21.58,
+  "input_tokens": 339,
+  "output_tokens": 38,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 8,
+      "found": true,
+      "text": "Summary: 1 error(s)"
+    },
+    {
+      "line": 9,
+      "found": true,
+      "text": "design/baremetal-operator/pre-boot-file-injection.md:106:69 MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]"
+    }
+  ],
+  "citation_validity": 1.0
+}

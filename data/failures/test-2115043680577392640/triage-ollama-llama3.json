@@ -1,0 +1,26 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The job failed because the go version required by the project is not met.",
+  "cited_lines": [
+    4,
+    5
+  ],
+  "latency_s": 24.76,
+  "input_tokens": 358,
+  "output_tokens": 39,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 4,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)"
+    },
+    {
+      "line": 5,
+      "found": true,
+      "text": "make[1]: *** [Makefile:161: hack/tools/bin/controller-gen] Error 1"
+    }
+  ],
+  "citation_validity": 1.0
+}

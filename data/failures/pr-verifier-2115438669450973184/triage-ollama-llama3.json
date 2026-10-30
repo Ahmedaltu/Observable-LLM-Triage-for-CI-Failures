@@ -1,0 +1,62 @@
+{
+  "model": "ollama-llama3",
+  "category": "config_error",
+  "summary": "The PR title does not follow the required format, missing a prefix indicator.",
+  "cited_lines": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "latency_s": 30.33,
+  "input_tokens": 309,
+  "output_tokens": 57,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 1,
+      "found": true,
+      "text": "Error: No matching PR type indicator found in title."
+    },
+    {
+      "line": 2,
+      "found": true,
+      "text": "You need to have one of these as the prefix of your PR title:"
+    },
+    {
+      "line": 3,
+      "found": true,
+      "text": "- Breaking change: \u26a0 (:warning:)"
+    },
+    {
+      "line": 4,
+      "found": true,
+      "text": "- Non-breaking feature: \u2728 (:sparkles:)"
+    },
+    {
+      "line": 5,
+      "found": true,
+      "text": "- Patch fix: \ud83d\udc1b (:bug:)"
+    },
+    {
+      "line": 6,
+      "found": true,
+      "text": "- Docs: \ud83d\udcd6 (:book:)"
+    },
+    {
+      "line": 7,
+      "found": true,
+      "text": "- Release: \ud83d\ude80 (:rocket:)"
+    },
+    {
+      "line": 8,
+      "found": true,
+      "text": "- Infra/Tests/Other: \ud83c\udf31 (:seedling:)"
+    }
+  ],
+  "citation_validity": 1.0
+}

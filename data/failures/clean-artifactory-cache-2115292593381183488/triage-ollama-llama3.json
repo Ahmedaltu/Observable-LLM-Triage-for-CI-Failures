@@ -1,0 +1,26 @@
+{
+  "model": "ollama-llama3",
+  "category": "infra_timeout",
+  "summary": "The job failed due to a timeout issue with the curl command.",
+  "cited_lines": [
+    1,
+    2
+  ],
+  "latency_s": 15.34,
+  "input_tokens": 235,
+  "output_tokens": 37,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 1,
+      "found": true,
+      "text": "curl: option : blank argument where content is expected"
+    },
+    {
+      "line": 2,
+      "found": true,
+      "text": "curl: try 'curl --help' or 'curl --manual' for more information"
+    }
+  ],
+  "citation_validity": 1.0
+}

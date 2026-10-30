@@ -1,0 +1,26 @@
+{
+  "model": "ollama-llama3",
+  "category": "config_error",
+  "summary": "The job failed because the go.mod and/or go.sum files changed and need to be tidied.",
+  "cited_lines": [
+    175,
+    181
+  ],
+  "latency_s": 21.7,
+  "input_tokens": 312,
+  "output_tokens": 44,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 175,
+      "found": true,
+      "text": "+ echo one of the go.mod and/or go.sum files changed"
+    },
+    {
+      "line": 181,
+      "found": true,
+      "text": "+ echo Please run 'go mod tidy' and commit the changes"
+    }
+  ],
+  "citation_validity": 1.0
+}

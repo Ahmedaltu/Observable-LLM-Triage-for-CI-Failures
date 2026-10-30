@@ -1,0 +1,44 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The job failed because the use of `fmt.Println` is forbidden by a pattern in the linter.",
+  "cited_lines": [
+    363,
+    364,
+    365,
+    366,
+    367
+  ],
+  "latency_s": 68.23,
+  "input_tokens": 806,
+  "output_tokens": 66,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 363,
+      "found": true,
+      "text": "test/vbmctl/cmd/vbmctl/delete.go:185:4: use of `fmt.Println` forbidden by pattern `^(fmt\\.Print(|f|ln)|print|println)$` (forbidigo)"
+    },
+    {
+      "line": 364,
+      "found": true,
+      "text": "\t\t\tfmt.Println(\"Deleting the storage pool...\")"
+    },
+    {
+      "line": 365,
+      "found": true,
+      "text": "\t\t\t^"
+    },
+    {
+      "line": 366,
+      "found": true,
+      "text": "1 issues:"
+    },
+    {
+      "line": 367,
+      "found": true,
+      "text": "* forbidigo: 1"
+    }
+  ],
+  "citation_validity": 1.0
+}

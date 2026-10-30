@@ -1,0 +1,32 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The job failed due to a merge conflict in the Dockerfile.",
+  "cited_lines": [
+    331,
+    332,
+    333
+  ],
+  "latency_s": 25.3,
+  "input_tokens": 562,
+  "output_tokens": 45,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 331,
+      "found": true,
+      "text": "Auto-merging Dockerfile"
+    },
+    {
+      "line": 332,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in Dockerfile"
+    },
+    {
+      "line": 333,
+      "found": true,
+      "text": "Automatic merge failed; fix conflicts and then commit the result."
+    }
+  ],
+  "citation_validity": 1.0
+}
