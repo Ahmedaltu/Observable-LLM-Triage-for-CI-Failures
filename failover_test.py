@@ -1,6 +1,6 @@
 """Failure injection: kill the server model mid-run and measure how long until the edge model answers.
 
-    python3 failover_test.py    # needs Ollama (llama3 + llama3.2:3b) and Docker for the llm-server link
+    .venv/bin/python failover_test.py    # needs Ollama (llama3 + llama3.2:3b) and Docker for the llm-server link
 
 Recovery time = from the kill until the first fallback answer is written.
 """

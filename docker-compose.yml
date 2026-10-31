@@ -13,6 +13,12 @@ services:
     network_mode: host  # host netns reaches the Windows Ollama on localhost; a dead link refuses at once
     command: TCP-LISTEN:11435,fork,reuseaddr TCP:localhost:11434
 
+  jaeger:  # ponytail: in-memory storage, traces are gone after a restart; add badger storage if they must persist
+    image: jaegertracing/all-in-one:1.62.0
+    ports:
+      - "16686:16686"  # UI
+      - "4318:4318"    # OTLP/HTTP from triage.py
+
   prometheus:
     image: prom/prometheus:v3.5.0
     volumes:

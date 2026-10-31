@@ -10,10 +10,8 @@ import json
 import sys
 from pathlib import Path
 
-from triage import DATA, SCHEMA
-
+DATA = Path(__file__).parent / "data"
 LABELS = DATA / "labels.csv"
-CATS = SCHEMA["properties"]["category"]["enum"]
 
 
 def load():
@@ -30,6 +28,9 @@ def accuracy(labels, preds):
 
 
 def label():
+    from triage import SCHEMA  # imported here: the exporter container imports this file but has no OpenTelemetry
+
+    CATS = SCHEMA["properties"]["category"]["enum"]
     done = load()
     todo = [p for p in sorted(DATA.glob("failures/*/filtered.txt")) if p.parent.name not in done]
     new = not LABELS.exists()

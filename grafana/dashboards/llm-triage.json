@@ -10,9 +10,9 @@
  "panels": [
   {
    "id": 1,
-   "title": "Median latency",
+   "title": "Latency: total and time to first token",
    "type": "bargauge",
-   "description": "Wall time per failure, log in -> JSON answer out.",
+   "description": "median = total wall time per failure; ttft_median = time to first token (local models, from Ollama timings).",
    "datasource": {
     "type": "prometheus",
     "uid": "prometheus"
@@ -26,8 +26,8 @@
    "targets": [
     {
      "refId": "A",
-     "expr": "metal3_triage_latency_seconds{stat=\"median\"}",
-     "legendFormat": "{{model}}",
+     "expr": "metal3_triage_latency_seconds{stat=~\"median|ttft_median\"}",
+     "legendFormat": "{{model}} {{stat}}",
      "instant": true,
      "range": false
     }

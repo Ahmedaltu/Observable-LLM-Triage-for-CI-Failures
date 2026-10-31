@@ -13,7 +13,7 @@ m = metrics([
 assert 'metal3_prow_flaky{repo="bmo",job="unit"} 1' in m
 assert 'job="lint"' not in m.split("metal3_prow_flaky")[-1]
 assert 'metal3_prow_jobs{repo="periodic",job="stale",type="periodic",state="failure"} 1' in m
-res = [{"job": "j1", "model": "m", "category": "code_bug", "latency_s": 2, "input_tokens": 10, "output_tokens": 5,
+res = [{"job": "j1", "model": "m", "category": "code_bug", "latency_s": 2, "ttft_s": 0.5, "input_tokens": 10, "output_tokens": 5,
         "cost_usd": 0.0, "citation_validity": 1.0},
        {"job": "j2", "model": "m", "category": "config_error", "latency_s": 4, "input_tokens": 10, "output_tokens": 5,
         "cost_usd": 0.0, "citation_validity": None}]                 # no citations: left out of the mean
@@ -21,6 +21,7 @@ runs = {"failover-x": [{"served_by": "llama3", "fallback": False}, {"served_by":
                        {"served_by": None, "fallback": True}]}
 m = llm_metrics(res, {"j1": "code_bug", "j2": "code_bug"}, runs)
 assert 'metal3_triage_latency_seconds{model="m",stat="median"} 3.0' in m
+assert 'metal3_triage_latency_seconds{model="m",stat="ttft_median"} 0.5' in m  # only results that have it
 assert 'metal3_triage_citation_validity{model="m"} 1.0000' in m
 assert 'metal3_triage_accuracy{model="m"} 0.5000' in m
 assert 'metal3_serve_answers{run="failover-x",served_by="none"} 1' in m

@@ -57,6 +57,12 @@ def llm_metrics(results, labels, serve_runs):
         lat = [r["latency_s"] for r in rs]
         out += [f'metal3_triage_latency_seconds{{model="{m}",stat="median"}} {statistics.median(lat)}',
                 f'metal3_triage_latency_seconds{{model="{m}",stat="max"}} {max(lat)}']
+        ttft = [r["ttft_s"] for r in rs if "ttft_s" in r]  # local models only, from Ollama timings
+        if ttft:
+            out.append(f'metal3_triage_latency_seconds{{model="{m}",stat="ttft_median"}} {statistics.median(ttft)}')
+        tps = [r["tokens_per_s"] for r in rs if "tokens_per_s" in r]
+        if tps:
+            out.append(f'metal3_triage_tokens_per_second{{model="{m}"}} {statistics.median(tps)}')
     out += ["# HELP metal3_triage_citation_validity Mean share of cited lines that exist in the filtered log.",
             "# TYPE metal3_triage_citation_validity gauge"]
     for m, rs in sorted(by_model.items()):

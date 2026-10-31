@@ -49,12 +49,14 @@ def main():
         out = DATA / "failures" / f"{job['job']}-{job['build_id']}"
         if (out / "build-log.txt").exists():
             continue
+        t0 = time.perf_counter()
         try:
             log = build_log(job)
         except Exception as e:
             print(f"FAIL {out.name}: {e}")
             failed += 1
             continue
+        job["fetch_s"] = round(time.perf_counter() - t0, 2)  # shown on the triage trace (triage.py job_span)
         out.mkdir(parents=True, exist_ok=True)
         (out / "meta.json").write_text(json.dumps(job, indent=2))
         (out / "build-log.txt").write_bytes(log)
