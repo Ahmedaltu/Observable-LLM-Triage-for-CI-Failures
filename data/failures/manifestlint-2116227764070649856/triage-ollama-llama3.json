@@ -1,0 +1,35 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The build failed due to a merge conflict in the code.",
+  "cited_lines": [
+    331,
+    332,
+    337
+  ],
+  "latency_s": 25.26,
+  "input_tokens": 463,
+  "output_tokens": 40,
+  "cost_usd": 0.0,
+  "ttft_s": 15.84,
+  "tokens_per_s": 4.3,
+  "citations": [
+    {
+      "line": 331,
+      "found": true,
+      "text": "Auto-merging apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    },
+    {
+      "line": 332,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    },
+    {
+      "line": 337,
+      "found": true,
+      "text": "Automatic merge failed; fix conflicts and then commit the result."
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "b48099243fab46c4cd8bfbf9be3e7ba9"
+}

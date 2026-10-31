@@ -150,10 +150,10 @@ def job_span(job_dir):
         yield root, render(kept)
 
 
-def llm_call(ask, log, model, tier, **kw):
+def llm_call(ask, log, name, tier, **kw):
     """One LLM attempt as a span with the GenAI attributes; a raised error marks the span failed and propagates."""
-    attrs = {"gen_ai.operation.name": "chat", "gen_ai.request.model": model, "llm.tier": tier}
-    with tracer.start_as_current_span(f"llm {tier} {model}", attributes=attrs) as s:
+    attrs = {"gen_ai.operation.name": "chat", "gen_ai.request.model": name, "llm.tier": tier}
+    with tracer.start_as_current_span(f"llm {tier} {name}", attributes=attrs) as s:
         t0 = time.perf_counter()
         answer, tok_in, tok_out, cost, extra = ask(log, **kw)
         s.set_attributes({"gen_ai.usage.input_tokens": tok_in, "gen_ai.usage.output_tokens": tok_out, "llm.cost_usd": cost,

@@ -1,0 +1,23 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "config_error",
+  "summary": "The job failed due to a mismatch between the required Go version and the installed version.",
+  "cited_lines": [
+    2
+  ],
+  "latency_s": 6.35,
+  "input_tokens": 306,
+  "output_tokens": 42,
+  "cost_usd": 0.0,
+  "ttft_s": 2.3,
+  "tokens_per_s": 10.6,
+  "citations": [
+    {
+      "line": 2,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "b27cf88cd7b20c8d8a2f826640748537"
+}

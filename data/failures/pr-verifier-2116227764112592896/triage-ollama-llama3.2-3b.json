@@ -1,0 +1,47 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "config_error",
+  "summary": "Failed merge conflicts in Git repository",
+  "cited_lines": [
+    382,
+    383,
+    384,
+    385,
+    387
+  ],
+  "latency_s": 11.82,
+  "input_tokens": 539,
+  "output_tokens": 44,
+  "cost_usd": 0.0,
+  "ttft_s": 7.1,
+  "tokens_per_s": 9.4,
+  "citations": [
+    {
+      "line": 382,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    },
+    {
+      "line": 383,
+      "found": true,
+      "text": "Auto-merging config/base/crds/bases/metal3.io_baremetalhosts.yaml"
+    },
+    {
+      "line": 384,
+      "found": true,
+      "text": "Auto-merging config/base/crds/bases/metal3.io_hostnetworkattachments.yaml"
+    },
+    {
+      "line": 385,
+      "found": true,
+      "text": "Auto-merging config/base/webhook/manifests.yaml"
+    },
+    {
+      "line": 387,
+      "found": true,
+      "text": "Automatic merge failed; fix conflicts and then commit the result."
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "430eb3127f6538490a82dd8589b2ffd3"
+}

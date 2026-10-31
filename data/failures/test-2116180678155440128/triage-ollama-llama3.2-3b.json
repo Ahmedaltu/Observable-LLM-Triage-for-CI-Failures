@@ -1,0 +1,29 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "config_error",
+  "summary": "Merge conflict in go.mod and go.sum files",
+  "cited_lines": [
+    337,
+    339
+  ],
+  "latency_s": 7.81,
+  "input_tokens": 432,
+  "output_tokens": 38,
+  "cost_usd": 0.0,
+  "ttft_s": 4.45,
+  "tokens_per_s": 11.5,
+  "citations": [
+    {
+      "line": 337,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.mod"
+    },
+    {
+      "line": 339,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.sum"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "d1f86958e7595c815a606ea36cad1d33"
+}

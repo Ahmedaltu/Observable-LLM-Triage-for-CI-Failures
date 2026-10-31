@@ -1,0 +1,29 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The job failed due to merge conflicts in the hack/tools/go.mod and hack/tools/go.sum files.",
+  "cited_lines": [
+    337,
+    339
+  ],
+  "latency_s": 27.16,
+  "input_tokens": 422,
+  "output_tokens": 45,
+  "cost_usd": 0.0,
+  "ttft_s": 16.64,
+  "tokens_per_s": 4.3,
+  "citations": [
+    {
+      "line": 337,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.mod"
+    },
+    {
+      "line": 339,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.sum"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "2b61887f085ab423d1ed4e1f313ffb17"
+}

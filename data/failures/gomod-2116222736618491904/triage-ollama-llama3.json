@@ -1,0 +1,23 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The job failed because the Go version required by the project is not met.",
+  "cited_lines": [
+    163
+  ],
+  "latency_s": 18.77,
+  "input_tokens": 341,
+  "output_tokens": 36,
+  "cost_usd": 0.0,
+  "ttft_s": 10.72,
+  "tokens_per_s": 4.5,
+  "citations": [
+    {
+      "line": 163,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "fde90661df17f4b2da9065b2491d59c0"
+}

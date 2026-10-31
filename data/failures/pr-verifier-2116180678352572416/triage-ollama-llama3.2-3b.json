@@ -1,0 +1,41 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "config_error",
+  "summary": "Merge conflict in go.mod and go.sum files",
+  "cited_lines": [
+    384,
+    385,
+    388,
+    389
+  ],
+  "latency_s": 12.17,
+  "input_tokens": 498,
+  "output_tokens": 44,
+  "cost_usd": 0.0,
+  "ttft_s": 7.29,
+  "tokens_per_s": 9.1,
+  "citations": [
+    {
+      "line": 384,
+      "found": true,
+      "text": "Auto-merging config/render/capm3.yaml"
+    },
+    {
+      "line": 385,
+      "found": true,
+      "text": "Auto-merging go.mod"
+    },
+    {
+      "line": 388,
+      "found": true,
+      "text": "Auto-merging hack/tools/go.sum"
+    },
+    {
+      "line": 389,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.sum"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "c33e8c6fdd3426a37cc27094c0301387"
+}

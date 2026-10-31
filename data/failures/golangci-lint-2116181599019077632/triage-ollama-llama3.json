@@ -1,0 +1,35 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The job failed due to a lint error caused by a shadowed variable declaration.",
+  "cited_lines": [
+    245,
+    246,
+    247
+  ],
+  "latency_s": 54.72,
+  "input_tokens": 801,
+  "output_tokens": 53,
+  "cost_usd": 0.0,
+  "ttft_s": 41.65,
+  "tokens_per_s": 4.1,
+  "citations": [
+    {
+      "line": 245,
+      "found": true,
+      "text": "config/base/webhook/matchconditions_test.go:49:5: shadow: declaration of \"err\" shadows declaration at line 35 (govet)"
+    },
+    {
+      "line": 246,
+      "found": true,
+      "text": "\tif err := yaml.Unmarshal(data, &manifest); err != nil {"
+    },
+    {
+      "line": 247,
+      "found": true,
+      "text": "\t   ^"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "55abb2ff5efa36b133882b1b195198f6"
+}

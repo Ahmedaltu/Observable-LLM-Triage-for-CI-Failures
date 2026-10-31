@@ -1,0 +1,35 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The job failed due to a code bug in the config/base/webhook/matchconditions_test.go file, specifically a shadow declaration error.",
+  "cited_lines": [
+    296,
+    297,
+    298
+  ],
+  "latency_s": 79.14,
+  "input_tokens": 793,
+  "output_tokens": 64,
+  "cost_usd": 0.0,
+  "ttft_s": 57.36,
+  "tokens_per_s": 2.9,
+  "citations": [
+    {
+      "line": 296,
+      "found": true,
+      "text": "config/base/webhook/matchconditions_test.go:49:5: shadow: declaration of \"err\" shadows declaration at line 35 (govet)"
+    },
+    {
+      "line": 297,
+      "found": true,
+      "text": "\tif err := yaml.Unmarshal(data, &manifest); err != nil {"
+    },
+    {
+      "line": 298,
+      "found": true,
+      "text": "\t   ^"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "68842980274cbb6a24aa956b59ef74b9"
+}

@@ -1,0 +1,23 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "config_error",
+  "summary": "The job failed due to a configuration error in the Makefile.",
+  "cited_lines": [
+    203
+  ],
+  "latency_s": 17.2,
+  "input_tokens": 803,
+  "output_tokens": 38,
+  "cost_usd": 0.0,
+  "ttft_s": 13.3,
+  "tokens_per_s": 9.8,
+  "citations": [
+    {
+      "line": 203,
+      "found": false,
+      "text": null
+    }
+  ],
+  "citation_validity": 0.0,
+  "trace_id": "2b2e3df226b463dd59e86a24c6ca67b7"
+}

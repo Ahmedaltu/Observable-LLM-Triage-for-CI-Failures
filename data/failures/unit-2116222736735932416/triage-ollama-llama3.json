@@ -1,0 +1,359 @@
+{
+  "model": "ollama-llama3",
+  "category": "unknown",
+  "summary": "Failed CI jobs of the Metal3 project (Prow, Kubernetes)",
+  "cited_lines": [
+    14341,
+    14342,
+    14343,
+    14344,
+    14345,
+    14346,
+    14347,
+    14348,
+    14349,
+    14350,
+    14351,
+    14352,
+    14353,
+    14354,
+    14355,
+    14356,
+    14357,
+    14358,
+    14359,
+    14360,
+    14361,
+    14362,
+    14363,
+    14364,
+    14365,
+    14366,
+    14367,
+    14368,
+    14369,
+    14370,
+    14371,
+    14372,
+    14373,
+    14374,
+    14375,
+    14376,
+    14377,
+    14378,
+    14379,
+    14380,
+    14381,
+    14382,
+    14383,
+    14384,
+    14385,
+    14386,
+    14387,
+    14388,
+    14389,
+    14390,
+    14391,
+    14392,
+    14393,
+    14394,
+    14395,
+    14396,
+    14397
+  ],
+  "latency_s": 245.52,
+  "input_tokens": 2060,
+  "output_tokens": 320,
+  "cost_usd": 0.0,
+  "ttft_s": 149.47,
+  "tokens_per_s": 3.3,
+  "citations": [
+    {
+      "line": 14341,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:116:\t\t\tFirmwareInterface\t\t\t\t100.0%"
+    },
+    {
+      "line": 14342,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:120:\t\t\tManagementInterface\t\t\t\t0.0%"
+    },
+    {
+      "line": 14343,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:124:\t\t\tPowerInterface\t\t\t\t\t0.0%"
+    },
+    {
+      "line": 14344,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:128:\t\t\tRAIDInterface\t\t\t\t\t0.0%"
+    },
+    {
+      "line": 14345,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:132:\t\t\tVendorInterface\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14346,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:136:\t\t\tSupportsSecureBoot\t\t\t\t0.0%"
+    },
+    {
+      "line": 14347,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:140:\t\t\tInspectInterface\t\t\t\t100.0%"
+    },
+    {
+      "line": 14348,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:144:\t\t\tSupportsISOPreprovisioningImage\t\t\t0.0%"
+    },
+    {
+      "line": 14349,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:148:\t\t\tRequiresProvisioningNetwork\t\t\t0.0%"
+    },
+    {
+      "line": 14350,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:153:\t\t\tDriver\t\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14351,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:157:\t\t\tBIOSInterface\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14352,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:161:\t\t\tBootInterface\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14353,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:165:\t\t\tFirmwareInterface\t\t\t\t100.0%"
+    },
+    {
+      "line": 14354,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:169:\t\t\tInspectInterface\t\t\t\t100.0%"
+    },
+    {
+      "line": 14355,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:174:\t\t\tManagementInterface\t\t\t\t0.0%"
+    },
+    {
+      "line": 14356,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:178:\t\t\tPowerInterface\t\t\t\t\t0.0%"
+    },
+    {
+      "line": 14357,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:182:\t\t\tRAIDInterface\t\t\t\t\t0.0%"
+    },
+    {
+      "line": 14358,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish.go:186:\t\t\tVendorInterface\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14359,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:7:\t\tinit\t\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14360,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:12:\t\tnewRedfishHTTPBootMediaAccessDetails\t\t100.0%"
+    },
+    {
+      "line": 14361,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:28:\t\tType\t\t\t\t\t\t0.0%"
+    },
+    {
+      "line": 14362,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:37:\t\tNeedsMAC\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14363,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:41:\t\tDriver\t\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14364,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:45:\t\tDisableCertificateVerification\t\t\t0.0%"
+    },
+    {
+      "line": 14365,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:54:\t\tDriverInfo\t\t\t\t\t0.0%"
+    },
+    {
+      "line": 14366,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:69:\t\tBIOSInterface\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14367,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:73:\t\tBootInterface\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14368,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:77:\t\tFirmwareInterface\t\t\t\t100.0%"
+    },
+    {
+      "line": 14369,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:81:\t\tManagementInterface\t\t\t\t0.0%"
+    },
+    {
+      "line": 14370,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:85:\t\tPowerInterface\t\t\t\t\t0.0%"
+    },
+    {
+      "line": 14371,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:89:\t\tRAIDInterface\t\t\t\t\t0.0%"
+    },
+    {
+      "line": 14372,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:93:\t\tVendorInterface\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14373,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:97:\t\tSupportsSecureBoot\t\t\t\t0.0%"
+    },
+    {
+      "line": 14374,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:101:\t\tInspectInterface\t\t\t\t100.0%"
+    },
+    {
+      "line": 14375,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:105:\t\tSupportsISOPreprovisioningImage\t\t\t0.0%"
+    },
+    {
+      "line": 14376,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_https.go:109:\t\tRequiresProvisioningNetwork\t\t\t0.0%"
+    },
+    {
+      "line": 14377,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:7:\tinit\t\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14378,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:13:\tnewRedfishVirtualMediaAccessDetails\t\t100.0%"
+    },
+    {
+      "line": 14379,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:28:\tType\t\t\t\t\t\t0.0%"
+    },
+    {
+      "line": 14380,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:37:\tNeedsMAC\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14381,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:41:\tDriver\t\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14382,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:45:\tDisableCertificateVerification\t\t\t0.0%"
+    },
+    {
+      "line": 14383,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:54:\tDriverInfo\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14384,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:58:\tBIOSInterface\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14385,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:62:\tBootInterface\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14386,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:66:\tFirmwareInterface\t\t\t\t100.0%"
+    },
+    {
+      "line": 14387,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:70:\tManagementInterface\t\t\t\t0.0%"
+    },
+    {
+      "line": 14388,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:74:\tPowerInterface\t\t\t\t\t0.0%"
+    },
+    {
+      "line": 14389,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:78:\tRAIDInterface\t\t\t\t\t0.0%"
+    },
+    {
+      "line": 14390,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:82:\tVendorInterface\t\t\t\t\t100.0%"
+    },
+    {
+      "line": 14391,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:86:\tSupportsSecureBoot\t\t\t\t0.0%"
+    },
+    {
+      "line": 14392,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:90:\tSupportsISOPreprovisioningImage\t\t\t0.0%"
+    },
+    {
+      "line": 14393,
+      "found": true,
+      "text": "github.com/metal3-io/baremetal-operator/pkg/hardwareutils/bmc/redfish_virtualmedia.go:94:\tRequiresProvisioningNetwork\t\t\t0.0%"
+    },
+    {
+      "line": 14394,
+      "found": true,
+      "text": "total:\t\t\t\t\t\t\t\t\t\t\t\t(statements)\t\t\t\t\t69.9%"
+    },
+    {
+      "line": 14395,
+      "found": true,
+      "text": "cd test && go test --tags=e2e,vbmctl -v ./vbmctl/..."
+    },
+    {
+      "line": 14396,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)"
+    },
+    {
+      "line": 14397,
+      "found": true,
+      "text": "make: *** [Makefile:282: unit-vbmctl] Error 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "6606f9c768c1343c6c2e22dc9da34cc6"
+}

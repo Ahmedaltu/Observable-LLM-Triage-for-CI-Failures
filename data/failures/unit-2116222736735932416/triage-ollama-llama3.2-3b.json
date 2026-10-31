@@ -1,0 +1,23 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "flaky_test",
+  "summary": "Test failed with error message: go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)",
+  "cited_lines": [
+    96
+  ],
+  "latency_s": 62.39,
+  "input_tokens": 2050,
+  "output_tokens": 71,
+  "cost_usd": 0.0,
+  "ttft_s": 50.39,
+  "tokens_per_s": 6.0,
+  "citations": [
+    {
+      "line": 96,
+      "found": false,
+      "text": null
+    }
+  ],
+  "citation_validity": 0.0,
+  "trace_id": "93454d8ab95f6313c12036f8004a9e16"
+}

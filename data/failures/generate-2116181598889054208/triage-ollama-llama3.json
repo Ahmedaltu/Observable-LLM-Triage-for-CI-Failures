@@ -1,0 +1,59 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The change breaks the build due to an unexpected change in the checksum of a generated file.",
+  "cited_lines": [
+    242,
+    245,
+    247,
+    248,
+    249,
+    250,
+    251
+  ],
+  "latency_s": 35.36,
+  "input_tokens": 525,
+  "output_tokens": 58,
+  "cost_usd": 0.0,
+  "ttft_s": 22.14,
+  "tokens_per_s": 4.4,
+  "citations": [
+    {
+      "line": 242,
+      "found": true,
+      "text": "go: downloading sigs.k8s.io/kustomize/kustomize/v5 v5.8.2"
+    },
+    {
+      "line": 245,
+      "found": true,
+      "text": "tools/bin/kustomize build config/default > config/render/capm3.yaml"
+    },
+    {
+      "line": 247,
+      "found": true,
+      "text": "+ diff /logs/artifacts/lint.cksums.before /logs/artifacts/lint.cksums.after"
+    },
+    {
+      "line": 248,
+      "found": true,
+      "text": "165c165"
+    },
+    {
+      "line": 249,
+      "found": true,
+      "text": "< 2170723417 77547 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    },
+    {
+      "line": 250,
+      "found": true,
+      "text": "---"
+    },
+    {
+      "line": 251,
+      "found": true,
+      "text": "> 371018303 63197 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "4ed8a767a2bf5f4a3ef236b95ea12172"
+}

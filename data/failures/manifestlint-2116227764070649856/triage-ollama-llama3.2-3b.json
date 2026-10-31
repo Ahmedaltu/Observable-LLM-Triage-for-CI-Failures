@@ -1,0 +1,59 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "config_error",
+  "summary": "Merge conflicts detected in the codebase, indicating a configuration issue.",
+  "cited_lines": [
+    332,
+    333,
+    334,
+    335,
+    336,
+    337,
+    338
+  ],
+  "latency_s": 10.38,
+  "input_tokens": 473,
+  "output_tokens": 56,
+  "cost_usd": 0.0,
+  "ttft_s": 5.16,
+  "tokens_per_s": 10.8,
+  "citations": [
+    {
+      "line": 332,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    },
+    {
+      "line": 333,
+      "found": true,
+      "text": "Auto-merging config/base/crds/bases/metal3.io_baremetalhosts.yaml"
+    },
+    {
+      "line": 334,
+      "found": true,
+      "text": "Auto-merging config/base/crds/bases/metal3.io_hostnetworkattachments.yaml"
+    },
+    {
+      "line": 335,
+      "found": true,
+      "text": "Auto-merging config/base/webhook/manifests.yaml"
+    },
+    {
+      "line": 336,
+      "found": true,
+      "text": "Auto-merging config/render/capm3.yaml"
+    },
+    {
+      "line": 337,
+      "found": true,
+      "text": "Automatic merge failed; fix conflicts and then commit the result."
+    },
+    {
+      "line": 338,
+      "found": true,
+      "text": "# Error: exit status 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "0c9a1808f219226d95b4cd8c74de8acf"
+}

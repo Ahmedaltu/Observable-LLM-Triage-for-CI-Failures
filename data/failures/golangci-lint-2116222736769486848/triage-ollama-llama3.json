@@ -1,0 +1,23 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The job failed because the go.mod file requires a version of Go that is not installed.",
+  "cited_lines": [
+    299
+  ],
+  "latency_s": 46.9,
+  "input_tokens": 691,
+  "output_tokens": 43,
+  "cost_usd": 0.0,
+  "ttft_s": 36.57,
+  "tokens_per_s": 4.2,
+  "citations": [
+    {
+      "line": 299,
+      "found": true,
+      "text": "level=error msg=\"Running error: context loading failed: failed to load packages: failed to load packages: failed to load with go/packages: err: exit status 1: stderr: go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)\\n\""
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "882227a0336d842794402161c613270e"
+}

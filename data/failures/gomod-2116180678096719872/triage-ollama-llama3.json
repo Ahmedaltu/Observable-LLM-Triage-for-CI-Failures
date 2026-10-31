@@ -1,0 +1,35 @@
+{
+  "model": "ollama-llama3",
+  "category": "code_bug",
+  "summary": "The job failed due to merge conflicts in the hack/tools/go.mod and hack/tools/go.sum files.",
+  "cited_lines": [
+    334,
+    337,
+    339
+  ],
+  "latency_s": 13.4,
+  "input_tokens": 422,
+  "output_tokens": 48,
+  "cost_usd": 0.0,
+  "ttft_s": 0.33,
+  "tokens_per_s": 3.7,
+  "citations": [
+    {
+      "line": 334,
+      "found": true,
+      "text": "Auto-merging config/render/capm3.yaml"
+    },
+    {
+      "line": 337,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.mod"
+    },
+    {
+      "line": 339,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.sum"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "8b333a9d0ac3abd2f0ecac76a980203b"
+}
