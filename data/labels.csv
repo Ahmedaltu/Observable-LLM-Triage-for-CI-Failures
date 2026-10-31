@@ -1,0 +1,44 @@
+job,category,note
+clean-artifactory-cache-2114930202235637760,config_error,claude draft: curl gets an empty argument: job/script variable not set
+clean-artifactory-cache-2115292593381183488,config_error,claude draft: curl gets an empty argument: job/script variable not set
+clean-artifactory-cache-2116017299847647232,config_error,claude draft: curl gets an empty argument: job/script variable not set
+generate-2115043680648695808,config_error,"claude draft: go version: go.mod needs go 1.27, CI image has 1.26"
+generate-2115438145871810560,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+generate-2116180678121885696,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+generate-2116181598889054208,code_bug,claude draft: generated files out of date: PR did not rerun make generate
+generate-2116222736639463424,config_error,"claude draft: go version: go.mod needs go 1.27, CI image has 1.26"
+generate-2116227764016123904,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+golangci-lint-2115039946258518016,code_bug,claude draft: lint finding in the PR's code
+golangci-lint-2115043680728387584,config_error,"claude draft: go version: go.mod needs go 1.27, CI image has 1.26"
+golangci-lint-2115366435910848512,code_bug,claude draft: lint finding in the PR's code
+golangci-lint-2115438145972473856,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+golangci-lint-2116180678331600896,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+golangci-lint-2116181599019077632,code_bug,claude draft: lint finding in the PR's code
+golangci-lint-2116222736769486848,config_error,"claude draft: go version: go.mod needs go 1.27, CI image has 1.26"
+golangci-lint-2116227764074844160,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+gomod-2115043680552226816,config_error,"claude draft: go version: go.mod needs go 1.27, CI image has 1.26"
+gomod-2115278492806418432,code_bug,claude draft: go.mod/go.sum not tidy in the PR
+gomod-2115438145842450432,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+gomod-2116180678096719872,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+gomod-2116222736618491904,config_error,"claude draft: go version: go.mod needs go 1.27, CI image has 1.26"
+gomod-2116227763982569472,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+manifestlint-2115438145943113728,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+manifestlint-2116180678247714816,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+manifestlint-2116227764070649856,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+markdownlint-2115412984837705728,code_bug,claude draft: markdown lint: trailing space in the PR
+pr-verifier-2115438146001833984,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+pr-verifier-2115438669450973184,code_bug,claude draft: PR title lacks the type prefix: author must fix the PR
+pr-verifier-2116180678352572416,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+pr-verifier-2116227764112592896,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+test-2115039946111717376,code_bug,claude draft: lint finding in the PR's code
+test-2115043680577392640,config_error,"claude draft: go version: go.mod needs go 1.27, CI image has 1.26"
+test-2115366435785019392,code_bug,claude draft: lint finding in the PR's code
+test-2116180678155440128,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+test-2116181598914220032,code_bug,claude draft: lint finding in the PR's code
+test-2116222736664629248,config_error,"claude draft: go version: go.mod needs go 1.27, CI image has 1.26"
+unit-2115438145892782080,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+unit-2116180678201577472,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+unit-2116222736735932416,config_error,"claude draft: go version: go.mod needs go 1.27, CI image has 1.26"
+unit-2116227764028706816,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+yamllint-2116180678415486976,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
+yamllint-2116227764158730240,code_bug,"claude draft: merge conflict: PR does not apply to base, author must rebase"
