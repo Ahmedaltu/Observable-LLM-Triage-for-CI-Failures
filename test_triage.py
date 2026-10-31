@@ -60,7 +60,7 @@ out = job.parent.parent / "serve.jsonl"
 triage.serve(out)
 recs = [json.loads(line) for line in out.read_text().splitlines()]
 assert [r["served_by"] for r in recs] == [triage.API_NAME] * 2 and all(r["fallback"] for r in recs)
-assert calls == ["llama3", "api", "api"]                                        # 2nd job: server skipped
+assert calls == [triage.SERVER_MODEL, "api", "api"]                                        # 2nd job: server skipped
 assert "circuit open" in recs[1]["error"] and recs[0]["trace_id"] != recs[1]["trace_id"]
 # watch(): only failures that a poll newly saved are triaged; a poll error is recorded, not fatal
 import collector

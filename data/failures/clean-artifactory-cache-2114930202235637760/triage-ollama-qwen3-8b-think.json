@@ -1,0 +1,29 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "config_error",
+  "summary": "The curl command was invoked with invalid syntax, likely due to a misconfigured script or command line argument in the CI job.",
+  "cited_lines": [
+    1,
+    2
+  ],
+  "latency_s": 100.91,
+  "input_tokens": 237,
+  "output_tokens": 505,
+  "cost_usd": 0.0,
+  "ttft_s": 26.84,
+  "tokens_per_s": 6.8,
+  "citations": [
+    {
+      "line": 1,
+      "found": true,
+      "text": "curl: option : blank argument where content is expected"
+    },
+    {
+      "line": 2,
+      "found": true,
+      "text": "curl: try 'curl --help' or 'curl --manual' for more information"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "d97d0e303ac81596ed0b8a784b01dab5"
+}

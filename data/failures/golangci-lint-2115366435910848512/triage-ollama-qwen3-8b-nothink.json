@@ -1,0 +1,101 @@
+{
+  "model": "ollama-qwen3:8b-nothink",
+  "category": "code_bug",
+  "summary": "The code has shadow variable declarations that trigger govet linter errors, causing the lint step to fail.",
+  "cited_lines": [
+    328,
+    329,
+    330,
+    331,
+    332,
+    333,
+    334,
+    335,
+    336,
+    337,
+    338,
+    339,
+    340,
+    341
+  ],
+  "latency_s": 75.51,
+  "input_tokens": 1153,
+  "output_tokens": 113,
+  "cost_usd": 0.0,
+  "ttft_s": 50.57,
+  "tokens_per_s": 4.6,
+  "citations": [
+    {
+      "line": 328,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/pool.go:308:5: shadow: declaration of \"err\" shadows declaration at line 302 (govet)"
+    },
+    {
+      "line": 329,
+      "found": true,
+      "text": "\tif err := pool.Refresh(0); err != nil { // pick up files added outside libvirt"
+    },
+    {
+      "line": 330,
+      "found": true,
+      "text": "\t   ^"
+    },
+    {
+      "line": 331,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:161:6: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 332,
+      "found": true,
+      "text": "\t\tif err := domain.Destroy(); err != nil {"
+    },
+    {
+      "line": 333,
+      "found": true,
+      "text": "\t\t   ^"
+    },
+    {
+      "line": 334,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:168:5: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 335,
+      "found": true,
+      "text": "\tif err := domain.UndefineFlags(libvirt.DOMAIN_UNDEFINE_NVRAM); err != nil {"
+    },
+    {
+      "line": 336,
+      "found": true,
+      "text": "\t   ^"
+    },
+    {
+      "line": 337,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:179:6: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 338,
+      "found": true,
+      "text": "\t\tif err := m.deleteVMVolumes(ctx, name); err != nil {"
+    },
+    {
+      "line": 339,
+      "found": true,
+      "text": "\t\t   ^"
+    },
+    {
+      "line": 340,
+      "found": true,
+      "text": "4 issues:"
+    },
+    {
+      "line": 341,
+      "found": true,
+      "text": "* govet: 4"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "e7a971974d2e286b9b82a1ec836c7669"
+}

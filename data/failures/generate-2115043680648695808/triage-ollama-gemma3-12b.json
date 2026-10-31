@@ -1,0 +1,35 @@
+{
+  "model": "ollama-gemma3:12b",
+  "category": "code_bug",
+  "summary": "The Go version required by `go.mod` (>= 1.27.0) is higher than the currently running Go version (1.26.10).",
+  "cited_lines": [
+    53,
+    54,
+    56
+  ],
+  "latency_s": 44.27,
+  "input_tokens": 424,
+  "output_tokens": 83,
+  "cost_usd": 0.0,
+  "ttft_s": 26.45,
+  "tokens_per_s": 4.7,
+  "citations": [
+    {
+      "line": 53,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)"
+    },
+    {
+      "line": 54,
+      "found": true,
+      "text": "make[1]: *** [Makefile:161: hack/tools/bin/controller-gen] Error 1"
+    },
+    {
+      "line": 56,
+      "found": true,
+      "text": "make: *** [Makefile:213: generate] Error 2"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "b7f36829f0451cdace0729cc37395279"
+}

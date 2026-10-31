@@ -1,0 +1,21 @@
+{
+  "type": "periodic",
+  "refs": {
+    "org": "",
+    "repo": ""
+  },
+  "refs_key": "",
+  "job": "clean-artifactory-cache",
+  "build_id": "2116379691219685376",
+  "context": "",
+  "started": "1793419213",
+  "finished": "2026-10-31T04:00:22Z",
+  "duration": "9s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/logs/clean-artifactory-cache/2116379691219685376",
+  "pod_name": "b0403dd2-3988-43dc-a22a-fee27856453d",
+  "agent": "kubernetes",
+  "prow_job": "b0403dd2-3988-43dc-a22a-fee27856453d",
+  "fetch_s": 0.36
+}

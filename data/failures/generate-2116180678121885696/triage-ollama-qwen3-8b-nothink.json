@@ -1,0 +1,35 @@
+{
+  "model": "ollama-qwen3:8b-nothink",
+  "category": "config_error",
+  "summary": "The merge conflict in go.mod and go.sum files indicates a configuration error in the CI job's dependency or version management.",
+  "cited_lines": [
+    337,
+    339,
+    341
+  ],
+  "latency_s": 18.62,
+  "input_tokens": 475,
+  "output_tokens": 61,
+  "cost_usd": 0.0,
+  "ttft_s": 9.61,
+  "tokens_per_s": 6.9,
+  "citations": [
+    {
+      "line": 337,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.mod"
+    },
+    {
+      "line": 339,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.sum"
+    },
+    {
+      "line": 341,
+      "found": true,
+      "text": "# Error: exit status 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "7006ac3b0f66601c8120c38f51d8a09b"
+}

@@ -1,0 +1,59 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "config_error",
+  "summary": "The PR title lacks the required type indicator prefix enforced by the CI configuration.",
+  "cited_lines": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "latency_s": 87.63,
+  "input_tokens": 311,
+  "output_tokens": 619,
+  "cost_usd": 0.0,
+  "ttft_s": 4.54,
+  "tokens_per_s": 7.5,
+  "citations": [
+    {
+      "line": 1,
+      "found": true,
+      "text": "Error: No matching PR type indicator found in title."
+    },
+    {
+      "line": 3,
+      "found": true,
+      "text": "- Breaking change: \u26a0 (:warning:)"
+    },
+    {
+      "line": 4,
+      "found": true,
+      "text": "- Non-breaking feature: \u2728 (:sparkles:)"
+    },
+    {
+      "line": 5,
+      "found": true,
+      "text": "- Patch fix: \ud83d\udc1b (:bug:)"
+    },
+    {
+      "line": 6,
+      "found": true,
+      "text": "- Docs: \ud83d\udcd6 (:book:)"
+    },
+    {
+      "line": 7,
+      "found": true,
+      "text": "- Release: \ud83d\ude80 (:rocket:)"
+    },
+    {
+      "line": 8,
+      "found": true,
+      "text": "- Infra/Tests/Other: \ud83c\udf31 (:seedling:)"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "ad524e967e9b2a9030ab6280d123f158"
+}

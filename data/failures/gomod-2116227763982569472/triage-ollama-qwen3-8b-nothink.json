@@ -1,0 +1,41 @@
+{
+  "model": "ollama-qwen3:8b-nothink",
+  "category": "config_error",
+  "summary": "The merge conflict in the generated conversion file indicates a configuration error in the CI job's merge strategy or dependency versions.",
+  "cited_lines": [
+    331,
+    332,
+    337,
+    338
+  ],
+  "latency_s": 23.09,
+  "input_tokens": 518,
+  "output_tokens": 65,
+  "cost_usd": 0.0,
+  "ttft_s": 12.9,
+  "tokens_per_s": 6.6,
+  "citations": [
+    {
+      "line": 331,
+      "found": true,
+      "text": "Auto-merging apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    },
+    {
+      "line": 332,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    },
+    {
+      "line": 337,
+      "found": true,
+      "text": "Automatic merge failed; fix conflicts and then commit the result."
+    },
+    {
+      "line": 338,
+      "found": true,
+      "text": "# Error: exit status 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "5f2ef39605f177d665957cba19f24289"
+}

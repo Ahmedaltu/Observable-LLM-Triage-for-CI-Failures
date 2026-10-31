@@ -11,6 +11,8 @@ import sys
 import time
 from pathlib import Path
 
+from triage import SERVER_MODEL
+
 HERE = Path(__file__).parent
 WARM = 2  # server-model answers before the outage
 
@@ -31,7 +33,7 @@ def main():
     log = HERE / "data" / f"failover-{time.strftime('%Y%m%dT%H%M%S')}.jsonl"
     compose("start", "llm-server")
     run = subprocess.Popen([sys.executable, "triage.py", "serve", str(log)], cwd=HERE)
-    while not log.exists() or log.read_text().count('"served_by": "llama3"') < WARM:
+    while not log.exists() or log.read_text().count(f'"served_by": "{SERVER_MODEL}"') < WARM:
         if run.poll() is not None or (log.exists() and '"fallback": true' in log.read_text()):
             run.kill()
             sys.exit(f"server model failed during warm-up, see {log}")

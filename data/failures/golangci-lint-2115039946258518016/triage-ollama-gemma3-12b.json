@@ -1,0 +1,47 @@
+{
+  "model": "ollama-gemma3:12b",
+  "category": "code_bug",
+  "summary": "The code uses `fmt.Println`, which is forbidden by the `forbidigo` linter.",
+  "cited_lines": [
+    328,
+    329,
+    330,
+    331,
+    332
+  ],
+  "latency_s": 77.09,
+  "input_tokens": 1004,
+  "output_tokens": 81,
+  "cost_usd": 0.0,
+  "ttft_s": 56.68,
+  "tokens_per_s": 4.1,
+  "citations": [
+    {
+      "line": 328,
+      "found": true,
+      "text": "test/vbmctl/cmd/vbmctl/delete.go:185:4: use of `fmt.Println` forbidden by pattern `^(fmt\\.Print(|f|ln)|print|println)$` (forbidigo)"
+    },
+    {
+      "line": 329,
+      "found": true,
+      "text": "\t\t\tfmt.Println(\"Deleting the storage pool...\")"
+    },
+    {
+      "line": 330,
+      "found": true,
+      "text": "\t\t\t^"
+    },
+    {
+      "line": 331,
+      "found": true,
+      "text": "1 issues:"
+    },
+    {
+      "line": 332,
+      "found": true,
+      "text": "* forbidigo: 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "164e68d86c1473a976e2f9ff2c0f3c78"
+}

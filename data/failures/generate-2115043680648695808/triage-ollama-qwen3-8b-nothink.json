@@ -1,0 +1,23 @@
+{
+  "model": "ollama-qwen3:8b-nothink",
+  "category": "code_bug",
+  "summary": "The build failed because the Go version used (1.26.10) is lower than the required version (1.27.0) specified in the go.mod file.",
+  "cited_lines": [
+    53
+  ],
+  "latency_s": 17.67,
+  "input_tokens": 406,
+  "output_tokens": 64,
+  "cost_usd": 0.0,
+  "ttft_s": 8.42,
+  "tokens_per_s": 7.0,
+  "citations": [
+    {
+      "line": 53,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "89caebb943ac75c3be0dbc9c21263fd6"
+}

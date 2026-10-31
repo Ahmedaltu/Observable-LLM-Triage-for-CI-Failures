@@ -1,0 +1,23 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "code_bug",
+  "summary": "A trailing space in markdown file violates the markdownlint rule MD009",
+  "cited_lines": [
+    9
+  ],
+  "latency_s": 80.61,
+  "input_tokens": 350,
+  "output_tokens": 555,
+  "cost_usd": 0.0,
+  "ttft_s": 6.08,
+  "tokens_per_s": 7.5,
+  "citations": [
+    {
+      "line": 9,
+      "found": true,
+      "text": "design/baremetal-operator/pre-boot-file-injection.md:106:69 MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "89f98ccffcfb3ef37f1bbb59ac4c71b2"
+}

@@ -1,0 +1,47 @@
+{
+  "model": "ollama-gemma3:12b",
+  "category": "code_bug",
+  "summary": "The govet linter found shadowing errors in multiple files, causing the lint stage to fail.",
+  "cited_lines": [
+    328,
+    331,
+    334,
+    337,
+    340
+  ],
+  "latency_s": 94.86,
+  "input_tokens": 1241,
+  "output_tokens": 79,
+  "cost_usd": 0.0,
+  "ttft_s": 73.23,
+  "tokens_per_s": 3.6,
+  "citations": [
+    {
+      "line": 328,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/pool.go:308:5: shadow: declaration of \"err\" shadows declaration at line 302 (govet)"
+    },
+    {
+      "line": 331,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:161:6: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 334,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:168:5: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 337,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:179:6: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 340,
+      "found": true,
+      "text": "4 issues:"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "61b646138f1772be25ee6d839fb7a30f"
+}

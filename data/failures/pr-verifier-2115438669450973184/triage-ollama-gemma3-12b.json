@@ -1,0 +1,29 @@
+{
+  "model": "ollama-gemma3:12b",
+  "category": "config_error",
+  "summary": "The pull request title does not follow the required format, preventing the build from proceeding.",
+  "cited_lines": [
+    1,
+    2
+  ],
+  "latency_s": 25.65,
+  "input_tokens": 317,
+  "output_tokens": 55,
+  "cost_usd": 0.0,
+  "ttft_s": 13.18,
+  "tokens_per_s": 4.6,
+  "citations": [
+    {
+      "line": 1,
+      "found": true,
+      "text": "Error: No matching PR type indicator found in title."
+    },
+    {
+      "line": 2,
+      "found": true,
+      "text": "You need to have one of these as the prefix of your PR title:"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "e1e6bb276f81ddc98ebb1a6ddf121f42"
+}

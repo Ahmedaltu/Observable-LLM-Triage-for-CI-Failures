@@ -1,0 +1,29 @@
+{
+  "model": "ollama-qwen3:8b-nothink",
+  "category": "code_bug",
+  "summary": "The Go version used is outdated and does not meet the minimum requirement specified in the go.mod file.",
+  "cited_lines": [
+    150,
+    151
+  ],
+  "latency_s": 17.9,
+  "input_tokens": 433,
+  "output_tokens": 52,
+  "cost_usd": 0.0,
+  "ttft_s": 9.74,
+  "tokens_per_s": 6.6,
+  "citations": [
+    {
+      "line": 150,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)"
+    },
+    {
+      "line": 151,
+      "found": true,
+      "text": "make: *** [Makefile:204: modules] Error 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "a08efdf7bf6356a505ba4d980fd2905e"
+}

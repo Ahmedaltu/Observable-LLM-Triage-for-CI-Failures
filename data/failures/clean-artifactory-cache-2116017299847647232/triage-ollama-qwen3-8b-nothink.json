@@ -1,0 +1,29 @@
+{
+  "model": "ollama-qwen3:8b-nothink",
+  "category": "config_error",
+  "summary": "The command contains an invalid option with a blank argument, likely due to a misconfigured script or command in the CI job.",
+  "cited_lines": [
+    1,
+    2
+  ],
+  "latency_s": 7.6,
+  "input_tokens": 243,
+  "output_tokens": 53,
+  "cost_usd": 0.0,
+  "ttft_s": 0.15,
+  "tokens_per_s": 7.2,
+  "citations": [
+    {
+      "line": 1,
+      "found": true,
+      "text": "curl: option : blank argument where content is expected"
+    },
+    {
+      "line": 2,
+      "found": true,
+      "text": "curl: try 'curl --help' or 'curl --manual' for more information"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "1ab8a7d199508e74391b4c0042977573"
+}

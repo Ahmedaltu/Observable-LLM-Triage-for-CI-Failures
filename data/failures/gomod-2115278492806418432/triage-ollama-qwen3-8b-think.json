@@ -1,0 +1,65 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "code_bug",
+  "summary": "The build failed due to inconsistent go.mod/go.sum files, requiring 'go mod tidy' to resolve dependencies.",
+  "cited_lines": [
+    174,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    183
+  ],
+  "latency_s": 140.79,
+  "input_tokens": 334,
+  "output_tokens": 841,
+  "cost_usd": 0.0,
+  "ttft_s": 9.36,
+  "tokens_per_s": 6.5,
+  "citations": [
+    {
+      "line": 174,
+      "found": true,
+      "text": " M test/go.sum ]"
+    },
+    {
+      "line": 176,
+      "found": true,
+      "text": "one of the go.mod and/or go.sum files changed"
+    },
+    {
+      "line": 177,
+      "found": true,
+      "text": "+ echo  M test/go.mod"
+    },
+    {
+      "line": 178,
+      "found": true,
+      "text": " M test/go.sum"
+    },
+    {
+      "line": 179,
+      "found": true,
+      "text": " M test/go.mod"
+    },
+    {
+      "line": 180,
+      "found": true,
+      "text": " M test/go.sum"
+    },
+    {
+      "line": 181,
+      "found": true,
+      "text": "+ echo Please run 'go mod tidy' and commit the changes"
+    },
+    {
+      "line": 183,
+      "found": true,
+      "text": "+ exit 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "c50095471331d1b0a610ae36ec9bf899"
+}

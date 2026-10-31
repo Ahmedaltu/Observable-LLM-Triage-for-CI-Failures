@@ -1,0 +1,41 @@
+{
+  "model": "ollama-qwen3:8b-nothink",
+  "category": "code_bug",
+  "summary": "A merge conflict in the Dockerfile caused the build to fail due to an incorrect pull request merge.",
+  "cited_lines": [
+    381,
+    382,
+    383,
+    384
+  ],
+  "latency_s": 35.7,
+  "input_tokens": 774,
+  "output_tokens": 62,
+  "cost_usd": 0.0,
+  "ttft_s": 25.88,
+  "tokens_per_s": 6.5,
+  "citations": [
+    {
+      "line": 381,
+      "found": true,
+      "text": "Auto-merging Dockerfile"
+    },
+    {
+      "line": 382,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in Dockerfile"
+    },
+    {
+      "line": 383,
+      "found": true,
+      "text": "Automatic merge failed; fix conflicts and then commit the result."
+    },
+    {
+      "line": 384,
+      "found": true,
+      "text": "# Error: exit status 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "c9cdc9ae739f68f0bf66cccc69a5570f"
+}

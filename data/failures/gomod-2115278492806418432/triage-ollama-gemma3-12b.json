@@ -1,0 +1,29 @@
+{
+  "model": "ollama-gemma3:12b",
+  "category": "config_error",
+  "summary": "The build failed because go.mod/go.sum files have changed, requiring a 'go mod tidy' and commit.",
+  "cited_lines": [
+    176,
+    182
+  ],
+  "latency_s": 32.15,
+  "input_tokens": 358,
+  "output_tokens": 67,
+  "cost_usd": 0.0,
+  "ttft_s": 15.65,
+  "tokens_per_s": 4.5,
+  "citations": [
+    {
+      "line": 176,
+      "found": true,
+      "text": "one of the go.mod and/or go.sum files changed"
+    },
+    {
+      "line": 182,
+      "found": true,
+      "text": "Please run 'go mod tidy' and commit the changes"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "c432f57ab56e1b55d982dc9655eef533"
+}

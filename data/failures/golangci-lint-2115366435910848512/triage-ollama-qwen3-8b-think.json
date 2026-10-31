@@ -1,0 +1,47 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "code_bug",
+  "summary": "The code contains variable shadowing issues detected by the govet linter.",
+  "cited_lines": [
+    328,
+    331,
+    335,
+    338,
+    345
+  ],
+  "latency_s": 428.5,
+  "input_tokens": 1147,
+  "output_tokens": 1739,
+  "cost_usd": 0.0,
+  "ttft_s": 38.61,
+  "tokens_per_s": 4.5,
+  "citations": [
+    {
+      "line": 328,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/pool.go:308:5: shadow: declaration of \"err\" shadows declaration at line 302 (govet)"
+    },
+    {
+      "line": 331,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:161:6: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 335,
+      "found": true,
+      "text": "\tif err := domain.UndefineFlags(libvirt.DOMAIN_UNDEFINE_NVRAM); err != nil {"
+    },
+    {
+      "line": 338,
+      "found": true,
+      "text": "\t\tif err := m.deleteVMVolumes(ctx, name); err != nil {"
+    },
+    {
+      "line": 345,
+      "found": true,
+      "text": "make: *** [Makefile:205: lint] Error 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "d9ea9643da8def0e1099627b0efe0bb3"
+}

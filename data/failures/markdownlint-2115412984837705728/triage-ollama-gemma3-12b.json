@@ -1,0 +1,29 @@
+{
+  "model": "ollama-gemma3:12b",
+  "category": "code_bug",
+  "summary": "The build failed due to a markdownlint error, indicating a formatting issue in a markdown file.",
+  "cited_lines": [
+    8,
+    9
+  ],
+  "latency_s": 29.38,
+  "input_tokens": 372,
+  "output_tokens": 57,
+  "cost_usd": 0.0,
+  "ttft_s": 16.16,
+  "tokens_per_s": 4.4,
+  "citations": [
+    {
+      "line": 8,
+      "found": true,
+      "text": "Summary: 1 error(s)"
+    },
+    {
+      "line": 9,
+      "found": true,
+      "text": "design/baremetal-operator/pre-boot-file-injection.md:106:69 MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "3ed6faf0073094b1b93da5cbe46894b4"
+}

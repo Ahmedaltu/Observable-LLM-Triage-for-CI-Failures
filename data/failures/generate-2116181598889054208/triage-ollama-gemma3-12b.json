@@ -1,0 +1,47 @@
+{
+  "model": "ollama-gemma3:12b",
+  "category": "code_bug",
+  "summary": "The checksum diff indicates a change in a generated file, likely due to an upstream dependency change, causing the lint check to fail.",
+  "cited_lines": [
+    247,
+    248,
+    249,
+    250,
+    251
+  ],
+  "latency_s": 59.52,
+  "input_tokens": 631,
+  "output_tokens": 86,
+  "cost_usd": 0.0,
+  "ttft_s": 39.77,
+  "tokens_per_s": 4.5,
+  "citations": [
+    {
+      "line": 247,
+      "found": true,
+      "text": "+ diff /logs/artifacts/lint.cksums.before /logs/artifacts/lint.cksums.after"
+    },
+    {
+      "line": 248,
+      "found": true,
+      "text": "165c165"
+    },
+    {
+      "line": 249,
+      "found": true,
+      "text": "< 2170723417 77547 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    },
+    {
+      "line": 250,
+      "found": true,
+      "text": "---"
+    },
+    {
+      "line": 251,
+      "found": true,
+      "text": "> 371018303 63197 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "251774046481ce230689ff188ba74b32"
+}

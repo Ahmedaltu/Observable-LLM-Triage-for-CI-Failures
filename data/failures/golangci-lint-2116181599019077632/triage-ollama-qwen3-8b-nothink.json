@@ -1,0 +1,35 @@
+{
+  "model": "ollama-qwen3:8b-nothink",
+  "category": "code_bug",
+  "summary": "The build failed due to a shadowing issue in the Go code, where 'err' shadows a previous declaration.",
+  "cited_lines": [
+    245,
+    246,
+    247
+  ],
+  "latency_s": 40.8,
+  "input_tokens": 951,
+  "output_tokens": 60,
+  "cost_usd": 0.0,
+  "ttft_s": 30.98,
+  "tokens_per_s": 6.3,
+  "citations": [
+    {
+      "line": 245,
+      "found": true,
+      "text": "config/base/webhook/matchconditions_test.go:49:5: shadow: declaration of \"err\" shadows declaration at line 35 (govet)"
+    },
+    {
+      "line": 246,
+      "found": true,
+      "text": "\tif err := yaml.Unmarshal(data, &manifest); err != nil {"
+    },
+    {
+      "line": 247,
+      "found": true,
+      "text": "\t   ^"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "9606e6e691dcd30a3251001ba8a940d7"
+}

@@ -1,0 +1,23 @@
+{
+  "model": "ollama-qwen3:8b-nothink",
+  "category": "flaky_test",
+  "summary": "A markdownlint error occurred due to trailing spaces in a markdown file, which is a formatting issue rather than a test failure.",
+  "cited_lines": [
+    9
+  ],
+  "latency_s": 14.02,
+  "input_tokens": 356,
+  "output_tokens": 51,
+  "cost_usd": 0.0,
+  "ttft_s": 6.41,
+  "tokens_per_s": 6.8,
+  "citations": [
+    {
+      "line": 9,
+      "found": true,
+      "text": "design/baremetal-operator/pre-boot-file-injection.md:106:69 MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "6cc3255c23acf9e226e730c9c7011daf"
+}

@@ -2,6 +2,7 @@
 
     python3 triage.py            # every model that is available
     python3 triage.py ollama     # just one: ollama | openrouter | claude
+    python3 triage.py ollama <job-dir-name>...   # only these failures
     python3 triage.py serve [log.jsonl]   # production path: self-hosted server model, API model as fallback
     python3 triage.py watch               # every 5 min: collect -> filter -> serve only the new failures
 
@@ -29,8 +30,9 @@ OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434")
 OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3")
 OLLAMA_THINK = {"1": True, "0": False}.get(os.environ.get("OLLAMA_THINK", ""))  # reasoning models (qwen3); unset = model default
 SERVER_URL = os.environ.get("SERVER_URL", "http://localhost:11435")  # llm-server link (docker-compose.yml) -> GCP VM
-SERVER_MODEL = os.environ.get("SERVER_MODEL", "llama3")
-SERVER_TIMEOUT = float(os.environ.get("SERVER_TIMEOUT", "120"))  # 8B takes ~42 s median, ~100 s worst on CPU
+SERVER_MODEL = os.environ.get("SERVER_MODEL", "qwen3:8b")  # best self-hosted model on the labels, with thinking on
+SERVER_THINK = True
+SERVER_TIMEOUT = float(os.environ.get("SERVER_TIMEOUT", "300"))  # qwen3 thinking on CPU: ~135 s median
 SERVER_COOLDOWN = 30  # s to skip the server after it failed, then probe it again
 OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")  # cloud model, free tier
 API_NAME = "openrouter-" + OPENROUTER_MODEL.split("/")[-1].removesuffix(":free")
@@ -179,11 +181,11 @@ def trace_id(span):
     return format(span.get_span_context().trace_id, "032x")  # paste into Jaeger's search box
 
 
-def ask_server(log, url, model, timeout):
+def ask_server(log, url, model, timeout, think):
     # WSL drops (not refuses) connections to a dead localhost port; don't wait SERVER_TIMEOUT to notice
     u = urllib.parse.urlsplit(url)
     socket.create_connection((u.hostname, u.port), timeout=2).close()
-    return ask_ollama(log, url, model, timeout)
+    return ask_ollama(log, url, model, timeout, think)
 
 
 def serve(log_path, job_dirs=None):
@@ -192,7 +194,7 @@ def serve(log_path, job_dirs=None):
     Appends one JSON line per job to log_path, flushed right away so a dashboard can follow it live.
     """
     server_down_until = 0  # circuit breaker: after a failure, skip the server for SERVER_COOLDOWN s
-    attempts = [("server", SERVER_MODEL, ask_server, {"url": SERVER_URL, "model": SERVER_MODEL, "timeout": SERVER_TIMEOUT}),
+    attempts = [("server", SERVER_MODEL, ask_server, {"url": SERVER_URL, "model": SERVER_MODEL, "timeout": SERVER_TIMEOUT, "think": SERVER_THINK}),
                 ("api", API_NAME, ask_openrouter, {})]
     with open(log_path, "a") as out:
         for job_dir in job_dirs if job_dirs is not None else sorted(p.parent for p in DATA.glob("failures/*/filtered.txt")):
@@ -273,16 +275,18 @@ def main():
         elif sys.argv[1:2] == ["watch"]:
             watch()
         else:
-            batch(sys.argv[1] if len(sys.argv) > 1 else None)
+            batch(sys.argv[1] if len(sys.argv) > 1 else None, sys.argv[2:])
     finally:
         provider.shutdown()  # flush spans still queued
 
 
-def batch(only):
+def batch(only, jobs=()):
     models = available()
     if only:
         models = {k: v for k, v in models.items() if k.startswith(only) or only in k}
     for job_dir in sorted(p.parent for p in DATA.glob("failures/*/filtered.txt")):
+        if jobs and job_dir.name not in jobs:
+            continue
         todo = {n: a for n, a in models.items() if not (job_dir / f"triage-{n.replace(':', '-')}.json").exists()}
         if not todo:
             continue

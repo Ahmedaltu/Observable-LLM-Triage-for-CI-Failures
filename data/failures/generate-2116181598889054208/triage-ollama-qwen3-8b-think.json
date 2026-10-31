@@ -1,0 +1,41 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "code_bug",
+  "summary": "The generated conversion file's checksum changed, indicating a code generation issue or unintended code change affecting the file.",
+  "cited_lines": [
+    248,
+    249,
+    250,
+    251
+  ],
+  "latency_s": 161.81,
+  "input_tokens": 570,
+  "output_tokens": 854,
+  "cost_usd": 0.0,
+  "ttft_s": 20.66,
+  "tokens_per_s": 6.1,
+  "citations": [
+    {
+      "line": 248,
+      "found": true,
+      "text": "165c165"
+    },
+    {
+      "line": 249,
+      "found": true,
+      "text": "< 2170723417 77547 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    },
+    {
+      "line": 250,
+      "found": true,
+      "text": "---"
+    },
+    {
+      "line": 251,
+      "found": true,
+      "text": "> 371018303 63197 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "5d7ce082a72b27945960ac5f937906a1"
+}

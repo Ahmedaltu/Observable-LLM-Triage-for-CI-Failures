@@ -1,0 +1,23 @@
+{
+  "model": "ollama-qwen3:8b-nothink",
+  "category": "infra_timeout",
+  "summary": "The CI job failed due to an incompatible Go version, as the project requires Go 1.27.0 or higher, but the environment is running Go 1.26.10.",
+  "cited_lines": [
+    151
+  ],
+  "latency_s": 36.57,
+  "input_tokens": 773,
+  "output_tokens": 68,
+  "cost_usd": 0.0,
+  "ttft_s": 24.35,
+  "tokens_per_s": 5.8,
+  "citations": [
+    {
+      "line": 151,
+      "found": true,
+      "text": "level=error msg=\"Running error: context loading failed: failed to load packages: failed to load packages: failed to load with go/packages: err: exit status 1: stderr: go: ../go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)\\n\""
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "b311b73098cd3c82713e2104cafb1ed3"
+}

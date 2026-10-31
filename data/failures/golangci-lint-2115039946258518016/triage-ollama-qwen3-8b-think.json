@@ -1,0 +1,29 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "code_bug",
+  "summary": "The code uses fmt.Println, which violates the forbidigo linter rule.",
+  "cited_lines": [
+    328,
+    336
+  ],
+  "latency_s": 158.45,
+  "input_tokens": 945,
+  "output_tokens": 721,
+  "cost_usd": 0.0,
+  "ttft_s": 30.76,
+  "tokens_per_s": 5.7,
+  "citations": [
+    {
+      "line": 328,
+      "found": true,
+      "text": "test/vbmctl/cmd/vbmctl/delete.go:185:4: use of `fmt.Println` forbidden by pattern `^(fmt\\.Print(|f|ln)|print|println)$` (forbidigo)"
+    },
+    {
+      "line": 336,
+      "found": true,
+      "text": "make: *** [Makefile:205: lint] Error 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "d2b900261264c46bc6d3fa1316da8943"
+}

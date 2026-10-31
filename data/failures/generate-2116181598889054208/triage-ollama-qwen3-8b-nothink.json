@@ -1,0 +1,23 @@
+{
+  "model": "ollama-qwen3:8b-nothink",
+  "category": "code_bug",
+  "summary": "The generated conversion code has changed checksum, indicating a potential bug in the code generation or a change in the code that affects the generated file.",
+  "cited_lines": [
+    249
+  ],
+  "latency_s": 23.77,
+  "input_tokens": 576,
+  "output_tokens": 55,
+  "cost_usd": 0.0,
+  "ttft_s": 15.27,
+  "tokens_per_s": 6.6,
+  "citations": [
+    {
+      "line": 249,
+      "found": true,
+      "text": "< 2170723417 77547 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "2d8b05952ab01030e3de81106cf1d391"
+}
