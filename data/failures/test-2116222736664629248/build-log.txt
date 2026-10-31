@@ -1,0 +1,3 @@
+cd hack/tools; go build -o /home/prow/go/src/github.com/metal3-io/baremetal-operator/tools/bin/controller-gen sigs.k8s.io/controller-tools/cmd/controller-gen
+go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)
+make: *** [Makefile:255: tools/bin/controller-gen] Error 1

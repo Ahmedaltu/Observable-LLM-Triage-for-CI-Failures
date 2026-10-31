@@ -1,0 +1,32 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "config_error",
+  "summary": "The CI environment runs Go 1.26.5 but the project's go.mod requires Go >= 1.27.0, causing the unit-vbmctl test target to fail.",
+  "cited_lines": [
+    14395,
+    14396,
+    14397
+  ],
+  "latency_s": 5.28,
+  "input_tokens": 20234,
+  "output_tokens": 293,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 14395,
+      "found": true,
+      "text": "cd test && go test --tags=e2e,vbmctl -v ./vbmctl/..."
+    },
+    {
+      "line": 14396,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)"
+    },
+    {
+      "line": 14397,
+      "found": true,
+      "text": "make: *** [Makefile:282: unit-vbmctl] Error 1"
+    }
+  ],
+  "citation_validity": 1.0
+}

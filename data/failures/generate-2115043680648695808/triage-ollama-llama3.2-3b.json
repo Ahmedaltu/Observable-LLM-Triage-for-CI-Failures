@@ -1,0 +1,20 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "config_error",
+  "summary": "The job failed due to a version mismatch of Go, which is required by the controller-gen tool.",
+  "cited_lines": [
+    53
+  ],
+  "latency_s": 10.41,
+  "input_tokens": 388,
+  "output_tokens": 45,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 53,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)"
+    }
+  ],
+  "citation_validity": 1.0
+}

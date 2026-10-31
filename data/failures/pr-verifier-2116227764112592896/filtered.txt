@@ -1,0 +1,19 @@
+...
+51: $ PWD=/home/prow/go/src/github.com/metal3-io/project-infra  git submodule update --init --recursive (runtime: 28.950976ms)
+52: # Final SHA: 2d6e7e9ed5e16ba38c1faf629b56b08e6525a08e
+53: # Total runtime: 2.251088167s
+54: # FAILED
+55: # Cloning metal3-io/baremetal-operator at main(ed91ef80ce226a6bdd23b8794990d0008a07f0ee)
+56: # Checking out pulls:
+57: #	3769(fef16213df030dda1fe0689ba6199fa729c391ab)
+...
+381: Auto-merging apis/metal3.io/v1alpha1/zz_generated.conversion.go
+382: CONFLICT (content): Merge conflict in apis/metal3.io/v1alpha1/zz_generated.conversion.go
+383: Auto-merging config/base/crds/bases/metal3.io_baremetalhosts.yaml
+384: Auto-merging config/base/crds/bases/metal3.io_hostnetworkattachments.yaml
+385: Auto-merging config/base/webhook/manifests.yaml
+386: Auto-merging config/render/capm3.yaml
+387: Automatic merge failed; fix conflicts and then commit the result.
+388: # Error: exit status 1
+389: # Final SHA: 
+390: # Total runtime: 0s

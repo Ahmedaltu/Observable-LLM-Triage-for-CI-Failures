@@ -1,0 +1,26 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "config_error",
+  "summary": "The curl command failed due to a blank argument for an option, likely caused by an unset or empty environment variable in the CI configuration.",
+  "cited_lines": [
+    1,
+    2
+  ],
+  "latency_s": 12.82,
+  "input_tokens": 240,
+  "output_tokens": 713,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 1,
+      "found": true,
+      "text": "curl: option : blank argument where content is expected"
+    },
+    {
+      "line": 2,
+      "found": true,
+      "text": "curl: try 'curl --help' or 'curl --manual' for more information"
+    }
+  ],
+  "citation_validity": 1.0
+}

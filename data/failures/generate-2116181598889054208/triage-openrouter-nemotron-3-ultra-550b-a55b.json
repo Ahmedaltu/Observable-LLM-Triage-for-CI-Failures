@@ -1,0 +1,38 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "code_bug",
+  "summary": "The lint check fails because the generated conversion file `zz_generated.conversion.go` differs from the committed version, indicating that code generation needs to be run.",
+  "cited_lines": [
+    248,
+    249,
+    250,
+    251
+  ],
+  "latency_s": 7.02,
+  "input_tokens": 581,
+  "output_tokens": 753,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 248,
+      "found": true,
+      "text": "165c165"
+    },
+    {
+      "line": 249,
+      "found": true,
+      "text": "< 2170723417 77547 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    },
+    {
+      "line": 250,
+      "found": true,
+      "text": "---"
+    },
+    {
+      "line": 251,
+      "found": true,
+      "text": "> 371018303 63197 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go"
+    }
+  ],
+  "citation_validity": 1.0
+}

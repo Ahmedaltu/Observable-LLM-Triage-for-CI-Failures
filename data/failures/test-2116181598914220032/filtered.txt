@@ -1,0 +1,13 @@
+...
+293: level=info msg="[runner] Processors filtering stat (in/out): fixer: 1/1, max_per_file_from_linter: 1/1, path_prettifier: 1/1, sort_results: 1/1, path_absoluter: 464/464, path_relativity: 464/464, exclusion_paths: 464/464, generated_file_filter: 464/464, nolint_filter: 79/1, uniq_by_line: 1/1, max_same_issues: 1/1, source_code: 1/1, cgo: 464/464, exclusion_rules: 464/79, path_shortener: 1/1, invalid_issue: 464/464, max_from_linter: 1/1, severity-rules: 1/1, filename_unadjuster: 464/464, diff: 1/1
+294: level=info msg="[runner] processing took 17.787387ms with stages: nolint_filter: 11.636685ms, exclusion_rules: 3.543465ms, generated_file_filter: 1.608618ms, exclusion_paths: 495.37µs, path_relativity: 433.939µs, source_code: 21.24µs, cgo: 15.72µs, invalid_issue: 12.98µs, path_absoluter: 9.12µs, filename_unadjuster: 2.93µs, uniq_by_line: 2.02µs, sort_results: 1.32µs, max_same_issues: 950ns, path_shortener: 760ns, fixer: 580ns, diff: 550ns, max_per_file_from_linter: 510ns, path_prettifier: 310ns,
+295: level=info msg="[runner] linters took 19.003747196s with stages: goanalysis_metalinter: 18.985901009s"
+296: config/base/webhook/matchconditions_test.go:49:5: shadow: declaration of "err" shadows declaration at line 35 (govet)
+297: 	if err := yaml.Unmarshal(data, &manifest); err != nil {
+298: 	   ^
+299: 1 issues:
+300: * govet: 1
+301: level=info msg="File cache stats: 22 entries of total size 306.3KiB"
+302: level=info msg="Memory: 447 samples, avg is 722.8MB, max is 3077.9MB"
+303: level=info msg="Execution took 45.245412728s"
+304: make: *** [Makefile:203: lint] Error 1

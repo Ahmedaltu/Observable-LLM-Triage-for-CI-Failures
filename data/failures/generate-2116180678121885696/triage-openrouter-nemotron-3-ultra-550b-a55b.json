@@ -1,0 +1,32 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "config_error",
+  "summary": "The CI job failed due to merge conflicts in hack/tools/go.mod and hack/tools/go.sum when attempting to merge pull request #3267 into the main branch.",
+  "cited_lines": [
+    337,
+    339,
+    340
+  ],
+  "latency_s": 5.53,
+  "input_tokens": 481,
+  "output_tokens": 223,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 337,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.mod"
+    },
+    {
+      "line": 339,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.sum"
+    },
+    {
+      "line": 340,
+      "found": true,
+      "text": "Automatic merge failed; fix conflicts and then commit the result."
+    }
+  ],
+  "citation_validity": 1.0
+}

@@ -1,0 +1,32 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "code_bug",
+  "summary": "The PR #3267 cannot be automatically merged into the main branch due to merge conflicts in hack/tools/go.mod and hack/tools/go.sum.",
+  "cited_lines": [
+    337,
+    339,
+    340
+  ],
+  "latency_s": 13.09,
+  "input_tokens": 481,
+  "output_tokens": 667,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 337,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.mod"
+    },
+    {
+      "line": 339,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in hack/tools/go.sum"
+    },
+    {
+      "line": 340,
+      "found": true,
+      "text": "Automatic merge failed; fix conflicts and then commit the result."
+    }
+  ],
+  "citation_validity": 1.0
+}

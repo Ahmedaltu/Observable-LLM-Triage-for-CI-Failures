@@ -1,0 +1,18 @@
+1: Environment setup
+2: # Final SHA: 
+3: # Total runtime: 0s
+4: # FAILED
+5: # Cloning metal3-io/baremetal-operator at main(4fec2b4a4d3aea20ee7132f1a6eb89cc3ac1c184)
+6: # Checking out pulls:
+7: #	3267(e39c46c81976ba5f3275d712c400904188009ede)
+...
+334: Auto-merging config/render/capm3.yaml
+335: Auto-merging go.mod
+336: Auto-merging hack/tools/go.mod
+337: CONFLICT (content): Merge conflict in hack/tools/go.mod
+338: Auto-merging hack/tools/go.sum
+339: CONFLICT (content): Merge conflict in hack/tools/go.sum
+340: Automatic merge failed; fix conflicts and then commit the result.
+341: # Error: exit status 1
+342: # Final SHA: 
+343: # Total runtime: 0s

@@ -1,0 +1,36 @@
+{
+  "type": "presubmit",
+  "refs": {
+    "org": "metal3-io",
+    "repo": "baremetal-operator",
+    "repo_link": "https://github.com/metal3-io/baremetal-operator",
+    "base_ref": "main",
+    "base_sha": "ed91ef80ce226a6bdd23b8794990d0008a07f0ee",
+    "base_link": "https://github.com/metal3-io/baremetal-operator/commit/ed91ef80ce226a6bdd23b8794990d0008a07f0ee",
+    "pulls": [
+      {
+        "number": 3731,
+        "author": "dependabot[bot]",
+        "sha": "b44395490b64493205fa3f8a59d34a6ef7ec9166",
+        "title": ":seedling: Bump the kustomize group across 2 directories with 3 updates",
+        "head_ref": "dependabot/go_modules/hack/tools/main/kustomize-55281f4dc5",
+        "link": "https://github.com/metal3-io/baremetal-operator/pull/3731",
+        "commit_link": "https://github.com/metal3-io/baremetal-operator/pull/3731/commits/b44395490b64493205fa3f8a59d34a6ef7ec9166",
+        "author_link": "https://github.com/apps/dependabot"
+      }
+    ]
+  },
+  "refs_key": "main:ed91ef80ce226a6bdd23b8794990d0008a07f0ee,3731:b44395490b64493205fa3f8a59d34a6ef7ec9166",
+  "job": "unit",
+  "build_id": "2116222736735932416",
+  "context": "unit",
+  "started": "1793381792",
+  "finished": "2026-10-30T17:39:29Z",
+  "duration": "2m57s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/pr-logs/pull/metal3-io_baremetal-operator/3731/unit/2116222736735932416",
+  "pod_name": "0d565884-fb9f-4886-9ef4-72e4ff547ce6",
+  "agent": "kubernetes",
+  "prow_job": "0d565884-fb9f-4886-9ef4-72e4ff547ce6"
+}

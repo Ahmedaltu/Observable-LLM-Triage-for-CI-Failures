@@ -1,0 +1,251 @@
++ IS_CONTAINER=TRUE
++ ARTIFACTS=/logs/artifacts
++ CONTAINER_RUNTIME=podman
++ [ TRUE != false ]
++ export XDG_CACHE_HOME=/tmp/.cache
++ mkdir /tmp/generate
++ cp -r . /tmp/generate
++ cd /tmp/generate
++ find config -type f
++ find . -name zz_generated* -type f
++ INPUT_FILES=config/samples/metal3.io_v1alpha1_hostdeploypolicy.yaml
+config/samples/baremetalswitch_sample.yaml
+config/samples/metal3.io_v1alpha1_dataimage.yaml
+config/samples/metal3.io_v1alpha1_firmwareschema.yaml
+config/samples/metal3.io_v1alpha1_hostfirmwarecomponents.yaml
+config/samples/metal3.io_v1alpha1_hostfirmwaresettings.yaml
+config/samples/metal3.io_v1alpha1_preprovisioningimage.yaml
+config/samples/metal3.io_v1alpha1_hostclaim.yaml
+config/samples/metal3.io_v1alpha1_hostnetworkattachment.yaml
+config/samples/metal3.io_v1alpha1_baremetalhost.yaml
+config/render/capm3.yaml
+config/README.md
+config/components/namespace-scoped/switch_secrets_role_binding.yaml
+config/components/namespace-scoped/kustomization.yaml
+config/components/namespace-scoped/switch_secrets_role.yaml
+config/components/basic-auth/credentials_patch.yaml
+config/components/basic-auth/kustomization.yaml
+config/components/tls/kustomization.yaml
+config/components/tls/tls_ca_patch.yaml
+config/kustomization.yaml
+config/default/ironic.env
+config/default/kustomization.yaml
+config/base/manager.yaml
+config/base/prometheus/kustomization.yaml
+config/base/prometheus/monitor.yaml
+config/base/crds/kustomizeconfig.yaml
+config/base/crds/kustomization.yaml
+config/base/crds/patches/cainjection_in_firmwareschemas.yaml
+config/base/crds/patches/webhook_in_bmceventsubscriptions.yaml
+config/base/crds/patches/webhook_in_baremetalhosts.yaml
+config/base/crds/patches/cainjection_in_hostfirmwaresettings.yaml
+config/base/crds/patches/webhook_in_hostclaims.yaml
+config/base/crds/patches/cainjection_in_preprovisioningimages.yaml
+config/base/crds/patches/webhook_in_hostdeploypolicies.yaml
+config/base/crds/patches/webhook_in_hardwaredata.yaml
+config/base/crds/patches/cainjection_in_baremetalhosts.yaml
+config/base/crds/patches/cainjection_in_dataimages.yaml
+config/base/crds/patches/webhook_in_hostfirmwaresettings.yaml
+config/base/crds/patches/webhook_in_preprovisioningimages.yaml
+config/base/crds/patches/webhook_in_dataimages.yaml
+config/base/crds/patches/cainjection_in_bmceventsubscriptions.yaml
+config/base/crds/patches/webhook_in_firmwareschemas.yaml
+config/base/crds/patches/cainjection_in_hostfirmwarecomponents.yaml
+config/base/crds/patches/webhook_in_hostfirmwarecomponents.yaml
+config/base/crds/patches/cainjection_in_hardwaredata.yaml
+config/base/crds/patches/cainjection_in_hostclaims.yaml
+config/base/crds/patches/cainjection_in_hostdeploypolicies.yaml
+config/base/crds/bases/metal3.io_hostclaims.yaml
+config/base/crds/bases/metal3.io_firmwareschemas.yaml
+config/base/crds/bases/metal3.io_hostfirmwarecomponents.yaml
+config/base/crds/bases/metal3.io_hostfirmwaresettings.yaml
+config/base/crds/bases/metal3.io_hostnetworkattachments.yaml
+config/base/crds/bases/metal3.io_dataimages.yaml
+config/base/crds/bases/metal3.io_hostdeploypolicies.yaml
+config/base/crds/bases/metal3.io_hardwaredata.yaml
+config/base/crds/bases/metal3.io_baremetalswitches.yaml
+config/base/crds/bases/metal3.io_baremetalhosts.yaml
+config/base/crds/bases/metal3.io_hostupdatepolicies.yaml
+config/base/crds/bases/metal3.io_bmceventsubscriptions.yaml
+config/base/crds/bases/metal3.io_preprovisioningimages.yaml
+config/base/manager_webhook_patch.yaml
+config/base/rbac/preprovisioningimage_viewer_role.yaml
+config/base/rbac/metrics_auth_role_binding.yaml
+config/base/rbac/metrics_reader_role.yaml
+config/base/rbac/hardwaredata_viewer_role.yaml
+config/base/rbac/metrics_auth_role.yaml
+config/base/rbac/role_binding.yaml
+config/base/rbac/baremetalhost_viewer_role.yaml
+config/base/rbac/metrics_service.yaml
+config/base/rbac/bmceventsubscription_viewer_role.yaml
+config/base/rbac/hardwaredata_editor_role.yaml
+config/base/rbac/hostfirmwaresettings_editor_role.yaml
+config/base/rbac/kustomization.yaml
+config/base/rbac/leader_election_role_binding.yaml
+config/base/rbac/dataimage_viewer_role.yaml
+config/base/rbac/hostfirmwarecomponents_editor_role.yaml
+config/base/rbac/hostclaim_viewer_role.yaml
+config/base/rbac/bmceventsubscription_editor_role.yaml
+config/base/rbac/baremetalhost_editor_role.yaml
+config/base/rbac/hostfirmwarecomponents_viewer_role.yaml
+config/base/rbac/firmwareschema_editor_role.yaml
+config/base/rbac/dataimage_editor_role.yaml
+config/base/rbac/leader_election_role.yaml
+config/base/rbac/role.yaml
+config/base/rbac/hostclaim_editor_role.yaml
+config/base/rbac/firmwareschema_viewer_role.yaml
+config/base/rbac/service_account.yaml
+config/base/rbac/hostdeploypolicy_editor_role.yaml
+config/base/rbac/preprovisioningimage_editor_role.yaml
+config/base/rbac/hostdeploypolicy_viewer_role.yaml
+config/base/rbac/hostfirmwaresettings_viewer_role.yaml
+config/base/certmanager/certificate.yaml
+config/base/certmanager/kustomizeconfig.yaml
+config/base/certmanager/kustomization.yaml
+config/base/kustomization.yaml
+config/base/webhookcainjection_patch.yaml
+config/base/webhook/kustomizeconfig.yaml
+config/base/webhook/service_patch.yaml
+config/base/webhook/kustomization.yaml
+config/base/webhook/matchconditions_test.go
+config/base/webhook/manifests.yaml
+config/overlays/e2e-upgrade/ironic.env
+config/overlays/e2e-upgrade/kustomization.yaml
+config/overlays/e2e-release-0.12/ironic.env
+config/overlays/e2e-release-0.12/kustomization.yaml
+config/overlays/fixture-release-0.12/kustomization.yaml
+config/overlays/basic-auth_tls/kustomization.yaml
+config/overlays/fixture-release-0.14/kustomization.yaml
+config/overlays/e2e-release-0.14/ironic.env
+config/overlays/e2e-release-0.14/kustomization.yaml
+config/overlays/fixture/kustomization.yaml
+config/overlays/fixture-release-0.13/kustomization.yaml
+config/overlays/e2e-release-0.13/ironic.env
+config/overlays/e2e-release-0.13/kustomization.yaml
+config/overlays/e2e/automated-cleaning/kustomization.yaml
+config/overlays/e2e/automated-cleaning/namespace.yaml
+config/overlays/e2e/networking/kustomization.yaml
+config/overlays/e2e/networking/namespace.yaml
+config/overlays/e2e/provisioning-ops/kustomization.yaml
+config/overlays/e2e/provisioning-ops/namespace.yaml
+config/overlays/e2e/force-detach/kustomization.yaml
+config/overlays/e2e/force-detach/namespace.yaml
+config/overlays/e2e/live-iso-ops/kustomization.yaml
+config/overlays/e2e/live-iso-ops/namespace.yaml
+config/overlays/e2e/hostclaims-infra/kustomization.yaml
+config/overlays/e2e/hostclaims-infra/namespace.yaml
+config/overlays/e2e/firmware-components/kustomization.yaml
+config/overlays/e2e/firmware-components/namespace.yaml
+config/overlays/e2e/ironic.env
+config/overlays/e2e/firmware-settings/kustomization.yaml
+config/overlays/e2e/firmware-settings/namespace.yaml
+config/overlays/e2e/baremetalswitch/kustomization.yaml
+config/overlays/e2e/baremetalswitch/namespace.yaml
+config/overlays/e2e/network-data/kustomization.yaml
+config/overlays/e2e/network-data/namespace.yaml
+config/overlays/e2e/re-inspection/kustomization.yaml
+config/overlays/e2e/re-inspection/namespace.yaml
+config/overlays/e2e/hostclaims-tenant/kustomization.yaml
+config/overlays/e2e/hostclaims-tenant/namespace.yaml
+config/overlays/e2e/kustomization.yaml
+config/overlays/e2e/inspection/kustomization.yaml
+config/overlays/e2e/inspection/namespace.yaml
+config/overlays/e2e/roles-rolebindings/kustomization.yaml
+config/overlays/e2e/roles-rolebindings/roles-rolebindings.yaml
+config/overlays/e2e/externally-provisioned/kustomization.yaml
+config/overlays/e2e/externally-provisioned/namespace.yaml
+config/overlays/e2e/cluster-role.yaml
+config/overlays/e2e/upgrade-bmo/kustomization.yaml
+config/overlays/e2e/upgrade-bmo/namespace.yaml
+config/overlays/e2e/basic-ops/kustomization.yaml
+config/overlays/e2e/basic-ops/namespace.yaml
+config/overlays/e2e/dataimage/kustomization.yaml
+config/overlays/e2e/dataimage/namespace.yaml
+config/overlays/e2e/namespaced-manager-patch.yaml
+config/overlays/e2e/external-inspection/kustomization.yaml
+config/overlays/e2e/external-inspection/namespace.yaml
+config/overlays/e2e/upgrade-ironic/kustomization.yaml
+config/overlays/e2e/upgrade-ironic/namespace.yaml
+config/overlays/e2e/features.env
+config/use-irso/ironic.env
+config/use-irso/kustomization.yaml
+config/namespace/kustomization.yaml
+config/namespace/namespace.yaml ./apis/metal3.io/v1alpha1/zz_generated.deepcopy.go
+./apis/metal3.io/v1alpha1/zz_generated.conversion.go
+./apis/metal3.io/v1beta1/zz_generated.deepcopy.go
++ cksum config/samples/metal3.io_v1alpha1_hostdeploypolicy.yaml config/samples/baremetalswitch_sample.yaml config/samples/metal3.io_v1alpha1_dataimage.yaml config/samples/metal3.io_v1alpha1_firmwareschema.yaml config/samples/metal3.io_v1alpha1_hostfirmwarecomponents.yaml config/samples/metal3.io_v1alpha1_hostfirmwaresettings.yaml config/samples/metal3.io_v1alpha1_preprovisioningimage.yaml config/samples/metal3.io_v1alpha1_hostclaim.yaml config/samples/metal3.io_v1alpha1_hostnetworkattachment.yaml config/samples/metal3.io_v1alpha1_baremetalhost.yaml config/render/capm3.yaml config/README.md config/components/namespace-scoped/switch_secrets_role_binding.yaml config/components/namespace-scoped/kustomization.yaml config/components/namespace-scoped/switch_secrets_role.yaml config/components/basic-auth/credentials_patch.yaml config/components/basic-auth/kustomization.yaml config/components/tls/kustomization.yaml config/components/tls/tls_ca_patch.yaml config/kustomization.yaml config/default/ironic.env config/default/kustomization.yaml config/base/manager.yaml config/base/prometheus/kustomization.yaml config/base/prometheus/monitor.yaml config/base/crds/kustomizeconfig.yaml config/base/crds/kustomization.yaml config/base/crds/patches/cainjection_in_firmwareschemas.yaml config/base/crds/patches/webhook_in_bmceventsubscriptions.yaml config/base/crds/patches/webhook_in_baremetalhosts.yaml config/base/crds/patches/cainjection_in_hostfirmwaresettings.yaml config/base/crds/patches/webhook_in_hostclaims.yaml config/base/crds/patches/cainjection_in_preprovisioningimages.yaml config/base/crds/patches/webhook_in_hostdeploypolicies.yaml config/base/crds/patches/webhook_in_hardwaredata.yaml config/base/crds/patches/cainjection_in_baremetalhosts.yaml config/base/crds/patches/cainjection_in_dataimages.yaml config/base/crds/patches/webhook_in_hostfirmwaresettings.yaml config/base/crds/patches/webhook_in_preprovisioningimages.yaml config/base/crds/patches/webhook_in_dataimages.yaml config/base/crds/patches/cainjection_in_bmceventsubscriptions.yaml config/base/crds/patches/webhook_in_firmwareschemas.yaml config/base/crds/patches/cainjection_in_hostfirmwarecomponents.yaml config/base/crds/patches/webhook_in_hostfirmwarecomponents.yaml config/base/crds/patches/cainjection_in_hardwaredata.yaml config/base/crds/patches/cainjection_in_hostclaims.yaml config/base/crds/patches/cainjection_in_hostdeploypolicies.yaml config/base/crds/bases/metal3.io_hostclaims.yaml config/base/crds/bases/metal3.io_firmwareschemas.yaml config/base/crds/bases/metal3.io_hostfirmwarecomponents.yaml config/base/crds/bases/metal3.io_hostfirmwaresettings.yaml config/base/crds/bases/metal3.io_hostnetworkattachments.yaml config/base/crds/bases/metal3.io_dataimages.yaml config/base/crds/bases/metal3.io_hostdeploypolicies.yaml config/base/crds/bases/metal3.io_hardwaredata.yaml config/base/crds/bases/metal3.io_baremetalswitches.yaml config/base/crds/bases/metal3.io_baremetalhosts.yaml config/base/crds/bases/metal3.io_hostupdatepolicies.yaml config/base/crds/bases/metal3.io_bmceventsubscriptions.yaml config/base/crds/bases/metal3.io_preprovisioningimages.yaml config/base/manager_webhook_patch.yaml config/base/rbac/preprovisioningimage_viewer_role.yaml config/base/rbac/metrics_auth_role_binding.yaml config/base/rbac/metrics_reader_role.yaml config/base/rbac/hardwaredata_viewer_role.yaml config/base/rbac/metrics_auth_role.yaml config/base/rbac/role_binding.yaml config/base/rbac/baremetalhost_viewer_role.yaml config/base/rbac/metrics_service.yaml config/base/rbac/bmceventsubscription_viewer_role.yaml config/base/rbac/hardwaredata_editor_role.yaml config/base/rbac/hostfirmwaresettings_editor_role.yaml config/base/rbac/kustomization.yaml config/base/rbac/leader_election_role_binding.yaml config/base/rbac/dataimage_viewer_role.yaml config/base/rbac/hostfirmwarecomponents_editor_role.yaml config/base/rbac/hostclaim_viewer_role.yaml config/base/rbac/bmceventsubscription_editor_role.yaml config/base/rbac/baremetalhost_editor_role.yaml config/base/rbac/hostfirmwarecomponents_viewer_role.yaml config/base/rbac/firmwareschema_editor_role.yaml config/base/rbac/dataimage_editor_role.yaml config/base/rbac/leader_election_role.yaml config/base/rbac/role.yaml config/base/rbac/hostclaim_editor_role.yaml config/base/rbac/firmwareschema_viewer_role.yaml config/base/rbac/service_account.yaml config/base/rbac/hostdeploypolicy_editor_role.yaml config/base/rbac/preprovisioningimage_editor_role.yaml config/base/rbac/hostdeploypolicy_viewer_role.yaml config/base/rbac/hostfirmwaresettings_viewer_role.yaml config/base/certmanager/certificate.yaml config/base/certmanager/kustomizeconfig.yaml config/base/certmanager/kustomization.yaml config/base/kustomization.yaml config/base/webhookcainjection_patch.yaml config/base/webhook/kustomizeconfig.yaml config/base/webhook/service_patch.yaml config/base/webhook/kustomization.yaml config/base/webhook/matchconditions_test.go config/base/webhook/manifests.yaml config/overlays/e2e-upgrade/ironic.env config/overlays/e2e-upgrade/kustomization.yaml config/overlays/e2e-release-0.12/ironic.env config/overlays/e2e-release-0.12/kustomization.yaml config/overlays/fixture-release-0.12/kustomization.yaml config/overlays/basic-auth_tls/kustomization.yaml config/overlays/fixture-release-0.14/kustomization.yaml config/overlays/e2e-release-0.14/ironic.env config/overlays/e2e-release-0.14/kustomization.yaml config/overlays/fixture/kustomization.yaml config/overlays/fixture-release-0.13/kustomization.yaml config/overlays/e2e-release-0.13/ironic.env config/overlays/e2e-release-0.13/kustomization.yaml config/overlays/e2e/automated-cleaning/kustomization.yaml config/overlays/e2e/automated-cleaning/namespace.yaml config/overlays/e2e/networking/kustomization.yaml config/overlays/e2e/networking/namespace.yaml config/overlays/e2e/provisioning-ops/kustomization.yaml config/overlays/e2e/provisioning-ops/namespace.yaml config/overlays/e2e/force-detach/kustomization.yaml config/overlays/e2e/force-detach/namespace.yaml config/overlays/e2e/live-iso-ops/kustomization.yaml config/overlays/e2e/live-iso-ops/namespace.yaml config/overlays/e2e/hostclaims-infra/kustomization.yaml config/overlays/e2e/hostclaims-infra/namespace.yaml config/overlays/e2e/firmware-components/kustomization.yaml config/overlays/e2e/firmware-components/namespace.yaml config/overlays/e2e/ironic.env config/overlays/e2e/firmware-settings/kustomization.yaml config/overlays/e2e/firmware-settings/namespace.yaml config/overlays/e2e/baremetalswitch/kustomization.yaml config/overlays/e2e/baremetalswitch/namespace.yaml config/overlays/e2e/network-data/kustomization.yaml config/overlays/e2e/network-data/namespace.yaml config/overlays/e2e/re-inspection/kustomization.yaml config/overlays/e2e/re-inspection/namespace.yaml config/overlays/e2e/hostclaims-tenant/kustomization.yaml config/overlays/e2e/hostclaims-tenant/namespace.yaml config/overlays/e2e/kustomization.yaml config/overlays/e2e/inspection/kustomization.yaml config/overlays/e2e/inspection/namespace.yaml config/overlays/e2e/roles-rolebindings/kustomization.yaml config/overlays/e2e/roles-rolebindings/roles-rolebindings.yaml config/overlays/e2e/externally-provisioned/kustomization.yaml config/overlays/e2e/externally-provisioned/namespace.yaml config/overlays/e2e/cluster-role.yaml config/overlays/e2e/upgrade-bmo/kustomization.yaml config/overlays/e2e/upgrade-bmo/namespace.yaml config/overlays/e2e/basic-ops/kustomization.yaml config/overlays/e2e/basic-ops/namespace.yaml config/overlays/e2e/dataimage/kustomization.yaml config/overlays/e2e/dataimage/namespace.yaml config/overlays/e2e/namespaced-manager-patch.yaml config/overlays/e2e/external-inspection/kustomization.yaml config/overlays/e2e/external-inspection/namespace.yaml config/overlays/e2e/upgrade-ironic/kustomization.yaml config/overlays/e2e/upgrade-ironic/namespace.yaml config/overlays/e2e/features.env config/use-irso/ironic.env config/use-irso/kustomization.yaml config/namespace/kustomization.yaml config/namespace/namespace.yaml ./apis/metal3.io/v1alpha1/zz_generated.deepcopy.go ./apis/metal3.io/v1alpha1/zz_generated.conversion.go ./apis/metal3.io/v1beta1/zz_generated.deepcopy.go
++ export VERBOSE=--verbose
++ make generate manifests
+cd hack/tools; go build -o /tmp/generate/tools/bin/controller-gen sigs.k8s.io/controller-tools/cmd/controller-gen
+go: downloading sigs.k8s.io/controller-tools v0.22.0
+go: downloading golang.org/x/tools v0.51.0
+go: downloading github.com/spf13/cobra v1.10.2
+go: downloading k8s.io/apiextensions-apiserver v0.37.0
+go: downloading k8s.io/apimachinery v0.37.0
+go: downloading k8s.io/code-generator v0.37.0
+go: downloading k8s.io/gengo/v2 v2.0.0-20260408192533-25e2208e0dc3
+go: downloading k8s.io/kube-openapi v0.0.0-20260721132016-d427ff9ee9ad
+go: downloading github.com/gobuffalo/flect v1.0.3
+go: downloading sigs.k8s.io/yaml v1.6.0
+go: downloading github.com/fatih/color v1.19.0
+go: downloading k8s.io/api v0.37.0
+go: downloading go.yaml.in/yaml/v3 v3.0.5
+go: downloading sigs.k8s.io/json v0.0.0-20250730193827-2d320260d730
+go: downloading github.com/spf13/pflag v1.0.10
+go: downloading k8s.io/klog/v2 v2.140.0
+go: downloading k8s.io/utils v0.0.0-20260626114624-be93311217bd
+go: downloading sigs.k8s.io/randfill v1.0.0
+go: downloading sigs.k8s.io/structured-merge-diff/v6 v6.4.2
+go: downloading github.com/google/gnostic-models v0.7.1
+go: downloading go.yaml.in/yaml/v2 v2.4.4
+go: downloading golang.org/x/text v0.43.0
+go: downloading github.com/mattn/go-colorable v0.1.14
+go: downloading github.com/mattn/go-isatty v0.0.20
+go: downloading gopkg.in/inf.v0 v0.9.1
+go: downloading github.com/go-logr/logr v1.4.4
+go: downloading google.golang.org/protobuf v1.36.12
+go: downloading github.com/go-openapi/jsonreference v1.0.0
+go: downloading github.com/go-openapi/swag v0.27.1
+go: downloading github.com/json-iterator/go v1.1.12
+go: downloading golang.org/x/sys v0.49.0
+go: downloading github.com/fxamacker/cbor/v2 v2.9.1
+go: downloading golang.org/x/net v0.60.0
+go: downloading golang.org/x/sync v0.24.0
+go: downloading github.com/go-openapi/jsonpointer v1.0.0
+go: downloading github.com/go-openapi/swag/cmdutils v0.27.1
+go: downloading github.com/go-openapi/swag/conv v0.27.1
+go: downloading github.com/go-openapi/swag/fileutils v0.27.1
+go: downloading github.com/go-openapi/swag/jsonutils v0.27.1
+go: downloading github.com/go-openapi/swag/loading v0.27.1
+go: downloading github.com/go-openapi/swag/mangling v0.27.1
+go: downloading github.com/go-openapi/swag/netutils v0.27.1
+go: downloading github.com/go-openapi/swag/stringutils v0.27.1
+go: downloading github.com/go-openapi/swag/typeutils v0.27.1
+go: downloading github.com/go-openapi/swag/yamlutils v0.27.1
+go: downloading github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
+go: downloading github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: downloading github.com/modern-go/reflect2 v1.0.3-0.20250322232337-35a7c28c31ee
+go: downloading golang.org/x/mod v0.41.0
+go: downloading github.com/x448/float16 v0.8.4
+go: downloading github.com/go-openapi/swag/pools v0.27.1
+cd apis; /tmp/generate/tools/bin/controller-gen object:headerFile="../hack/boilerplate.go.txt" paths="./..."
+tools/bin/controller-gen object:headerFile="hack/boilerplate.go.txt" paths="./..."
+cd hack/tools; go build -o /tmp/generate/hack/tools/bin/conversion-gen k8s.io/code-generator/cmd/conversion-gen
+cd apis; /tmp/generate/hack/tools/bin/conversion-gen \
+	--go-header-file ../hack/boilerplate.go.txt \
+	--output-file zz_generated.conversion.go \
+	./metal3.io/v1alpha1
+cd apis; /tmp/generate/tools/bin/controller-gen "crd:allowDangerousTypes=true,crdVersions=v1" paths="./..." output:crd:artifacts:config=../config/base/crds/bases
+cd internal/webhooks; /tmp/generate/tools/bin/controller-gen rbac:roleName=manager-role webhook paths="./..." output:webhook:dir=../../config/base/webhook/
+tools/bin/controller-gen rbac:roleName=manager-role paths="./..." output:rbac:artifacts:config=config/base/rbac
+cd hack/tools; go build -o /tmp/generate/tools/bin/kustomize sigs.k8s.io/kustomize/kustomize/v5
+go: downloading sigs.k8s.io/kustomize/kustomize/v5 v5.8.2
+go: downloading sigs.k8s.io/kustomize/cmd/config v0.21.2
+go: downloading github.com/sergi/go-diff v1.4.0
+tools/bin/kustomize build config/default > config/render/capm3.yaml
++ cksum config/samples/metal3.io_v1alpha1_hostdeploypolicy.yaml config/samples/baremetalswitch_sample.yaml config/samples/metal3.io_v1alpha1_dataimage.yaml config/samples/metal3.io_v1alpha1_firmwareschema.yaml config/samples/metal3.io_v1alpha1_hostfirmwarecomponents.yaml config/samples/metal3.io_v1alpha1_hostfirmwaresettings.yaml config/samples/metal3.io_v1alpha1_preprovisioningimage.yaml config/samples/metal3.io_v1alpha1_hostclaim.yaml config/samples/metal3.io_v1alpha1_hostnetworkattachment.yaml config/samples/metal3.io_v1alpha1_baremetalhost.yaml config/render/capm3.yaml config/README.md config/components/namespace-scoped/switch_secrets_role_binding.yaml config/components/namespace-scoped/kustomization.yaml config/components/namespace-scoped/switch_secrets_role.yaml config/components/basic-auth/credentials_patch.yaml config/components/basic-auth/kustomization.yaml config/components/tls/kustomization.yaml config/components/tls/tls_ca_patch.yaml config/kustomization.yaml config/default/ironic.env config/default/kustomization.yaml config/base/manager.yaml config/base/prometheus/kustomization.yaml config/base/prometheus/monitor.yaml config/base/crds/kustomizeconfig.yaml config/base/crds/kustomization.yaml config/base/crds/patches/cainjection_in_firmwareschemas.yaml config/base/crds/patches/webhook_in_bmceventsubscriptions.yaml config/base/crds/patches/webhook_in_baremetalhosts.yaml config/base/crds/patches/cainjection_in_hostfirmwaresettings.yaml config/base/crds/patches/webhook_in_hostclaims.yaml config/base/crds/patches/cainjection_in_preprovisioningimages.yaml config/base/crds/patches/webhook_in_hostdeploypolicies.yaml config/base/crds/patches/webhook_in_hardwaredata.yaml config/base/crds/patches/cainjection_in_baremetalhosts.yaml config/base/crds/patches/cainjection_in_dataimages.yaml config/base/crds/patches/webhook_in_hostfirmwaresettings.yaml config/base/crds/patches/webhook_in_preprovisioningimages.yaml config/base/crds/patches/webhook_in_dataimages.yaml config/base/crds/patches/cainjection_in_bmceventsubscriptions.yaml config/base/crds/patches/webhook_in_firmwareschemas.yaml config/base/crds/patches/cainjection_in_hostfirmwarecomponents.yaml config/base/crds/patches/webhook_in_hostfirmwarecomponents.yaml config/base/crds/patches/cainjection_in_hardwaredata.yaml config/base/crds/patches/cainjection_in_hostclaims.yaml config/base/crds/patches/cainjection_in_hostdeploypolicies.yaml config/base/crds/bases/metal3.io_hostclaims.yaml config/base/crds/bases/metal3.io_firmwareschemas.yaml config/base/crds/bases/metal3.io_hostfirmwarecomponents.yaml config/base/crds/bases/metal3.io_hostfirmwaresettings.yaml config/base/crds/bases/metal3.io_hostnetworkattachments.yaml config/base/crds/bases/metal3.io_dataimages.yaml config/base/crds/bases/metal3.io_hostdeploypolicies.yaml config/base/crds/bases/metal3.io_hardwaredata.yaml config/base/crds/bases/metal3.io_baremetalswitches.yaml config/base/crds/bases/metal3.io_baremetalhosts.yaml config/base/crds/bases/metal3.io_hostupdatepolicies.yaml config/base/crds/bases/metal3.io_bmceventsubscriptions.yaml config/base/crds/bases/metal3.io_preprovisioningimages.yaml config/base/manager_webhook_patch.yaml config/base/rbac/preprovisioningimage_viewer_role.yaml config/base/rbac/metrics_auth_role_binding.yaml config/base/rbac/metrics_reader_role.yaml config/base/rbac/hardwaredata_viewer_role.yaml config/base/rbac/metrics_auth_role.yaml config/base/rbac/role_binding.yaml config/base/rbac/baremetalhost_viewer_role.yaml config/base/rbac/metrics_service.yaml config/base/rbac/bmceventsubscription_viewer_role.yaml config/base/rbac/hardwaredata_editor_role.yaml config/base/rbac/hostfirmwaresettings_editor_role.yaml config/base/rbac/kustomization.yaml config/base/rbac/leader_election_role_binding.yaml config/base/rbac/dataimage_viewer_role.yaml config/base/rbac/hostfirmwarecomponents_editor_role.yaml config/base/rbac/hostclaim_viewer_role.yaml config/base/rbac/bmceventsubscription_editor_role.yaml config/base/rbac/baremetalhost_editor_role.yaml config/base/rbac/hostfirmwarecomponents_viewer_role.yaml config/base/rbac/firmwareschema_editor_role.yaml config/base/rbac/dataimage_editor_role.yaml config/base/rbac/leader_election_role.yaml config/base/rbac/role.yaml config/base/rbac/hostclaim_editor_role.yaml config/base/rbac/firmwareschema_viewer_role.yaml config/base/rbac/service_account.yaml config/base/rbac/hostdeploypolicy_editor_role.yaml config/base/rbac/preprovisioningimage_editor_role.yaml config/base/rbac/hostdeploypolicy_viewer_role.yaml config/base/rbac/hostfirmwaresettings_viewer_role.yaml config/base/certmanager/certificate.yaml config/base/certmanager/kustomizeconfig.yaml config/base/certmanager/kustomization.yaml config/base/kustomization.yaml config/base/webhookcainjection_patch.yaml config/base/webhook/kustomizeconfig.yaml config/base/webhook/service_patch.yaml config/base/webhook/kustomization.yaml config/base/webhook/matchconditions_test.go config/base/webhook/manifests.yaml config/overlays/e2e-upgrade/ironic.env config/overlays/e2e-upgrade/kustomization.yaml config/overlays/e2e-release-0.12/ironic.env config/overlays/e2e-release-0.12/kustomization.yaml config/overlays/fixture-release-0.12/kustomization.yaml config/overlays/basic-auth_tls/kustomization.yaml config/overlays/fixture-release-0.14/kustomization.yaml config/overlays/e2e-release-0.14/ironic.env config/overlays/e2e-release-0.14/kustomization.yaml config/overlays/fixture/kustomization.yaml config/overlays/fixture-release-0.13/kustomization.yaml config/overlays/e2e-release-0.13/ironic.env config/overlays/e2e-release-0.13/kustomization.yaml config/overlays/e2e/automated-cleaning/kustomization.yaml config/overlays/e2e/automated-cleaning/namespace.yaml config/overlays/e2e/networking/kustomization.yaml config/overlays/e2e/networking/namespace.yaml config/overlays/e2e/provisioning-ops/kustomization.yaml config/overlays/e2e/provisioning-ops/namespace.yaml config/overlays/e2e/force-detach/kustomization.yaml config/overlays/e2e/force-detach/namespace.yaml config/overlays/e2e/live-iso-ops/kustomization.yaml config/overlays/e2e/live-iso-ops/namespace.yaml config/overlays/e2e/hostclaims-infra/kustomization.yaml config/overlays/e2e/hostclaims-infra/namespace.yaml config/overlays/e2e/firmware-components/kustomization.yaml config/overlays/e2e/firmware-components/namespace.yaml config/overlays/e2e/ironic.env config/overlays/e2e/firmware-settings/kustomization.yaml config/overlays/e2e/firmware-settings/namespace.yaml config/overlays/e2e/baremetalswitch/kustomization.yaml config/overlays/e2e/baremetalswitch/namespace.yaml config/overlays/e2e/network-data/kustomization.yaml config/overlays/e2e/network-data/namespace.yaml config/overlays/e2e/re-inspection/kustomization.yaml config/overlays/e2e/re-inspection/namespace.yaml config/overlays/e2e/hostclaims-tenant/kustomization.yaml config/overlays/e2e/hostclaims-tenant/namespace.yaml config/overlays/e2e/kustomization.yaml config/overlays/e2e/inspection/kustomization.yaml config/overlays/e2e/inspection/namespace.yaml config/overlays/e2e/roles-rolebindings/kustomization.yaml config/overlays/e2e/roles-rolebindings/roles-rolebindings.yaml config/overlays/e2e/externally-provisioned/kustomization.yaml config/overlays/e2e/externally-provisioned/namespace.yaml config/overlays/e2e/cluster-role.yaml config/overlays/e2e/upgrade-bmo/kustomization.yaml config/overlays/e2e/upgrade-bmo/namespace.yaml config/overlays/e2e/basic-ops/kustomization.yaml config/overlays/e2e/basic-ops/namespace.yaml config/overlays/e2e/dataimage/kustomization.yaml config/overlays/e2e/dataimage/namespace.yaml config/overlays/e2e/namespaced-manager-patch.yaml config/overlays/e2e/external-inspection/kustomization.yaml config/overlays/e2e/external-inspection/namespace.yaml config/overlays/e2e/upgrade-ironic/kustomization.yaml config/overlays/e2e/upgrade-ironic/namespace.yaml config/overlays/e2e/features.env config/use-irso/ironic.env config/use-irso/kustomization.yaml config/namespace/kustomization.yaml config/namespace/namespace.yaml ./apis/metal3.io/v1alpha1/zz_generated.deepcopy.go ./apis/metal3.io/v1alpha1/zz_generated.conversion.go ./apis/metal3.io/v1beta1/zz_generated.deepcopy.go
++ diff /logs/artifacts/lint.cksums.before /logs/artifacts/lint.cksums.after
+165c165
+< 2170723417 77547 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go
+---
+> 371018303 63197 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go

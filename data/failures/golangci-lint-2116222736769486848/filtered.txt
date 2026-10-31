@@ -1,0 +1,11 @@
+...
+293: level=info msg="[config_reader] Config search paths: [./ /home/prow/go/src/github.com/metal3-io/baremetal-operator/test /home/prow/go/src/github.com/metal3-io/baremetal-operator /home/prow/go/src/github.com/metal3-io /home/prow/go/src/github.com /home/prow/go/src /home/prow/go /home/prow /home / /root]"
+294: level=info msg="[config_reader] Used config file ../.golangci.yaml"
+295: level=info msg="[goenv] Read go env for 3.782476ms: map[string]string{\"GOCACHE\":\"/root/.cache/go-build\", \"GOROOT\":\"/usr/local/go\"}"
+296: level=info msg="[lintersdb] Active 65 linters: [asasalint asciicheck bidichk bodyclose containedctx copyloopvar decorder dogsled dupl dupword durationcheck errcheck errchkjson errname errorlint exhaustive exptostd fatcontext forbidigo forcetypeassert gci ginkgolinter gocheckcompilerdirectives gochecksumtype goconst gocritic godot gofmt goprintffuncname gosec gosmopolitan govet iface importas ineffassign intrange loggercheck makezero mirror misspell mnd nakedret nilerr nilnesserr nilnil noctx nol
+297: level=info msg="[loader] Using build tags: [e2e vbmctl]"
+298: level=info msg="[loader] Go packages loading at mode 8767 (types_sizes|compiled_files|imports|deps|exports_file|files|name) took 12.793616ms"
+299: level=error msg="Running error: context loading failed: failed to load packages: failed to load packages: failed to load with go/packages: err: exit status 1: stderr: go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)\n"
+300: level=info msg="Memory: 2 samples, avg is 34.7MB, max is 34.7MB"
+301: level=info msg="Execution took 16.021291ms"
+302: make: *** [Makefile:205: lint] Error 3

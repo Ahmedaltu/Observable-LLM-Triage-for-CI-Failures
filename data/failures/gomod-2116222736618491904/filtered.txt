@@ -1,0 +1,11 @@
+...
+155: go: downloading golang.org/x/text v0.40.0
+156: go: downloading golang.org/x/mod v0.37.0
+157: cd apis; go mod verify
+158: all modules verified
+159: cd pkg/hardwareutils; go mod tidy
+160: cd pkg/hardwareutils; go mod verify
+161: all modules verified
+162: cd hack/tools; go mod tidy
+163: go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)
+164: make: *** [Makefile:480: mod] Error 1

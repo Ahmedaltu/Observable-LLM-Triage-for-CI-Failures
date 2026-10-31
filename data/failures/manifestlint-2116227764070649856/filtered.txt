@@ -1,0 +1,18 @@
+1: Environment setup
+2: # Final SHA: 
+3: # Total runtime: 0s
+4: # FAILED
+5: # Cloning metal3-io/baremetal-operator at main(ed91ef80ce226a6bdd23b8794990d0008a07f0ee)
+6: # Checking out pulls:
+7: #	3769(fef16213df030dda1fe0689ba6199fa729c391ab)
+...
+331: Auto-merging apis/metal3.io/v1alpha1/zz_generated.conversion.go
+332: CONFLICT (content): Merge conflict in apis/metal3.io/v1alpha1/zz_generated.conversion.go
+333: Auto-merging config/base/crds/bases/metal3.io_baremetalhosts.yaml
+334: Auto-merging config/base/crds/bases/metal3.io_hostnetworkattachments.yaml
+335: Auto-merging config/base/webhook/manifests.yaml
+336: Auto-merging config/render/capm3.yaml
+337: Automatic merge failed; fix conflicts and then commit the result.
+338: # Error: exit status 1
+339: # Final SHA: 
+340: # Total runtime: 0s

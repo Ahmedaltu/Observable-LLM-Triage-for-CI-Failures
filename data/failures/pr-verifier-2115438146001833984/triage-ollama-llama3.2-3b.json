@@ -1,0 +1,26 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "config_error",
+  "summary": "The baremetal-operator job failed due to a merge conflict in the Dockerfile.",
+  "cited_lines": [
+    382,
+    383
+  ],
+  "latency_s": 19.69,
+  "input_tokens": 638,
+  "output_tokens": 44,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 382,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in Dockerfile"
+    },
+    {
+      "line": 383,
+      "found": true,
+      "text": "Automatic merge failed; fix conflicts and then commit the result."
+    }
+  ],
+  "citation_validity": 1.0
+}

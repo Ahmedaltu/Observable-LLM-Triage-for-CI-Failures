@@ -1,0 +1,26 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "config_error",
+  "summary": "The CI environment runs Go 1.26.5 but the project's go.mod requires Go >= 1.27.0, causing the controller-gen build to fail.",
+  "cited_lines": [
+    2,
+    3
+  ],
+  "latency_s": 7.42,
+  "input_tokens": 310,
+  "output_tokens": 158,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 2,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)"
+    },
+    {
+      "line": 3,
+      "found": true,
+      "text": "make: *** [Makefile:255: tools/bin/controller-gen] Error 1"
+    }
+  ],
+  "citation_validity": 1.0
+}

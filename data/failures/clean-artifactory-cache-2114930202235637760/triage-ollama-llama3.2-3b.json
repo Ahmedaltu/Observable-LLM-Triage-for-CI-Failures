@@ -1,0 +1,26 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "config_error",
+  "summary": "The job failed due to a configuration error in the curl command.",
+  "cited_lines": [
+    1,
+    2
+  ],
+  "latency_s": 23.35,
+  "input_tokens": 245,
+  "output_tokens": 41,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 1,
+      "found": true,
+      "text": "curl: option : blank argument where content is expected"
+    },
+    {
+      "line": 2,
+      "found": true,
+      "text": "curl: try 'curl --help' or 'curl --manual' for more information"
+    }
+  ],
+  "citation_validity": 1.0
+}

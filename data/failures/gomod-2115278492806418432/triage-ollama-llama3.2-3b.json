@@ -1,0 +1,62 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "config_error",
+  "summary": "The job failed due to an incorrect configuration of the go.mod and/or go.sum files.",
+  "cited_lines": [
+    174,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182
+  ],
+  "latency_s": 10.65,
+  "input_tokens": 322,
+  "output_tokens": 64,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 174,
+      "found": true,
+      "text": " M test/go.sum ]"
+    },
+    {
+      "line": 176,
+      "found": true,
+      "text": "one of the go.mod and/or go.sum files changed"
+    },
+    {
+      "line": 177,
+      "found": true,
+      "text": "+ echo  M test/go.mod"
+    },
+    {
+      "line": 178,
+      "found": true,
+      "text": " M test/go.sum"
+    },
+    {
+      "line": 179,
+      "found": true,
+      "text": " M test/go.mod"
+    },
+    {
+      "line": 180,
+      "found": true,
+      "text": " M test/go.sum"
+    },
+    {
+      "line": 181,
+      "found": true,
+      "text": "+ echo Please run 'go mod tidy' and commit the changes"
+    },
+    {
+      "line": 182,
+      "found": true,
+      "text": "Please run 'go mod tidy' and commit the changes"
+    }
+  ],
+  "citation_validity": 1.0
+}

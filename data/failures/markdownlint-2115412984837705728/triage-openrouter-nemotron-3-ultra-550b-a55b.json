@@ -1,0 +1,20 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "code_bug",
+  "summary": "The markdownlint check fails due to trailing spaces in design/baremetal-operator/pre-boot-file-injection.md at line 106.",
+  "cited_lines": [
+    9
+  ],
+  "latency_s": 3.65,
+  "input_tokens": 363,
+  "output_tokens": 285,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 9,
+      "found": true,
+      "text": "design/baremetal-operator/pre-boot-file-injection.md:106:69 MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]"
+    }
+  ],
+  "citation_validity": 1.0
+}

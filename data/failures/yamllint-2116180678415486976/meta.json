@@ -1,0 +1,36 @@
+{
+  "type": "presubmit",
+  "refs": {
+    "org": "metal3-io",
+    "repo": "baremetal-operator",
+    "repo_link": "https://github.com/metal3-io/baremetal-operator",
+    "base_ref": "main",
+    "base_sha": "4fec2b4a4d3aea20ee7132f1a6eb89cc3ac1c184",
+    "base_link": "https://github.com/metal3-io/baremetal-operator/commit/4fec2b4a4d3aea20ee7132f1a6eb89cc3ac1c184",
+    "pulls": [
+      {
+        "number": 3267,
+        "author": "elfosardo",
+        "sha": "e39c46c81976ba5f3275d712c400904188009ede",
+        "title": ":bug: Skip webhook validation for metadata-only BMH updates",
+        "head_ref": "skip-webhook-metadata",
+        "link": "https://github.com/metal3-io/baremetal-operator/pull/3267",
+        "commit_link": "https://github.com/metal3-io/baremetal-operator/pull/3267/commits/e39c46c81976ba5f3275d712c400904188009ede",
+        "author_link": "https://github.com/elfosardo"
+      }
+    ]
+  },
+  "refs_key": "main:4fec2b4a4d3aea20ee7132f1a6eb89cc3ac1c184,3267:e39c46c81976ba5f3275d712c400904188009ede",
+  "job": "yamllint",
+  "build_id": "2116180678415486976",
+  "context": "yamllint",
+  "started": "1793371765",
+  "finished": "2026-10-30T14:49:39Z",
+  "duration": "14s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/pr-logs/pull/metal3-io_baremetal-operator/3267/yamllint/2116180678415486976",
+  "pod_name": "71c55cba-9730-45ab-98b9-0c90e82e497b",
+  "agent": "kubernetes",
+  "prow_job": "71c55cba-9730-45ab-98b9-0c90e82e497b"
+}

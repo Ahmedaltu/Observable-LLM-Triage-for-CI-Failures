@@ -1,0 +1,68 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "config_error",
+  "summary": "The CI job detected that go.mod and go.sum files in the test directory are not tidy, requiring 'go mod tidy' to be run and changes committed.",
+  "cited_lines": [
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183
+  ],
+  "latency_s": 9.38,
+  "input_tokens": 339,
+  "output_tokens": 358,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 175,
+      "found": true,
+      "text": "+ echo one of the go.mod and/or go.sum files changed"
+    },
+    {
+      "line": 176,
+      "found": true,
+      "text": "one of the go.mod and/or go.sum files changed"
+    },
+    {
+      "line": 177,
+      "found": true,
+      "text": "+ echo  M test/go.mod"
+    },
+    {
+      "line": 178,
+      "found": true,
+      "text": " M test/go.sum"
+    },
+    {
+      "line": 179,
+      "found": true,
+      "text": " M test/go.mod"
+    },
+    {
+      "line": 180,
+      "found": true,
+      "text": " M test/go.sum"
+    },
+    {
+      "line": 181,
+      "found": true,
+      "text": "+ echo Please run 'go mod tidy' and commit the changes"
+    },
+    {
+      "line": 182,
+      "found": true,
+      "text": "Please run 'go mod tidy' and commit the changes"
+    },
+    {
+      "line": 183,
+      "found": true,
+      "text": "+ exit 1"
+    }
+  ],
+  "citation_validity": 1.0
+}

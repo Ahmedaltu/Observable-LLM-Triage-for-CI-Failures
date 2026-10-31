@@ -1,0 +1,38 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "config_error",
+  "summary": "Incorrect markdownlint-cli2 configuration",
+  "cited_lines": [
+    4,
+    5,
+    6,
+    9
+  ],
+  "latency_s": 8.95,
+  "input_tokens": 349,
+  "output_tokens": 41,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 4,
+      "found": true,
+      "text": "+ markdownlint-cli2 '**/*.md' '#.github'"
+    },
+    {
+      "line": 5,
+      "found": true,
+      "text": "markdownlint-cli2 v0.14.0 (markdownlint v0.35.0)"
+    },
+    {
+      "line": 6,
+      "found": true,
+      "text": "Finding: **/*.md !.github"
+    },
+    {
+      "line": 9,
+      "found": true,
+      "text": "design/baremetal-operator/pre-boot-file-injection.md:106:69 MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]"
+    }
+  ],
+  "citation_validity": 1.0
+}

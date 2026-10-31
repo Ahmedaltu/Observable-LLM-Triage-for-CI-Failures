@@ -1,0 +1,11 @@
+...
+172: config/namespace/kustomization.yaml
+173: config/namespace/namespace.yaml ./apis/metal3.io/v1alpha1/zz_generated.deepcopy.go
+174: ./apis/metal3.io/v1alpha1/zz_generated.conversion.go
+175: ./apis/metal3.io/v1beta1/zz_generated.deepcopy.go
+176: + cksum config/samples/metal3.io_v1alpha1_hostdeploypolicy.yaml config/samples/baremetalswitch_sample.yaml config/samples/metal3.io_v1alpha1_dataimage.yaml config/samples/metal3.io_v1alpha1_firmwareschema.yaml config/samples/metal3.io_v1alpha1_hostfirmwarecomponents.yaml config/samples/metal3.io_v1alpha1_hostfirmwaresettings.yaml config/samples/metal3.io_v1alpha1_preprovisioningimage.yaml config/samples/metal3.io_v1alpha1_hostclaim.yaml config/samples/metal3.io_v1alpha1_hostnetworkattachment.yam
+177: + export VERBOSE=--verbose
+178: + make generate manifests
+179: cd hack/tools; go build -o /tmp/generate/tools/bin/controller-gen sigs.k8s.io/controller-tools/cmd/controller-gen
+180: go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)
+181: make: *** [Makefile:255: tools/bin/controller-gen] Error 1

@@ -1,0 +1,20 @@
+{
+  "model": "ollama-llama3.2:3b",
+  "category": "config_error",
+  "summary": "Merge conflict in Dockerfile prevents successful checkout and merge.",
+  "cited_lines": [
+    332
+  ],
+  "latency_s": 10.39,
+  "input_tokens": 572,
+  "output_tokens": 36,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 332,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in Dockerfile"
+    }
+  ],
+  "citation_validity": 1.0
+}

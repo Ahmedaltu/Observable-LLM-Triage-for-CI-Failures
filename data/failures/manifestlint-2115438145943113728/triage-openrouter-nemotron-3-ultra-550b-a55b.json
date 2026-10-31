@@ -1,0 +1,32 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "config_error",
+  "summary": "The CI job failed because the pull request cannot be merged into the target branch due to a merge conflict in the Dockerfile.",
+  "cited_lines": [
+    331,
+    332,
+    333
+  ],
+  "latency_s": 4.48,
+  "input_tokens": 704,
+  "output_tokens": 294,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 331,
+      "found": true,
+      "text": "Auto-merging Dockerfile"
+    },
+    {
+      "line": 332,
+      "found": true,
+      "text": "CONFLICT (content): Merge conflict in Dockerfile"
+    },
+    {
+      "line": 333,
+      "found": true,
+      "text": "Automatic merge failed; fix conflicts and then commit the result."
+    }
+  ],
+  "citation_validity": 1.0
+}

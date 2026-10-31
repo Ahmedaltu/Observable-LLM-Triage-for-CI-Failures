@@ -1,0 +1,36 @@
+{
+  "type": "presubmit",
+  "refs": {
+    "org": "metal3-io",
+    "repo": "baremetal-operator",
+    "repo_link": "https://github.com/metal3-io/baremetal-operator",
+    "base_ref": "main",
+    "base_sha": "ed91ef80ce226a6bdd23b8794990d0008a07f0ee",
+    "base_link": "https://github.com/metal3-io/baremetal-operator/commit/ed91ef80ce226a6bdd23b8794990d0008a07f0ee",
+    "pulls": [
+      {
+        "number": 3769,
+        "author": "alegacy",
+        "sha": "fef16213df030dda1fe0689ba6199fa729c391ab",
+        "title": "\u26a0\ufe0f Remove delete/update constraints on HNA when still referenced by BMH",
+        "head_ref": "worktree/hna-port-config-recovery",
+        "link": "https://github.com/metal3-io/baremetal-operator/pull/3769",
+        "commit_link": "https://github.com/metal3-io/baremetal-operator/pull/3769/commits/fef16213df030dda1fe0689ba6199fa729c391ab",
+        "author_link": "https://github.com/alegacy"
+      }
+    ]
+  },
+  "refs_key": "main:ed91ef80ce226a6bdd23b8794990d0008a07f0ee,3769:fef16213df030dda1fe0689ba6199fa729c391ab",
+  "job": "gomod",
+  "build_id": "2116227763982569472",
+  "context": "gomod",
+  "started": "1793382991",
+  "finished": "2026-10-30T17:56:42Z",
+  "duration": "11s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/pr-logs/pull/metal3-io_baremetal-operator/3769/gomod/2116227763982569472",
+  "pod_name": "1c7fd4ec-e9ac-4eb3-9063-c3853ac62d9d",
+  "agent": "kubernetes",
+  "prow_job": "1c7fd4ec-e9ac-4eb3-9063-c3853ac62d9d"
+}

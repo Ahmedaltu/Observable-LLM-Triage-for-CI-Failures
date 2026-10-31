@@ -1,0 +1,19 @@
+...
+51: $ PWD=/home/prow/go/src/github.com/metal3-io/project-infra  git submodule update --init --recursive (runtime: 18.25732ms)
+52: # Final SHA: 2d6e7e9ed5e16ba38c1faf629b56b08e6525a08e
+53: # Total runtime: 1.926394508s
+54: # FAILED
+55: # Cloning metal3-io/baremetal-operator at main(4fec2b4a4d3aea20ee7132f1a6eb89cc3ac1c184)
+56: # Checking out pulls:
+57: #	3267(e39c46c81976ba5f3275d712c400904188009ede)
+...
+384: Auto-merging config/render/capm3.yaml
+385: Auto-merging go.mod
+386: Auto-merging hack/tools/go.mod
+387: CONFLICT (content): Merge conflict in hack/tools/go.mod
+388: Auto-merging hack/tools/go.sum
+389: CONFLICT (content): Merge conflict in hack/tools/go.sum
+390: Automatic merge failed; fix conflicts and then commit the result.
+391: # Error: exit status 1
+392: # Final SHA: 
+393: # Total runtime: 0s

@@ -1,0 +1,50 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "code_bug",
+  "summary": "The lint step fails due to a govet error about a shadowed variable 'err' in config/base/webhook/matchconditions_test.go.",
+  "cited_lines": [
+    296,
+    297,
+    298,
+    299,
+    300,
+    304
+  ],
+  "latency_s": 9.45,
+  "input_tokens": 950,
+  "output_tokens": 515,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 296,
+      "found": true,
+      "text": "config/base/webhook/matchconditions_test.go:49:5: shadow: declaration of \"err\" shadows declaration at line 35 (govet)"
+    },
+    {
+      "line": 297,
+      "found": true,
+      "text": "\tif err := yaml.Unmarshal(data, &manifest); err != nil {"
+    },
+    {
+      "line": 298,
+      "found": true,
+      "text": "\t   ^"
+    },
+    {
+      "line": 299,
+      "found": true,
+      "text": "1 issues:"
+    },
+    {
+      "line": 300,
+      "found": true,
+      "text": "* govet: 1"
+    },
+    {
+      "line": 304,
+      "found": true,
+      "text": "make: *** [Makefile:203: lint] Error 1"
+    }
+  ],
+  "citation_validity": 1.0
+}

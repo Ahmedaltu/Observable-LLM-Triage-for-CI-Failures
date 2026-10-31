@@ -1,0 +1,11 @@
+...
+242: go: downloading sigs.k8s.io/kustomize/kustomize/v5 v5.8.2
+243: go: downloading sigs.k8s.io/kustomize/cmd/config v0.21.2
+244: go: downloading github.com/sergi/go-diff v1.4.0
+245: tools/bin/kustomize build config/default > config/render/capm3.yaml
+246: + cksum config/samples/metal3.io_v1alpha1_hostdeploypolicy.yaml config/samples/baremetalswitch_sample.yaml config/samples/metal3.io_v1alpha1_dataimage.yaml config/samples/metal3.io_v1alpha1_firmwareschema.yaml config/samples/metal3.io_v1alpha1_hostfirmwarecomponents.yaml config/samples/metal3.io_v1alpha1_hostfirmwaresettings.yaml config/samples/metal3.io_v1alpha1_preprovisioningimage.yaml config/samples/metal3.io_v1alpha1_hostclaim.yaml config/samples/metal3.io_v1alpha1_hostnetworkattachment.yam
+247: + diff /logs/artifacts/lint.cksums.before /logs/artifacts/lint.cksums.after
+248: 165c165
+249: < 2170723417 77547 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go
+250: ---
+251: > 371018303 63197 ./apis/metal3.io/v1alpha1/zz_generated.conversion.go

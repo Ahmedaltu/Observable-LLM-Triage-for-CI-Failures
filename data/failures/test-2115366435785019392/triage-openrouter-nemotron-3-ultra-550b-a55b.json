@@ -1,0 +1,80 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "code_bug",
+  "summary": "The lint step fails due to four govet shadowing errors in test files where variable 'err' is redeclared, causing 'make lint' to exit with error.",
+  "cited_lines": [
+    363,
+    364,
+    366,
+    367,
+    369,
+    370,
+    372,
+    373,
+    375,
+    376,
+    380
+  ],
+  "latency_s": 13.28,
+  "input_tokens": 1166,
+  "output_tokens": 542,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 363,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/pool.go:308:5: shadow: declaration of \"err\" shadows declaration at line 302 (govet)"
+    },
+    {
+      "line": 364,
+      "found": true,
+      "text": "\tif err := pool.Refresh(0); err != nil { // pick up files added outside libvirt"
+    },
+    {
+      "line": 366,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:161:6: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 367,
+      "found": true,
+      "text": "\t\tif err := domain.Destroy(); err != nil {"
+    },
+    {
+      "line": 369,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:168:5: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 370,
+      "found": true,
+      "text": "\tif err := domain.UndefineFlags(libvirt.DOMAIN_UNDEFINE_NVRAM); err != nil {"
+    },
+    {
+      "line": 372,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:179:6: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 373,
+      "found": true,
+      "text": "\t\tif err := m.deleteVMVolumes(ctx, name); err != nil {"
+    },
+    {
+      "line": 375,
+      "found": true,
+      "text": "4 issues:"
+    },
+    {
+      "line": 376,
+      "found": true,
+      "text": "* govet: 4"
+    },
+    {
+      "line": 380,
+      "found": true,
+      "text": "make: *** [Makefile:205: lint] Error 1"
+    }
+  ],
+  "citation_validity": 1.0
+}

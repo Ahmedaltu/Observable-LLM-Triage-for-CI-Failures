@@ -1,0 +1,302 @@
+GOBIN=/home/prow/go/src/github.com/metal3-io/baremetal-operator/hack/tools/bin go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.10.1
+go: downloading github.com/golangci/golangci-lint/v2 v2.10.1
+go: downloading github.com/charmbracelet/lipgloss v1.1.0
+go: downloading github.com/fatih/color v1.18.0
+go: downloading github.com/gofrs/flock v0.13.0
+go: downloading github.com/hashicorp/go-version v1.8.0
+go: downloading github.com/ldez/grignotin v0.10.1
+go: downloading github.com/pelletier/go-toml/v2 v2.2.4
+go: downloading github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
+go: downloading github.com/spf13/cobra v1.10.2
+go: downloading github.com/spf13/pflag v1.0.10
+go: downloading github.com/spf13/viper v1.12.0
+go: downloading github.com/pelletier/go-toml v1.9.5
+go: downloading go.yaml.in/yaml/v3 v3.0.4
+go: downloading golang.org/x/mod v0.33.0
+go: downloading golang.org/x/tools v0.42.0
+go: downloading github.com/go-viper/mapstructure/v2 v2.5.0
+go: downloading github.com/mitchellh/go-homedir v1.1.0
+go: downloading github.com/alecthomas/chroma/v2 v2.23.1
+go: downloading github.com/rogpeppe/go-internal v1.14.1
+go: downloading github.com/golangci/plugin-module-register v0.1.2
+go: downloading github.com/mattn/go-colorable v0.1.14
+go: downloading github.com/sirupsen/logrus v1.9.4
+go: downloading github.com/stretchr/testify v1.11.1
+go: downloading github.com/go-xmlfmt/xmlfmt v1.1.3
+go: downloading github.com/golangci/revgrep v0.8.0
+go: downloading github.com/mattn/go-isatty v0.0.20
+go: downloading github.com/fsnotify/fsnotify v1.5.4
+go: downloading github.com/mitchellh/mapstructure v1.5.0
+go: downloading github.com/spf13/afero v1.15.0
+go: downloading github.com/spf13/cast v1.5.0
+go: downloading github.com/spf13/jwalterweatherman v1.1.0
+go: downloading golang.org/x/sys v0.41.0
+go: downloading golang.org/x/text v0.34.0
+go: downloading github.com/charmbracelet/x/ansi v0.10.1
+go: downloading github.com/charmbracelet/x/cellbuf v0.0.13-0.20250311204145-2c3ea96c31dd
+go: downloading github.com/muesli/termenv v0.16.0
+go: downloading github.com/rivo/uniseg v0.4.7
+go: downloading golang.org/x/sync v0.19.0
+go: downloading github.com/daixiang0/gci v0.13.7
+go: downloading github.com/golangci/gofmt v0.0.0-20250106114630-d62b90e6713d
+go: downloading mvdan.cc/gofumpt v0.9.2
+go: downloading github.com/golangci/golines v0.15.0
+go: downloading github.com/sourcegraph/go-diff v0.7.0
+go: downloading github.com/golangci/swaggoswag v0.0.0-20250504205917-77f2aca3143e
+go: downloading go.augendre.info/arangolint v0.4.0
+go: downloading github.com/alingse/asasalint v0.0.11
+go: downloading github.com/golangci/asciicheck v0.5.0
+go: downloading github.com/breml/bidichk v0.3.3
+go: downloading github.com/timakin/bodyclose v0.0.0-20241222091800-1db5c5ca4d67
+go: downloading github.com/lasiar/canonicalheader v1.1.2
+go: downloading github.com/sivchari/containedctx v1.0.3
+go: downloading github.com/kkHAIKE/contextcheck v1.1.6
+go: downloading github.com/karamaru-alpha/copyloopvar v1.2.2
+go: downloading github.com/bkielbasa/cyclop v1.2.3
+go: downloading gitlab.com/bosi/decorder v0.4.2
+go: downloading github.com/OpenPeeDeeP/depguard/v2 v2.2.1
+go: downloading github.com/golangci/dupl v0.0.0-20250308024227-f665c8d69b32
+go: downloading github.com/Abirdcfly/dupword v0.1.7
+go: downloading github.com/charithe/durationcheck v0.0.11
+go: downloading github.com/manuelarte/embeddedstructfieldcheck v0.4.0
+go: downloading github.com/Djarvur/go-err113 v0.1.1
+go: downloading github.com/kisielk/errcheck v1.9.0
+go: downloading github.com/breml/errchkjson v0.4.1
+go: downloading github.com/Antonboom/errname v1.1.1
+go: downloading codeberg.org/polyfloyd/go-errorlint v1.9.0
+go: downloading github.com/nishanths/exhaustive v0.12.0
+go: downloading dev.gaijin.team/go/exhaustruct/v4 v4.0.0
+go: downloading github.com/ldez/exptostd v0.4.5
+go: downloading go.augendre.info/fatcontext v0.9.0
+go: downloading github.com/ashanbrown/forbidigo/v2 v2.3.0
+go: downloading github.com/gostaticanalysis/forcetypeassert v0.2.0
+go: downloading github.com/manuelarte/funcorder v0.5.0
+go: downloading github.com/ultraware/funlen v0.2.0
+go: downloading github.com/nunnatsa/ginkgolinter v0.23.0
+go: downloading 4d63.com/gocheckcompilerdirectives v1.3.0
+go: downloading 4d63.com/gochecknoglobals v0.2.2
+go: downloading github.com/alecthomas/go-check-sumtype v0.3.1
+go: downloading github.com/uudashr/gocognit v1.2.0
+go: downloading github.com/jgautheron/goconst v1.8.2
+go: downloading github.com/fzipp/gocyclo v0.6.0
+go: downloading github.com/godoc-lint/godoc-lint v0.11.2
+go: downloading github.com/tetafro/godot v1.5.4
+go: downloading github.com/matoous/godox v1.1.0
+go: downloading github.com/go-critic/go-critic v0.14.3
+go: downloading github.com/quasilyte/go-ruleguard/dsl v0.3.23
+go: downloading github.com/denis-tingaikin/go-header v0.5.0
+go: downloading github.com/quasilyte/go-ruleguard v0.4.5
+go: downloading github.com/ldez/gomoddirectives v0.8.0
+go: downloading github.com/golangci/go-printf-func-name v0.1.1
+go: downloading github.com/ryancurrah/gomodguard v1.4.1
+go: downloading github.com/xen0n/gosmopolitan v1.3.0
+go: downloading github.com/securego/gosec/v2 v2.23.0
+go: downloading github.com/leonklingele/grouper v1.1.2
+go: downloading github.com/uudashr/iface v1.4.1
+go: downloading github.com/julz/importas v0.2.0
+go: downloading github.com/macabu/inamedparam v0.2.0
+go: downloading github.com/gordonklaus/ineffassign v0.2.0
+go: downloading github.com/sashamelentyev/interfacebloat v1.1.0
+go: downloading github.com/ckaznocha/intrange v0.3.1
+go: downloading github.com/AdminBenni/iota-mixing v1.0.0
+go: downloading github.com/butuzov/ireturn v0.4.0
+go: downloading github.com/yagipy/maintidx v1.0.0
+go: downloading github.com/timonwong/loggercheck v0.11.0
+go: downloading github.com/ashanbrown/makezero/v2 v2.1.0
+go: downloading github.com/butuzov/mirror v1.3.0
+go: downloading github.com/golangci/misspell v0.8.0
+go: downloading github.com/tommy-muehle/go-mnd/v2 v2.5.1
+go: downloading go-simpler.org/musttag v0.14.0
+go: downloading github.com/alexkohler/nakedret/v2 v2.0.6
+go: downloading github.com/nakabonne/nestif v0.3.1
+go: downloading github.com/gostaticanalysis/nilerr v0.1.2
+go: downloading github.com/Antonboom/nilnil v1.1.1
+go: downloading github.com/ssgreg/nlreturn/v2 v2.2.1
+go: downloading github.com/sonatard/noctx v0.4.0
+go: downloading github.com/alingse/nilnesserr v0.2.0
+go: downloading github.com/AlwxSin/noinlineerr v1.0.5
+go: downloading github.com/firefart/nonamedreturns v1.0.6
+go: downloading github.com/stbenjam/no-sprintf-host-port v0.3.1
+go: downloading github.com/kunwardeep/paralleltest v1.0.15
+go: downloading github.com/catenacyber/perfsprint v0.10.1
+go: downloading github.com/nishanths/predeclared v0.2.2
+go: downloading github.com/yeya24/promlinter v0.3.0
+go: downloading github.com/ghostiam/protogetter v0.3.20
+go: downloading github.com/curioswitch/go-reassign v0.3.0
+go: downloading github.com/raeperd/recvcheck v0.2.0
+go: downloading github.com/BurntSushi/toml v1.6.0
+go: downloading github.com/mgechev/revive v1.14.0
+go: downloading github.com/jingyugao/rowserrcheck v1.1.1
+go: downloading github.com/alexkohler/prealloc v1.0.2
+go: downloading go-simpler.org/sloglint v0.11.1
+go: downloading github.com/jjti/go-spancheck v0.6.5
+go: downloading github.com/ryanrolds/sqlclosecheck v0.5.1
+go: downloading github.com/4meepo/tagalign v1.4.3
+go: downloading github.com/ldez/tagliatelle v0.7.2
+go: downloading honnef.co/go/tools v0.7.0
+go: downloading github.com/maratori/testableexamples v1.0.1
+go: downloading github.com/maratori/testpackage v1.1.2
+go: downloading github.com/Antonboom/testifylint v1.6.4
+go: downloading github.com/kulti/thelper v0.7.1
+go: downloading github.com/moricho/tparallel v0.3.2
+go: downloading github.com/golangci/unconvert v0.0.0-20250410112200-a129a6e6413e
+go: downloading mvdan.cc/unparam v0.0.0-20251027182757-5beb8c8f8f15
+go: downloading github.com/MirrexOne/unqueryvet v1.5.3
+go: downloading github.com/sashamelentyev/usestdlibvars v1.29.0
+go: downloading github.com/ldez/usetesting v0.5.0
+go: downloading github.com/sanposhiho/wastedassign/v2 v2.1.0
+go: downloading github.com/ultraware/whitespace v0.2.0
+go: downloading github.com/tomarrell/wrapcheck/v2 v2.12.0
+go: downloading github.com/bombsimon/wsl/v4 v4.7.0
+go: downloading github.com/blizzy78/varnamelen v0.8.0
+go: downloading github.com/bombsimon/wsl/v5 v5.6.0
+go: downloading github.com/ykadowak/zerologlint v0.1.5
+go: downloading github.com/davecgh/go-spew v1.1.1
+go: downloading github.com/pmezard/go-difflib v1.0.0
+go: downloading github.com/stretchr/objx v0.5.2
+go: downloading github.com/subosito/gotenv v1.4.1
+go: downloading github.com/hashicorp/hcl v1.0.0
+go: downloading gopkg.in/ini.v1 v1.67.0
+go: downloading github.com/magiconair/properties v1.8.6
+go: downloading gopkg.in/yaml.v3 v3.0.1
+go: downloading github.com/lucasb-eyer/go-colorful v1.2.0
+go: downloading github.com/mattn/go-runewidth v0.0.16
+go: downloading github.com/charmbracelet/colorprofile v0.2.3-0.20250311203215-f60798e515dc
+go: downloading github.com/charmbracelet/x/term v0.2.1
+go: downloading github.com/aymanbagabas/go-osc52/v2 v2.0.1
+go: downloading github.com/hexops/gotextdiff v1.0.3
+go: downloading go.uber.org/zap v1.27.0
+go: downloading github.com/dave/dst v0.27.3
+go: downloading github.com/gostaticanalysis/analysisutil v0.7.1
+go: downloading github.com/google/go-cmp v0.7.0
+go: downloading github.com/gobwas/glob v0.2.3
+go: downloading github.com/go-toolsmith/astcast v1.1.0
+go: downloading dev.gaijin.team/go/golib v0.6.0
+go: downloading github.com/Masterminds/semver/v3 v3.4.0
+go: downloading github.com/go-toolsmith/astfmt v1.1.0
+go: downloading github.com/go-toolsmith/astcopy v1.1.0
+go: downloading github.com/go-toolsmith/astequal v1.2.0
+go: downloading github.com/go-toolsmith/astp v1.1.0
+go: downloading github.com/go-toolsmith/strparse v1.1.0
+go: downloading github.com/go-toolsmith/typep v1.1.0
+go: downloading github.com/quasilyte/regex/syntax v0.0.0-20210819130434-b3f0c404a727
+go: downloading github.com/ccojocar/zxcvbn-go v1.0.4
+go: downloading github.com/gostaticanalysis/comment v1.5.0
+go: downloading github.com/prometheus/client_golang v1.12.1
+go: downloading github.com/prometheus/client_model v0.2.0
+go: downloading github.com/ettle/strcase v0.2.0
+go: downloading github.com/fatih/structtag v1.2.0
+go: downloading github.com/alfatraining/structtag v1.0.0
+go: downloading github.com/hashicorp/go-immutable-radix/v2 v2.1.0
+go: downloading github.com/dlclark/regexp2 v1.11.5
+go: downloading go.uber.org/multierr v1.10.0
+go: downloading github.com/ldez/structtags v0.6.1
+go: downloading github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e
+go: downloading golang.org/x/exp/typeparams v0.0.0-20260209203927-2842357ff358
+go: downloading github.com/quasilyte/gogrep v0.5.0
+go: downloading github.com/quasilyte/stdinfo v0.0.0-20220114132959-f7386bf02567
+go: downloading codeberg.org/chavacava/garif v0.2.0
+go: downloading github.com/golang/protobuf v1.5.3
+go: downloading github.com/prometheus/common v0.32.1
+go: downloading github.com/beorn7/perks v1.0.1
+go: downloading github.com/cespare/xxhash/v2 v2.3.0
+go: downloading golang.org/x/exp v0.0.0-20250620022241-b7579e27df2b
+go: downloading github.com/prometheus/procfs v0.7.3
+go: downloading google.golang.org/protobuf v1.36.8
+go: downloading github.com/hashicorp/golang-lru/v2 v2.0.7
+go: downloading github.com/matttproud/golang_protobuf_extensions v1.0.1
+/home/prow/go/src/github.com/metal3-io/baremetal-operator/hack/tools/bin/golangci-lint run -v  ./... --timeout=10m
+level=info msg="golangci-lint has version 2.10.1 built with go1.26.5 from (unknown, modified: ?, mod sum: \"h1:flhw5Px6ojbLyEFzXvJn5B2HEdkkRlkhE1SnmCbQBiE=\") on (unknown)"
+level=info msg="[config_reader] Config search paths: [./ /home/prow/go/src/github.com/metal3-io/baremetal-operator /home/prow/go/src/github.com/metal3-io /home/prow/go/src/github.com /home/prow/go/src /home/prow/go /home/prow /home / /root]"
+level=info msg="[config_reader] Used config file .golangci.yaml"
+level=info msg="[goenv] Read go env for 4.916528ms: map[string]string{\"GOCACHE\":\"/root/.cache/go-build\", \"GOROOT\":\"/usr/local/go\"}"
+level=info msg="[lintersdb] Active 65 linters: [asasalint asciicheck bidichk bodyclose containedctx copyloopvar decorder dogsled dupl dupword durationcheck errcheck errchkjson errname errorlint exhaustive exptostd fatcontext forbidigo forcetypeassert gci ginkgolinter gocheckcompilerdirectives gochecksumtype goconst gocritic godot gofmt goprintffuncname gosec gosmopolitan govet iface importas ineffassign intrange loggercheck makezero mirror misspell mnd nakedret nilerr nilnesserr nilnil noctx nolintlint nosprintfhostport perfsprint prealloc predeclared reassign revive rowserrcheck staticcheck tagliatelle testifylint thelper tparallel unconvert unparam unused usestdlibvars usetesting whitespace]"
+level=info msg="[loader] Using build tags: [e2e vbmctl]"
+level=info msg="[loader] Go packages loading at mode 8767 (files|imports|compiled_files|name|types_sizes|deps|exports_file) took 52.977066677s"
+level=info msg="[runner/filename_unadjuster] Pre-built 0 adjustments in 27.853368ms"
+level=info msg="[linters_context/goanalysis] analyzers took 4m42.753967606s with top 10 stages: buildir: 3m21.71141499s, revive: 9.49217657s, exhaustive: 6.590196633s, gosec: 4.727982399s, printf: 4.599194461s, gocritic: 4.298926259s, nilness: 3.787902866s, fact_purity: 2.683888602s, inspect: 2.399106787s, fact_deprecated: 2.274416906s"
+level=warning msg="[runner/exclusion_paths] The pattern \".*conversion.*\\\\.go$\" match no issues"
+level=warning msg="[runner/exclusion_paths] The pattern \"mock*\" match no issues"
+level=warning msg="[runner/exclusion_paths] The pattern \"zz_generated.*\\\\.go$\" match no issues"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"test/e2e\", Linters: \"dupl, goconst, gosec\"]"
+level=info msg="[runner/exclusion_rules] Skipped 8 issues by rules: [Text: \"SA1019:\", Linters: \"staticcheck\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019: \\\"sigs.k8s.io/cluster-api/util/deprecated/v1beta1/patch\\\" is deprecated: Deprecated: This package is deprecated and is going to be removed when support for v1beta1 will be dropped.\", Linters: \"staticcheck\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"receiver-naming: receiver name\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"revive\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"ST1003: should not use underscores in Go names;\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"staticcheck\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"mock*\", Linters: \"gci, gofmt\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"should not use dot imports\", Path: \"_test\\\\.go\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"should not use dot imports\", Path: \"(test|e2e)/.*.go\"]"
+level=info msg="[runner/exclusion_rules] Skipped 10 issues by rules: [Text: \"should not use dot imports\", Source: \"^\\\\s*\\\\.\\\\s+\\\"github.com/metal3-io/baremetal-operator/pkg/logging\\\"$\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported (method|function|type|const) (.+) should have comment or be unexported\", Source: \"(func|type).*Fake.*\", Linters: \"revive\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported (method|function|type|const) (.+) should have comment or be unexported\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"revive\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"ST1016: methods on the same type should have the same receiver name\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"staticcheck\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"zz_generated.*\\\\.go$\", Linters: \"gci, gofmt\"]"
+level=info msg="[runner/exclusion_rules] Skipped 211 issues by rules: [Path: \"_test\\\\.go\", Linters: \"errcheck, goconst, gosec, noctx, revive, staticcheck, unparam, unused\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019:\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"staticcheck\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported (method|function|type|const) (.+) should have comment or be unexported\", Path: \"fake_\\\\.go\", Linters: \"revive\"]"
+level=info msg="[runner/exclusion_rules] Skipped 7 issues by rules: [Text: \"exported: exported method .*\\\\.(Reconcile|SetupWithManager|SetupWebhookWithManager) should have comment or be unexported\", Linters: \"revive\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"var-naming: don't use underscores in Go names;\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"revive\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"RAID|MAC|BMO|VLAN\", Linters: \"tagliatelle\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \".*conversion.*\\\\.go$\", Linters: \"gci, gofmt\"]"
+level=info msg="[runner] Issues before processing: 463, after processing: 0"
+level=info msg="[runner] Processors filtering stat (in/out): path_relativity: 463/463, nolint_filter: 78/0, path_absoluter: 463/463, cgo: 463/463, invalid_issue: 463/463, exclusion_paths: 463/463, filename_unadjuster: 463/463, generated_file_filter: 463/463, exclusion_rules: 463/78"
+level=info msg="[runner] processing took 31.746917ms with stages: nolint_filter: 22.420936ms, exclusion_rules: 5.826115ms, generated_file_filter: 1.848723ms, exclusion_paths: 883.613µs, path_relativity: 693.844µs, cgo: 27.171µs, invalid_issue: 23.108µs, path_absoluter: 9.441µs, filename_unadjuster: 3.754µs, sort_results: 3.093µs, max_same_issues: 1.893µs, fixer: 1.218µs, diff: 893ns, path_prettifier: 653ns, source_code: 537ns, uniq_by_line: 506ns, path_shortener: 432ns, max_per_file_from_linter: 361ns, severity-rules: 331ns, max_from_linter: 295ns"
+level=info msg="[runner] linters took 39.236961772s with stages: goanalysis_metalinter: 39.205031565s"
+0 issues.
+level=info msg="File cache stats: 21 entries of total size 301.7KiB"
+level=info msg="Memory: 908 samples, avg is 748.1MB, max is 3162.0MB"
+level=info msg="Execution took 1m32.253064473s"
+cd apis; /home/prow/go/src/github.com/metal3-io/baremetal-operator/hack/tools/bin/golangci-lint run -v  ./... --timeout=10m
+level=info msg="golangci-lint has version 2.10.1 built with go1.26.5 from (unknown, modified: ?, mod sum: \"h1:flhw5Px6ojbLyEFzXvJn5B2HEdkkRlkhE1SnmCbQBiE=\") on (unknown)"
+level=info msg="[config_reader] Config search paths: [./ /home/prow/go/src/github.com/metal3-io/baremetal-operator/apis /home/prow/go/src/github.com/metal3-io/baremetal-operator /home/prow/go/src/github.com/metal3-io /home/prow/go/src/github.com /home/prow/go/src /home/prow/go /home/prow /home / /root]"
+level=info msg="[config_reader] Used config file ../.golangci.yaml"
+level=info msg="[goenv] Read go env for 7.03754ms: map[string]string{\"GOCACHE\":\"/root/.cache/go-build\", \"GOROOT\":\"/usr/local/go\"}"
+level=info msg="[lintersdb] Active 65 linters: [asasalint asciicheck bidichk bodyclose containedctx copyloopvar decorder dogsled dupl dupword durationcheck errcheck errchkjson errname errorlint exhaustive exptostd fatcontext forbidigo forcetypeassert gci ginkgolinter gocheckcompilerdirectives gochecksumtype goconst gocritic godot gofmt goprintffuncname gosec gosmopolitan govet iface importas ineffassign intrange loggercheck makezero mirror misspell mnd nakedret nilerr nilnesserr nilnil noctx nolintlint nosprintfhostport perfsprint prealloc predeclared reassign revive rowserrcheck staticcheck tagliatelle testifylint thelper tparallel unconvert unparam unused usestdlibvars usetesting whitespace]"
+level=info msg="[loader] Using build tags: [e2e vbmctl]"
+level=info msg="[loader] Go packages loading at mode 8767 (types_sizes|deps|exports_file|imports|compiled_files|files|name) took 9.483830656s"
+level=info msg="[runner/filename_unadjuster] Pre-built 0 adjustments in 12.292877ms"
+level=info msg="[linters_context/goanalysis] analyzers took 33.566427107s with top 10 stages: buildir: 19.766076636s, gocritic: 3.032377084s, exhaustive: 2.095261072s, printf: 1.171553522s, revive: 1.11091079s, inspect: 633.110609ms, fact_deprecated: 518.035426ms, gosec: 479.058311ms, ctrlflow: 392.506787ms, fact_purity: 360.063284ms"
+level=info msg="[runner/exclusion_paths] Skipped 223 issues by pattern \"zz_generated.*\\\\.go$\""
+level=info msg="[runner/exclusion_paths] Skipped 27 issues by pattern \".*conversion.*\\\\.go$\""
+level=warning msg="[runner/exclusion_paths] The pattern \"mock*\" match no issues"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019:\", Linters: \"staticcheck\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019:\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"staticcheck\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"should not use dot imports\", Source: \"^\\\\s*\\\\.\\\\s+\\\"github.com/metal3-io/baremetal-operator/pkg/logging\\\"$\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"SA1019: \\\"sigs.k8s.io/cluster-api/util/deprecated/v1beta1/patch\\\" is deprecated: Deprecated: This package is deprecated and is going to be removed when support for v1beta1 will be dropped.\", Linters: \"staticcheck\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"zz_generated.*\\\\.go$\", Linters: \"gci, gofmt\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \".*conversion.*\\\\.go$\", Linters: \"gci, gofmt\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"should not use dot imports\", Path: \"_test\\\\.go\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported (method|function|type|const) (.+) should have comment or be unexported\", Source: \"(func|type).*Fake.*\", Linters: \"revive\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported (method|function|type|const) (.+) should have comment or be unexported\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"revive\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"ST1003: should not use underscores in Go names;\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 5 issues by rules: [Path: \"_test\\\\.go\", Linters: \"errcheck, goconst, gosec, noctx, revive, staticcheck, unparam, unused\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported: exported method .*\\\\.(Reconcile|SetupWithManager|SetupWebhookWithManager) should have comment or be unexported\", Linters: \"revive\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"exported (method|function|type|const) (.+) should have comment or be unexported\", Path: \"fake_\\\\.go\", Linters: \"revive\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"ST1016: methods on the same type should have the same receiver name\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"staticcheck\"]"
+level=info msg="[runner/exclusion_rules] Skipped 12 issues by rules: [Text: \"RAID|MAC|BMO|VLAN\", Linters: \"tagliatelle\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"should not use dot imports\", Path: \"(test|e2e)/.*.go\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"var-naming: don't use underscores in Go names;\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"revive\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Text: \"receiver-naming: receiver name\", Path: \".*(api|types)\\\\/.*\\\\/conversion.*\\\\.go$\", Linters: \"revive\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"mock*\", Linters: \"gci, gofmt\"]"
+level=warning msg="[runner/exclusion_rules] Skipped 0 issues by rules: [Path: \"test/e2e\", Linters: \"dupl, goconst, gosec\"]"
+level=warning msg="[runner/nolint_filter] Found unknown linters in //nolint directives: stylecheck"
+level=info msg="[runner] Issues before processing: 348, after processing: 0"
+level=info msg="[runner] Processors filtering stat (in/out): cgo: 348/348, path_relativity: 348/348, generated_file_filter: 98/98, nolint_filter: 32/0, filename_unadjuster: 348/348, invalid_issue: 348/348, exclusion_paths: 348/98, path_absoluter: 348/348, exclusion_rules: 98/32"
+level=info msg="[runner] processing took 8.91154ms with stages: nolint_filter: 3.302093ms, exclusion_rules: 1.789075ms, generated_file_filter: 1.716252ms, path_relativity: 1.141243ms, exclusion_paths: 899.85µs, cgo: 25.693µs, invalid_issue: 20.424µs, path_absoluter: 5.671µs, filename_unadjuster: 4.749µs, sort_results: 1.648µs, max_same_issues: 1.15µs, fixer: 899ns, diff: 654ns, path_prettifier: 611ns, path_shortener: 342ns, severity-rules: 312ns, max_per_file_from_linter: 261ns, source_code: 221ns, uniq_by_line: 214ns, max_from_linter: 178ns"
+level=info msg="[runner] linters took 9.427505305s with stages: goanalysis_metalinter: 9.418511761s"
+0 issues.
+level=info msg="File cache stats: 10 entries of total size 132.8KiB"
+level=info msg="Memory: 188 samples, avg is 447.6MB, max is 1167.4MB"
+level=info msg="Execution took 18.935354052s"
+cd test; /home/prow/go/src/github.com/metal3-io/baremetal-operator/hack/tools/bin/golangci-lint run -v  ./... --timeout=10m
+level=info msg="golangci-lint has version 2.10.1 built with go1.26.5 from (unknown, modified: ?, mod sum: \"h1:flhw5Px6ojbLyEFzXvJn5B2HEdkkRlkhE1SnmCbQBiE=\") on (unknown)"
+level=info msg="[config_reader] Config search paths: [./ /home/prow/go/src/github.com/metal3-io/baremetal-operator/test /home/prow/go/src/github.com/metal3-io/baremetal-operator /home/prow/go/src/github.com/metal3-io /home/prow/go/src/github.com /home/prow/go/src /home/prow/go /home/prow /home / /root]"
+level=info msg="[config_reader] Used config file ../.golangci.yaml"
+level=info msg="[goenv] Read go env for 3.782476ms: map[string]string{\"GOCACHE\":\"/root/.cache/go-build\", \"GOROOT\":\"/usr/local/go\"}"
+level=info msg="[lintersdb] Active 65 linters: [asasalint asciicheck bidichk bodyclose containedctx copyloopvar decorder dogsled dupl dupword durationcheck errcheck errchkjson errname errorlint exhaustive exptostd fatcontext forbidigo forcetypeassert gci ginkgolinter gocheckcompilerdirectives gochecksumtype goconst gocritic godot gofmt goprintffuncname gosec gosmopolitan govet iface importas ineffassign intrange loggercheck makezero mirror misspell mnd nakedret nilerr nilnesserr nilnil noctx nolintlint nosprintfhostport perfsprint prealloc predeclared reassign revive rowserrcheck staticcheck tagliatelle testifylint thelper tparallel unconvert unparam unused usestdlibvars usetesting whitespace]"
+level=info msg="[loader] Using build tags: [e2e vbmctl]"
+level=info msg="[loader] Go packages loading at mode 8767 (types_sizes|compiled_files|imports|deps|exports_file|files|name) took 12.793616ms"
+level=error msg="Running error: context loading failed: failed to load packages: failed to load packages: failed to load with go/packages: err: exit status 1: stderr: go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)\n"
+level=info msg="Memory: 2 samples, avg is 34.7MB, max is 34.7MB"
+level=info msg="Execution took 16.021291ms"
+make: *** [Makefile:205: lint] Error 3
