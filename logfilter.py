@@ -13,7 +13,11 @@ ERROR = re.compile(
     r"|Traceback",
     re.IGNORECASE,
 )
-NOISE = re.compile(r"^level=(info|debug)\b")  # structured info logs that merely mention errors
+NOISE = re.compile(
+    r"^level=(info|debug)\b"            # structured info logs that merely mention errors
+    r"|^\S+Z\s+(INFO|DEBUG)\s"          # same, zap/controller-runtime format: 2026-10-30T17:39:07Z  INFO  ...
+    r"|^\S+:\d+:\s+\S+\s+\d+(\.\d+)?%$"  # `go tool cover -func` line (file.go:12: Func 80.0%), not a finding
+)
 ANSI = re.compile(r"\x1b\[[0-9;]*m")
 BEFORE, AFTER, TAIL = 3, 3, 10
 MAX_LINES = 400   # ponytail: keeps the last 400 kept lines; rank hits if huge e2e logs lose the root cause

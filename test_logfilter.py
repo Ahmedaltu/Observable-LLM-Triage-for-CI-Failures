@@ -11,6 +11,6 @@ assert 52 in kept and 72 in kept                         # the hit and the log t
 assert 10 not in kept                                    # noise dropped
 assert render(filter_log(log)).startswith("...\n49: ")   # gap marker + line numbers
 assert dict(filter_log("\x1b[31mFAIL\x1b[0m x"))[1] == "FAIL x"
-for noise in ["run --timeout=10m", "go: downloading github.com/pkg/errors v0.9.1", 'level=info msg="x forbidden y"']:
+for noise in ["2026-10-30T17:39:07Z\tINFO\tcontrollers.BareMetalHost\tadding error message\t{}", "github.com/x/apis/zz_generated.deepcopy.go:502:\t\tDeepCopy\t\t\t0.0%", "run --timeout=10m", "go: downloading github.com/pkg/errors v0.9.1", 'level=info msg="x forbidden y"']:
     assert len(filter_log("\n".join([noise] + ["ok"] * 20))) == 10, noise   # only the tail kept
 print("ok")
