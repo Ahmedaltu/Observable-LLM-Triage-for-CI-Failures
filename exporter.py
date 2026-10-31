@@ -3,6 +3,7 @@
     python3 exporter.py    # serves http://localhost:8000/metrics
 """
 import json
+import statistics
 from collections import Counter, defaultdict
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
@@ -41,12 +42,62 @@ def metrics(jobs):
     return "\n".join(out) + "\n"
 
 
+def llm_metrics(results, labels, serve_runs):
+    """results: triage-*.json dicts with "job" added; labels: {job: category}; serve_runs: {run: [jsonl records]}."""
+    from labels import accuracy
+
+    by_model = defaultdict(list)
+    for r in results:
+        by_model[r["model"]].append(r)
+    out = ["# HELP metal3_triage_results Triaged failures per model and category.", "# TYPE metal3_triage_results gauge"]
+    out += [f'metal3_triage_results{{model="{m}",category="{c}"}} {n}'
+            for m, rs in sorted(by_model.items()) for c, n in sorted(Counter(r["category"] for r in rs).items())]
+    out += ["# HELP metal3_triage_latency_seconds Median and max triage latency per model.", "# TYPE metal3_triage_latency_seconds gauge"]
+    for m, rs in sorted(by_model.items()):
+        lat = [r["latency_s"] for r in rs]
+        out += [f'metal3_triage_latency_seconds{{model="{m}",stat="median"}} {statistics.median(lat)}',
+                f'metal3_triage_latency_seconds{{model="{m}",stat="max"}} {max(lat)}']
+    out += ["# HELP metal3_triage_citation_validity Mean share of cited lines that exist in the filtered log.",
+            "# TYPE metal3_triage_citation_validity gauge"]
+    for m, rs in sorted(by_model.items()):
+        v = [r["citation_validity"] for r in rs if r.get("citation_validity") is not None]
+        if v:
+            out.append(f'metal3_triage_citation_validity{{model="{m}"}} {statistics.mean(v):.4f}')
+    out += ["# HELP metal3_triage_tokens Tokens used per model.", "# TYPE metal3_triage_tokens gauge"]
+    for m, rs in sorted(by_model.items()):
+        out += [f'metal3_triage_tokens{{model="{m}",dir="input"}} {sum(r["input_tokens"] for r in rs)}',
+                f'metal3_triage_tokens{{model="{m}",dir="output"}} {sum(r["output_tokens"] for r in rs)}']
+    out += ["# HELP metal3_triage_cost_usd Total API cost per model.", "# TYPE metal3_triage_cost_usd gauge"]
+    out += [f'metal3_triage_cost_usd{{model="{m}"}} {sum(r["cost_usd"] for r in rs)}' for m, rs in sorted(by_model.items())]
+    out += ["# HELP metal3_triage_accuracy Share of hand-labelled failures the model got right.", "# TYPE metal3_triage_accuracy gauge"]
+    for m, rs in sorted(by_model.items()):
+        right, n = accuracy(labels, {r["job"]: r["category"] for r in rs})
+        if n:
+            out.append(f'metal3_triage_accuracy{{model="{m}"}} {right / n:.4f}')
+    out += ["# HELP metal3_serve_answers Answers in a serve/failover run, by the model that served them (none = both down).",
+            "# TYPE metal3_serve_answers gauge"]
+    for run, recs in sorted(serve_runs.items()):
+        for who, n in sorted(Counter(r["served_by"] or "none" for r in recs).items()):
+            out.append(f'metal3_serve_answers{{run="{run}",served_by="{who}"}} {n}')
+    out += ["# HELP metal3_serve_fallbacks Jobs in a serve/failover run that fell back from the server model.",
+            "# TYPE metal3_serve_fallbacks gauge"]
+    out += [f'metal3_serve_fallbacks{{run="{run}"}} {sum(r["fallback"] for r in recs)}' for run, recs in sorted(serve_runs.items())]
+    return "\n".join(out) + "\n"
+
+
+def load_llm():
+    results = [{**json.loads(p.read_text()), "job": p.parent.name} for p in DATA.glob("failures/*/triage-*.json")]
+    from labels import load
+    runs = {p.stem: [json.loads(line) for line in p.read_text().splitlines() if line.strip()] for p in DATA.glob("*.jsonl")}
+    return results, load(), runs
+
+
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path != "/metrics":
             self.send_error(404)
             return
-        body = metrics(load_jobs()).encode()  # ponytail: re-reads every snapshot per scrape; cache by mtime if it gets slow
+        body = (metrics(load_jobs()) + llm_metrics(*load_llm())).encode()  # ponytail: re-reads every snapshot per scrape; cache by mtime if it gets slow
         self.send_response(200)
         self.send_header("Content-Type", "text/plain; version=0.0.4")
         self.end_headers()

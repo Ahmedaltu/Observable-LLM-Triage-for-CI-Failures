@@ -4,8 +4,7 @@ services:
     command: python3 /app/exporter.py
     working_dir: /app
     volumes:
-      - ./exporter.py:/app/exporter.py:ro
-      - ./data:/app/data:ro
+      - .:/app:ro  # exporter.py imports labels.py and triage.py
     ports:
       - "8000:8000"
 
