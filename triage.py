@@ -2,7 +2,7 @@
 
     python3 triage.py            # every model that is available
     python3 triage.py ollama     # just one: ollama | openrouter | claude
-    python3 triage.py serve [log.jsonl]   # production path: server model, edge model as fallback
+    python3 triage.py serve [log.jsonl]   # production path: self-hosted server model, API model as fallback
 
 Run with .venv/bin/python: it has the OpenTelemetry SDK. Each failure becomes one trace
 (filter -> llm attempt(s) -> verify), sent over OTLP to Jaeger (http://localhost:16686).
@@ -26,12 +26,12 @@ from verify import shown_lines, verify
 DATA = Path(__file__).parent / "data"
 OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434")
 OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3")
-SERVER_URL = os.environ.get("SERVER_URL", "http://localhost:11435")  # llm-server container (docker-compose.yml)
+SERVER_URL = os.environ.get("SERVER_URL", "http://localhost:11435")  # llm-server link (docker-compose.yml) -> GCP VM
 SERVER_MODEL = "llama3"
 SERVER_TIMEOUT = float(os.environ.get("SERVER_TIMEOUT", "120"))  # 8B takes ~42 s median, ~100 s worst on CPU
 SERVER_COOLDOWN = 30  # s to skip the server after it failed, then probe it again
-EDGE_MODEL = "llama3.2:3b"
 OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")  # cloud model, free tier
+API_NAME = "openrouter-" + OPENROUTER_MODEL.split("/")[-1].removesuffix(":free")
 CLAUDE_MODEL = "claude-haiku-5-5"
 CLAUDE_PRICE = (0.10, 0.50)  # $ per 1M input / output tokens (prompts under 100K tokens)
 tracer = trace.get_tracer("triage")
@@ -115,7 +115,7 @@ def ask_openrouter(log):
 def available():
     models = {}
     if os.environ.get("OPENROUTER_API_KEY"):
-        models["openrouter-" + OPENROUTER_MODEL.split("/")[-1].removesuffix(":free")] = ask_openrouter
+        models[API_NAME] = ask_openrouter
     try:
         urllib.request.urlopen(f"{OLLAMA_URL}/api/tags", timeout=3)
         models[f"ollama-{OLLAMA_MODEL}"] = ask_ollama
@@ -182,24 +182,25 @@ def ask_server(log, url, model, timeout):
 
 
 def serve(log_path):
-    """Triage every failure once: server model first, edge model if the server errors or is too slow.
+    """Triage every failure once: self-hosted server model first, the API model if the server errors or is too slow.
 
     Appends one JSON line per job to log_path, flushed right away so a dashboard can follow it live.
     """
     server_down_until = 0  # circuit breaker: after a failure, skip the server for SERVER_COOLDOWN s
-    attempts = [("server", ask_server, SERVER_URL, SERVER_MODEL, SERVER_TIMEOUT), ("edge", ask_ollama, OLLAMA_URL, EDGE_MODEL, 600)]
+    attempts = [("server", SERVER_MODEL, ask_server, {"url": SERVER_URL, "model": SERVER_MODEL, "timeout": SERVER_TIMEOUT}),
+                ("api", API_NAME, ask_openrouter, {})]
     with open(log_path, "a") as out:
         for job_dir in sorted(p.parent for p in DATA.glob("failures/*/filtered.txt")):
             rec = {"job": job_dir.name, "t_start": time.time(), "fallback": False, "error": None, "served_by": None}
             with job_span(job_dir) as (root, log):
                 rec["trace_id"] = trace_id(root)
-                for tier, ask, url, model, timeout in attempts:
+                for tier, model, ask, kw in attempts:
                     if tier == "server" and time.time() < server_down_until:
                         rec.update(fallback=True, error=f"{model}: circuit open")
                         root.add_event("server skipped: circuit open")
                         continue
                     try:
-                        answer = llm_call(ask, log, model, tier, url=url, model=model, timeout=timeout)[0]
+                        answer = llm_call(ask, log, model, tier, **kw)[0]
                         rec["served_by"] = model
                         break
                     except Exception as e:

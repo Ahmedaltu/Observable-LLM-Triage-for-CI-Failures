@@ -1,6 +1,6 @@
-"""Failure injection: kill the server model mid-run and measure how long until the edge model answers.
+"""Failure injection: cut the link to the self-hosted server model mid-run; measure how long until the API model answers.
 
-    .venv/bin/python failover_test.py    # needs Ollama (llama3 + llama3.2:3b) and Docker for the llm-server link
+    .venv/bin/python failover_test.py    # needs OPENROUTER_API_KEY, Docker, and the SSH tunnel to the GCP VM (docker-compose.yml)
 
 Recovery time = from the kill until the first fallback answer is written.
 """
@@ -46,10 +46,10 @@ def main():
     first = next((r for r in recs if r["fallback"] and r["served_by"]), None)
     if not first:
         sys.exit("no fallback answer recorded")
-    print(f"\nrecovery: {first['t_end'] - killed:.1f} s (kill -> first edge answer, job {first['job']})")
+    print(f"\nrecovery: {first['t_end'] - killed:.1f} s (kill -> first API answer, job {first['job']})")
     print(f"  error seen: {first['error']}")
     summary([r for r in recs if not r["fallback"]], "server")
-    summary([r for r in recs if r["fallback"] and r["served_by"]], "edge")
+    summary([r for r in recs if r["fallback"] and r["served_by"]], "api")
     print(f"log: {log.relative_to(HERE)}   restart the server with: docker compose start llm-server")
 
 

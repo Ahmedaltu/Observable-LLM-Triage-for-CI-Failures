@@ -46,7 +46,7 @@ assert spans["llm edge llama3.2:3b"].attributes["gen_ai.usage.input_tokens"] == 
 assert spans["llm edge llama3.2:3b"].attributes["llm.ttft_s"] == 1.5
 assert spans["filter"].attributes["filter.lines_in"] == 301
 assert "ci.pr" not in spans["triage unit-1"].attributes                          # periodic: no PR, no None attribute
-# serve(): server down -> edge answers, then the circuit breaker skips the server for the next job
+# serve(): server down -> API model answers, then the circuit breaker skips the server for the next job
 (job.parent / "unit-2").mkdir()
 for f in ("meta.json", "build-log.txt"):
     (job.parent / "unit-2" / f).write_text((job / f).read_text())
@@ -55,11 +55,11 @@ for d in (job, job.parent / "unit-2"):
 triage.DATA = job.parent.parent
 calls = []
 triage.ask_server = lambda log, **kw: calls.append(kw["model"]) or down(log)
-triage.ask_ollama = lambda log, **kw: calls.append(kw["model"]) or edge(log)
+triage.ask_openrouter = lambda log, **kw: calls.append("api") or edge(log)
 out = job.parent.parent / "serve.jsonl"
 triage.serve(out)
 recs = [json.loads(line) for line in out.read_text().splitlines()]
-assert [r["served_by"] for r in recs] == ["llama3.2:3b", "llama3.2:3b"] and all(r["fallback"] for r in recs)
-assert calls == ["llama3", "llama3.2:3b", "llama3.2:3b"]                       # 2nd job: server skipped
+assert [r["served_by"] for r in recs] == [triage.API_NAME] * 2 and all(r["fallback"] for r in recs)
+assert calls == ["llama3", "api", "api"]                                        # 2nd job: server skipped
 assert "circuit open" in recs[1]["error"] and recs[0]["trace_id"] != recs[1]["trace_id"]
 print("ok")

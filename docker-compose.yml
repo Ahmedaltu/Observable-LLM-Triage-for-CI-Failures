@@ -8,10 +8,11 @@ services:
     ports:
       - "8000:8000"
 
-  llm-server:  # network link to the server model (Ollama :11434); `docker compose kill llm-server` makes it unreachable
+  llm-server:  # link to the self-hosted model; `docker compose kill llm-server` cuts it (failover_test.py)
     image: alpine/socat:1.8.0.3
-    network_mode: host  # host netns reaches the Windows Ollama on localhost; a dead link refuses at once
-    command: TCP-LISTEN:11435,fork,reuseaddr TCP:localhost:11434
+    network_mode: host  # host netns reaches the SSH tunnel on localhost
+    # :11436 = `ssh -N -L 11436:localhost:11434 tuwai@<VM_IP>` to the GCP VM; LLM_SERVER_TARGET=localhost:11434 for local Ollama
+    command: TCP-LISTEN:11435,fork,reuseaddr TCP:${LLM_SERVER_TARGET:-localhost:11436}
 
   jaeger:  # ponytail: in-memory storage, traces are gone after a restart; add badger storage if they must persist
     image: jaegertracing/all-in-one:1.62.0
