@@ -9,6 +9,122 @@
  },
  "panels": [
   {
+   "id": 10,
+   "title": "Watcher: time since last successful poll",
+   "type": "stat",
+   "description": "triage.py watch polls Prow every 5 min. Green < 10 min; red = the watcher is down or every poll fails.",
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 5
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "time() - metal3_watch_last_success_timestamp_seconds",
+     "legendFormat": "",
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "s",
+     "noValue": "watcher never ran",
+     "color": {
+      "mode": "thresholds"
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "green",
+        "value": null
+       },
+       {
+        "color": "red",
+        "value": 600
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "colorMode": "background"
+   }
+  },
+  {
+   "id": 11,
+   "title": "Watcher: last poll",
+   "type": "stat",
+   "description": "OK if the last poll collected and triaged without error.",
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 12,
+    "h": 5
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "metal3_watch_poll_ok",
+     "legendFormat": "",
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "0": {
+         "text": "FAILED",
+         "color": "red"
+        },
+        "1": {
+         "text": "OK",
+         "color": "green"
+        }
+       }
+      }
+     ],
+     "noValue": "watcher never ran",
+     "color": {
+      "mode": "thresholds"
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "red",
+        "value": null
+       },
+       {
+        "color": "green",
+        "value": 1
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "colorMode": "background"
+   }
+  },
+  {
    "id": 1,
    "title": "Latency: total and time to first token",
    "type": "bargauge",
@@ -19,7 +135,7 @@
    },
    "gridPos": {
     "x": 0,
-    "y": 0,
+    "y": 5,
     "w": 8,
     "h": 7
    },
@@ -63,7 +179,7 @@
    },
    "gridPos": {
     "x": 8,
-    "y": 0,
+    "y": 5,
     "w": 8,
     "h": 7
    },
@@ -108,7 +224,7 @@
    },
    "gridPos": {
     "x": 16,
-    "y": 0,
+    "y": 5,
     "w": 8,
     "h": 7
    },
@@ -153,7 +269,7 @@
    },
    "gridPos": {
     "x": 0,
-    "y": 7,
+    "y": 12,
     "w": 12,
     "h": 10
    },
@@ -196,7 +312,7 @@
    },
    "gridPos": {
     "x": 12,
-    "y": 7,
+    "y": 12,
     "w": 6,
     "h": 10
    },
@@ -239,7 +355,7 @@
    },
    "gridPos": {
     "x": 18,
-    "y": 7,
+    "y": 12,
     "w": 6,
     "h": 10
    },
@@ -272,7 +388,7 @@
    },
    "gridPos": {
     "x": 0,
-    "y": 17,
+    "y": 22,
     "w": 16,
     "h": 9
    },
@@ -304,7 +420,7 @@
    },
    "gridPos": {
     "x": 16,
-    "y": 17,
+    "y": 22,
     "w": 8,
     "h": 9
    },

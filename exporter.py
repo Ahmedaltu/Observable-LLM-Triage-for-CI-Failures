@@ -91,6 +91,26 @@ def llm_metrics(results, labels, serve_runs):
     return "\n".join(out) + "\n"
 
 
+def watch_metrics(status):
+    """status: data/watch.json written by `triage.py watch` after every poll, or None if it never ran."""
+    if not status:
+        return ""
+    out = ["# HELP metal3_watch_last_poll_timestamp_seconds When triage.py watch last polled Prow.",
+           "# TYPE metal3_watch_last_poll_timestamp_seconds gauge",
+           f"metal3_watch_last_poll_timestamp_seconds {status['last_poll']}",
+           "# HELP metal3_watch_last_success_timestamp_seconds Last poll that collected and triaged without error.",
+           "# TYPE metal3_watch_last_success_timestamp_seconds gauge",
+           f"metal3_watch_last_success_timestamp_seconds {status['last_success']}",
+           "# HELP metal3_watch_poll_ok 1 if the last poll succeeded.", "# TYPE metal3_watch_poll_ok gauge",
+           f"metal3_watch_poll_ok {0 if status.get('error') else 1}"]
+    return "\n".join(out) + "\n"
+
+
+def load_watch():
+    p = DATA / "watch.json"
+    return json.loads(p.read_text()) if p.exists() else None
+
+
 def load_llm():
     results = [{**json.loads(p.read_text()), "job": p.parent.name} for p in DATA.glob("failures/*/triage-*.json")]
     from labels import load
@@ -103,7 +123,7 @@ class Handler(BaseHTTPRequestHandler):
         if self.path != "/metrics":
             self.send_error(404)
             return
-        body = (metrics(load_jobs()) + llm_metrics(*load_llm())).encode()  # ponytail: re-reads every snapshot per scrape; cache by mtime if it gets slow
+        body = (metrics(load_jobs()) + llm_metrics(*load_llm()) + watch_metrics(load_watch())).encode()  # ponytail: re-reads every snapshot per scrape; cache by mtime if it gets slow
         self.send_response(200)
         self.send_header("Content-Type", "text/plain; version=0.0.4")
         self.end_headers()

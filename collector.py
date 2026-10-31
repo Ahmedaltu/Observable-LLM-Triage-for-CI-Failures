@@ -13,6 +13,7 @@ from pathlib import Path
 
 PROW = "https://prow.apps.test.metal3.io"
 DATA = Path(__file__).parent / "data"
+SNAPSHOT_EVERY = 3600  # s; triage.py watch polls every 5 min, but a ~250 KB snapshot per poll is 70 MB/day
 
 
 def get(url, headers=None):
@@ -33,13 +34,16 @@ def build_log(job):
 
 
 def main():
+    """Returns the directories of newly saved failures."""
     jobs = json.loads(get(f"{PROW}/data.js"))
-    # keep every snapshot: the CI-health dashboard and rerun-based flaky labels need successes too
+    # keep snapshots: the CI-health dashboard and rerun-based flaky labels need successes too
     snaps = DATA / "snapshots"
     snaps.mkdir(parents=True, exist_ok=True)
-    (snaps / f"{time.strftime('%Y%m%dT%H%M%S')}.json").write_text(json.dumps(jobs))
+    last = max((p.stat().st_mtime for p in snaps.glob("*.json")), default=0)
+    if time.time() - last >= SNAPSHOT_EVERY:
+        (snaps / f"{time.strftime('%Y%m%dT%H%M%S')}.json").write_text(json.dumps(jobs))
 
-    new = skipped = failed = 0
+    new, skipped, failed = [], 0, 0
     for job in jobs:
         if job["state"] != "failure":
             continue
@@ -60,10 +64,11 @@ def main():
         out.mkdir(parents=True, exist_ok=True)
         (out / "meta.json").write_text(json.dumps(job, indent=2))
         (out / "build-log.txt").write_bytes(log)
-        new += 1
+        new.append(out)
         print(f"saved {out.name} ({len(log)} bytes)")
 
-    print(f"{len(jobs)} jobs, {new} new failures saved, {skipped} non-Prow skipped, {failed} errors")
+    print(f"{len(jobs)} jobs, {len(new)} new failures saved, {skipped} non-Prow skipped, {failed} errors")
+    return new
 
 
 if __name__ == "__main__":

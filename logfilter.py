@@ -42,11 +42,17 @@ def render(kept):
     return "\n".join(out)
 
 
+def filter_dir(job_dir):
+    log = job_dir / "build-log.txt"
+    text = log.read_text(errors="replace")
+    filtered = render(filter_log(text))
+    (job_dir / "filtered.txt").write_text(filtered)
+    return text, filtered
+
+
 def main():
     for log in sorted(Path(__file__).parent.glob("data/failures/*/build-log.txt")):
-        text = log.read_text(errors="replace")
-        filtered = render(filter_log(text))
-        (log.parent / "filtered.txt").write_text(filtered)
+        text, filtered = filter_dir(log.parent)
         print(f"{log.parent.name:55} {len(text):>7} -> {len(filtered):>6} bytes"
               f" ({100 - 100 * len(filtered) // max(len(text), 1)}% cut)")
 

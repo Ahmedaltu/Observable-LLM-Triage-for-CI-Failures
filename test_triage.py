@@ -62,4 +62,29 @@ recs = [json.loads(line) for line in out.read_text().splitlines()]
 assert [r["served_by"] for r in recs] == [triage.API_NAME] * 2 and all(r["fallback"] for r in recs)
 assert calls == ["llama3", "api", "api"]                                        # 2nd job: server skipped
 assert "circuit open" in recs[1]["error"] and recs[0]["trace_id"] != recs[1]["trace_id"]
+# watch(): only failures that a poll newly saved are triaged; a poll error is recorded, not fatal
+import collector
+
+polls = iter([[job], [], RuntimeError("prow down")])
+def fake_collect():
+    r = next(polls)
+    if isinstance(r, Exception):
+        raise r
+    return r
+collector.main = fake_collect
+naps = []
+def nap(sec):
+    naps.append(sec)
+    if len(naps) == 3:
+        raise KeyboardInterrupt
+triage.time.sleep = nap
+out.unlink()
+calls.clear()
+try:
+    triage.watch()
+except KeyboardInterrupt:
+    pass
+assert [json.loads(l)["job"] for l in (triage.DATA / "serve.jsonl").read_text().splitlines()] == ["unit-1"]  # once
+status = json.loads((triage.DATA / "watch.json").read_text())
+assert "prow down" in status["error"] and status["last_success"] > 0
 print("ok")

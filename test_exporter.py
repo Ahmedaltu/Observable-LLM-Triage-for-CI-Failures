@@ -1,4 +1,4 @@
-from exporter import llm_metrics, metrics
+from exporter import llm_metrics, metrics, watch_metrics
 
 
 def job(build, name, state, refs_key="main:a,1:b", repo="bmo", type="presubmit"):
@@ -26,4 +26,7 @@ assert 'metal3_triage_citation_validity{model="m"} 1.0000' in m
 assert 'metal3_triage_accuracy{model="m"} 0.5000' in m
 assert 'metal3_serve_answers{run="failover-x",served_by="none"} 1' in m
 assert 'metal3_serve_fallbacks{run="failover-x"} 2' in m
+w = watch_metrics({"last_poll": 200, "last_success": 100, "error": "URLError: down"})
+assert "metal3_watch_poll_ok 0" in w and "metal3_watch_last_success_timestamp_seconds 100" in w
+assert watch_metrics(None) == ""
 print("ok")

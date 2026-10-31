@@ -3,6 +3,7 @@
     python3 triage.py            # every model that is available
     python3 triage.py ollama     # just one: ollama | openrouter | claude
     python3 triage.py serve [log.jsonl]   # production path: self-hosted server model, API model as fallback
+    python3 triage.py watch               # every 5 min: collect -> filter -> serve only the new failures
 
 Run with .venv/bin/python: it has the OpenTelemetry SDK. Each failure becomes one trace
 (filter -> llm attempt(s) -> verify), sent over OTLP to Jaeger (http://localhost:16686).
@@ -26,14 +27,16 @@ from verify import shown_lines, verify
 DATA = Path(__file__).parent / "data"
 OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434")
 OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3")
+OLLAMA_THINK = {"1": True, "0": False}.get(os.environ.get("OLLAMA_THINK", ""))  # reasoning models (qwen3); unset = model default
 SERVER_URL = os.environ.get("SERVER_URL", "http://localhost:11435")  # llm-server link (docker-compose.yml) -> GCP VM
-SERVER_MODEL = "llama3"
+SERVER_MODEL = os.environ.get("SERVER_MODEL", "llama3")
 SERVER_TIMEOUT = float(os.environ.get("SERVER_TIMEOUT", "120"))  # 8B takes ~42 s median, ~100 s worst on CPU
 SERVER_COOLDOWN = 30  # s to skip the server after it failed, then probe it again
 OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")  # cloud model, free tier
 API_NAME = "openrouter-" + OPENROUTER_MODEL.split("/")[-1].removesuffix(":free")
 CLAUDE_MODEL = "claude-haiku-5-5"
 CLAUDE_PRICE = (0.10, 0.50)  # $ per 1M input / output tokens (prompts under 100K tokens)
+WATCH_EVERY = 300  # s between Prow polls
 tracer = trace.get_tracer("triage")
 
 SCHEMA = {
@@ -61,9 +64,11 @@ Answer with:
 - cited_lines: the line numbers (from the prefixes) that show the root cause. Cite only numbers that appear in the excerpt."""
 
 
-def ask_ollama(log, url=OLLAMA_URL, model=OLLAMA_MODEL, timeout=600):
+def ask_ollama(log, url=OLLAMA_URL, model=OLLAMA_MODEL, timeout=600, think=OLLAMA_THINK):
     body = {"model": model, "stream": False, "format": SCHEMA, "options": {"temperature": 0},
             "messages": [{"role": "system", "content": SYSTEM}, {"role": "user", "content": log}]}
+    if think is not None:
+        body["think"] = think
     req = urllib.request.Request(f"{url}/api/chat", json.dumps(body).encode(), {"Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         resp = json.load(r)
@@ -118,7 +123,7 @@ def available():
         models[API_NAME] = ask_openrouter
     try:
         urllib.request.urlopen(f"{OLLAMA_URL}/api/tags", timeout=3)
-        models[f"ollama-{OLLAMA_MODEL}"] = ask_ollama
+        models[f"ollama-{OLLAMA_MODEL}" + {True: "-think", False: "-nothink", None: ""}[OLLAMA_THINK]] = ask_ollama
     except OSError:
         print(f"ollama not reachable at {OLLAMA_URL}, skipped")
     try:
@@ -181,8 +186,8 @@ def ask_server(log, url, model, timeout):
     return ask_ollama(log, url, model, timeout)
 
 
-def serve(log_path):
-    """Triage every failure once: self-hosted server model first, the API model if the server errors or is too slow.
+def serve(log_path, job_dirs=None):
+    """Triage each failure once (default: all): self-hosted server model first, the API model if the server fails.
 
     Appends one JSON line per job to log_path, flushed right away so a dashboard can follow it live.
     """
@@ -190,7 +195,7 @@ def serve(log_path):
     attempts = [("server", SERVER_MODEL, ask_server, {"url": SERVER_URL, "model": SERVER_MODEL, "timeout": SERVER_TIMEOUT}),
                 ("api", API_NAME, ask_openrouter, {})]
     with open(log_path, "a") as out:
-        for job_dir in sorted(p.parent for p in DATA.glob("failures/*/filtered.txt")):
+        for job_dir in job_dirs if job_dirs is not None else sorted(p.parent for p in DATA.glob("failures/*/filtered.txt")):
             rec = {"job": job_dir.name, "t_start": time.time(), "fallback": False, "error": None, "served_by": None}
             with job_span(job_dir) as (root, log):
                 rec["trace_id"] = trace_id(root)
@@ -218,6 +223,36 @@ def serve(log_path):
             print(f"{rec['job']:45} {str(rec['served_by']):12} {'FALLBACK' if rec['fallback'] else '':8} {rec['latency_s']:>6}s")
 
 
+def watch(every=WATCH_EVERY):
+    """Poll Prow forever. Each poll is one trace: collect, then a triage span per new failure (serve).
+
+    data/watch.json holds the last poll's outcome for the exporter (metal3_watch_* metrics, liveness panel).
+    """
+    import collector
+    from logfilter import filter_dir
+
+    status = {"last_success": 0}
+    while True:
+        status["last_poll"] = time.time()
+        with tracer.start_as_current_span("watch poll") as s:
+            try:
+                with tracer.start_as_current_span("collect"):
+                    new = collector.main()
+                    for d in new:
+                        filter_dir(d)
+                s.set_attribute("watch.new_failures", len(new))
+                # ponytail: failures saved by a poll that crashed before serve() are never triaged; rerun serve to catch up
+                serve(DATA / "serve.jsonl", new)
+                status.update(last_success=time.time(), new_failures=len(new), error=None)
+            except Exception as e:  # Prow down or the network gone: try again next poll
+                s.record_exception(e)
+                s.set_status(trace.StatusCode.ERROR)
+                status["error"] = f"{type(e).__name__}: {e}"[:300]
+                print(f"poll failed: {status['error']}")
+        (DATA / "watch.json").write_text(json.dumps(status))
+        time.sleep(max(0, status["last_poll"] + every - time.time()))
+
+
 def init_tracing():
     from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
     from opentelemetry.sdk.resources import Resource
@@ -235,6 +270,8 @@ def main():
     try:
         if sys.argv[1:2] == ["serve"]:
             serve(sys.argv[2] if len(sys.argv) > 2 else DATA / "serve.jsonl")
+        elif sys.argv[1:2] == ["watch"]:
+            watch()
         else:
             batch(sys.argv[1] if len(sys.argv) > 1 else None)
     finally:
