@@ -379,9 +379,9 @@
   },
   {
    "id": 7,
-   "title": "Serve / failover: answers by model",
+   "title": "Answers per 5 min, by model",
    "type": "timeseries",
-   "description": "Grows while triage.py serve runs. A kill of llm-server shows as llama3 going flat and llama3.2:3b taking over.",
+   "description": "How many failures each model answered in the last 5 minutes (serve, watch and failover runs). A line rises only while that model is working; in a failover one colour drops and the fallback rises.",
    "datasource": {
     "type": "prometheus",
     "uid": "prometheus"
@@ -395,7 +395,7 @@
    "targets": [
     {
      "refId": "A",
-     "expr": "sum by (served_by) (metal3_serve_answers)",
+     "expr": "sum by (served_by) (increase(metal3_serve_answers[5m]))",
      "legendFormat": "{{served_by}}",
      "instant": false,
      "range": true
@@ -403,11 +403,16 @@
    ],
    "fieldConfig": {
     "defaults": {
-     "min": 0
+     "min": 0,
+     "decimals": 0
     },
     "overrides": []
    },
-   "options": {}
+   "options": {
+    "tooltip": {
+     "mode": "multi"
+    }
+   }
   },
   {
    "id": 8,
