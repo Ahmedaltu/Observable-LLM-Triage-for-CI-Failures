@@ -451,6 +451,93 @@
      "values": false
     }
    }
+  },
+  {
+   "id": 12,
+   "title": "Edge filter: tokens a model reads",
+   "type": "bargauge",
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "description": "All failures together, estimated as bytes / 4. 'in' = whole build logs, 'out' = what the filter sends to the LLM.",
+   "gridPos": {
+    "x": 0,
+    "y": 31,
+    "w": 8,
+    "h": 8
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "metal3_filter_tokens_estimate",
+     "legendFormat": "{{stage}}",
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "min": 0,
+     "unit": "short"
+    },
+    "overrides": []
+   },
+   "options": {
+    "orientation": "horizontal",
+    "displayMode": "basic",
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    }
+   }
+  },
+  {
+   "id": 13,
+   "title": "Edge filter: share of each log kept",
+   "type": "bargauge",
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "description": "Filtered / original size per failure, largest first. A failure the models get wrong with a large share kept may be drowning in noise; one with a tiny share may have lost its cause.",
+   "gridPos": {
+    "x": 8,
+    "y": 31,
+    "w": 16,
+    "h": 8
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "sort_desc(metal3_filter_bytes{stage=\"out\"} / ignoring(stage) metal3_filter_bytes{stage=\"in\"})",
+     "legendFormat": "{{job}}",
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "min": 0,
+     "max": 1,
+     "unit": "percentunit"
+    },
+    "overrides": []
+   },
+   "options": {
+    "orientation": "horizontal",
+    "displayMode": "basic",
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    }
+   }
   }
  ]
 }

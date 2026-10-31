@@ -1,4 +1,4 @@
-from exporter import llm_metrics, metrics, watch_metrics
+from exporter import filter_metrics, llm_metrics, metrics, watch_metrics
 
 
 def job(build, name, state, refs_key="main:a,1:b", repo="bmo", type="presubmit"):
@@ -29,4 +29,7 @@ assert 'metal3_serve_fallbacks{run="failover-x"} 2' in m
 w = watch_metrics({"last_poll": 200, "last_success": 100, "error": "URLError: down"})
 assert "metal3_watch_poll_ok 0" in w and "metal3_watch_last_success_timestamp_seconds 100" in w
 assert watch_metrics(None) == ""
+f = filter_metrics({"a": (4000, 400), "b": (800, 800)})
+assert 'metal3_filter_bytes{job="a",stage="out"} 400' in f
+assert 'metal3_filter_tokens_estimate{stage="in"} 1200' in f and 'metal3_filter_tokens_estimate{stage="out"} 300' in f
 print("ok")

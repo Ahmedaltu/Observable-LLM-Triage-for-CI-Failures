@@ -91,6 +91,24 @@ def llm_metrics(results, labels, serve_runs):
     return "\n".join(out) + "\n"
 
 
+def filter_metrics(sizes):
+    """sizes: {job: (build-log bytes, filtered bytes)}. Tokens are estimated as bytes / 4."""
+    out = ["# HELP metal3_filter_bytes Log size before (in) and after (out) the edge filter, per failure.",
+           "# TYPE metal3_filter_bytes gauge"]
+    for job, (b_in, b_out) in sorted(sizes.items()):
+        out += [f'metal3_filter_bytes{{job="{job}",stage="in"}} {b_in}', f'metal3_filter_bytes{{job="{job}",stage="out"}} {b_out}']
+    out += ["# HELP metal3_filter_tokens_estimate Tokens a model would read without and with the filter (bytes / 4), all failures.",
+            "# TYPE metal3_filter_tokens_estimate gauge",
+            f'metal3_filter_tokens_estimate{{stage="in"}} {sum(i for i, _ in sizes.values()) // 4}',
+            f'metal3_filter_tokens_estimate{{stage="out"}} {sum(o for _, o in sizes.values()) // 4}']
+    return "\n".join(out) + "\n"
+
+
+def load_filter():
+    return {f.parent.name: ((f.parent / "build-log.txt").stat().st_size, f.stat().st_size)
+            for f in DATA.glob("failures/*/filtered.txt")}
+
+
 def watch_metrics(status):
     """status: data/watch.json written by `triage.py watch` after every poll, or None if it never ran."""
     if not status:
@@ -123,7 +141,7 @@ class Handler(BaseHTTPRequestHandler):
         if self.path != "/metrics":
             self.send_error(404)
             return
-        body = (metrics(load_jobs()) + llm_metrics(*load_llm()) + watch_metrics(load_watch())).encode()  # ponytail: re-reads every snapshot per scrape; cache by mtime if it gets slow
+        body = (metrics(load_jobs()) + llm_metrics(*load_llm()) + watch_metrics(load_watch()) + filter_metrics(load_filter())).encode()  # ponytail: re-reads every snapshot per scrape; cache by mtime if it gets slow
         self.send_response(200)
         self.send_header("Content-Type", "text/plain; version=0.0.4")
         self.end_headers()
