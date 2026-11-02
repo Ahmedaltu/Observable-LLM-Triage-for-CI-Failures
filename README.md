@@ -38,6 +38,10 @@ Each triaged failure is one trace in Jaeger: a root span with the Prow job detai
 
 *One failure in Jaeger, taken with the model server switched off. The server attempt (red) fails, the API model answers in 23.6 s, and `verify` checks its citations.*
 
+![Grafana CI health dashboard](docs/grafana-ci-health.png)
+
+*The CI health dashboard, built from the collector's snapshots of all Metal3 Prow jobs: failures and failure rate per repo and job, and flaky jobs (failed, then passed on the same commit). The gaps in the time series are periods when the stack was not running.*
+
 ![Grafana LLM triage dashboard](docs/grafana-triage.png)
 
 *The LLM triage dashboard. The watcher panel is red because the watcher had been stopped for two days when this was taken. Accuracy here counts all labelled failures, including merge conflicts, so it differs from the tables below.*
