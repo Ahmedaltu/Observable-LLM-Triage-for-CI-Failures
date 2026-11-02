@@ -1,0 +1,118 @@
+OBSERVABLE LLM TRIAGE FOR CI FAILURES: A METAL3 PROW CASE STUDY
+
+Course project proposal: CS-E4660 Advanced Topics in Software Systems
+
+1. Pitch
+
+When a Metal3 CI job fails, an LLM explains why. Every step of that pipeline, including the LLM itself, is traced and shown live in Grafana, so you can see what the LLM did and check whether to trust it.
+
+2. Problem
+
+- In large open-source projects, CI failures are noisy: flaky tests, infrastructure problems, timeouts and real code bugs all look like "job failed".
+- Developers lose time scrolling through long build logs to find out which kind of failure it is.
+- LLMs can read logs and summarize them, but an LLM answer is a black box. You can't see what it cost, how long it took, or whether its explanation comes from the log or is made up.
+
+3. Research question
+
+Can we make an LLM-in-the-loop CI triage service observable and checkable end to end, and how does a local (edge) model compare with a cloud model (Claude) in latency, cost and quality?
+
+Fit with the course focus areas:
+
+- Designing and analyzing hybrid intelligence software built with GenAI/LLMs
+- Observability and explainability of end-to-end systems with LLM capabilities
+- Robustness and resilience across the edge-cloud continuum
+
+4. Architecture
+
+Metal3 Prow ──► Collector ──► Log filter ──► Cloud LLM ──► Verifier ──► Results
+(public CI)     (fetch failed   ("edge": keep   (classify +     (check the
+                 jobs + logs)    error lines)    summarize +     cited lines
+                                                 cite lines)     exist)
+     └────── OpenTelemetry traces + Prometheus metrics at every step ──────┘
+                                     │
+                       Jaeger (traces) + Grafana (dashboards)
+
+- Collector: reads failed jobs from Prow's public JSON (/data.js, job history) and downloads the raw build-log.txt.
+- Log filter (edge side): cuts the log down to the failing steps, error lines and stack traces. This reduces tokens, cost and latency.
+- LLM gateway (cloud): sorts each failure into a category (flaky test, infra/timeout, code bug, config error), writes a one-line root-cause summary, and cites the log line numbers it used. If the cloud LLM is down, it falls back to a small local model (Ollama).
+- Verifier: checks that every cited line really exists in the log and supports the claim. An answer that cites lines missing from the log is flagged as a hallucination.
+- Observability: OpenTelemetry tracing across all services, with the GenAI attributes (model, tokens, latency) on the LLM calls. Prometheus stores the metrics, Grafana shows the dashboards, and Jaeger shows the traces.
+
+All services run in Docker Compose.
+
+5. Related work and what this project adds
+
+LLM triage of CI logs already exists, so the project does not claim it as new:
+
+- Grouping and tracking without LLMs: Kubernetes Triage (go.k8s.io/triage) groups similar test failures across all Prow jobs, and TestGrid shows test history. OpenShift's Sippy analyzes Prow job and test statistics.
+- LLM failure explainers: GitHub Marketplace actions (e.g. GitHub Actions Failure Analysis, SenseTheLog) explain failed GitHub Actions runs with OpenAI, Anthropic or Ollama models. Hobby projects do the same, and some quote the log lines they used.
+- Research: LogSage (arXiv 2506.03691) is an LLM framework for CI/CD failure diagnosis with industrial validation. LogSieve (arXiv 2601.20148) and LogDx-CI (arXiv 2605.28876) study cutting CI logs down before sending them to an LLM.
+
+What this project adds:
+
+1. The triage pipeline itself is observable. The tools found give an answer but no telemetry about how it was produced. Here every step, including the LLM call, is traced with OpenTelemetry and shown in Grafana next to CI health.
+2. Citations are checked automatically and turned into a metric. Some tools quote log lines, but none of the tools found check them. Here the verifier checks every cited line against the log, and the share of valid citations becomes a trust metric on the dashboard.
+3. Local vs cloud on the same pipeline, for Prow. The tools found mostly target GitHub Actions and use one model per run. Here a local model and Claude are measured side by side (section 6) on a Prow-based project.
+4. A visible edge-cloud tradeoff. The dashboard shows how much the edge filter cuts the log against the tokens, cost and latency of the cloud call.
+5. Resilience. When the cloud LLM fails or slows down, the system falls back to a local model, and the dashboard makes that visible.
+
+6. Local vs cloud comparison
+
+Every failed job is triaged by both models, with the same filtered log and the same prompt:
+
+- Local: a small open model served by Ollama on the developer machine (the "edge").
+- Cloud: Claude through the Anthropic API.
+
+What is compared, and all of it is shown side by side in Grafana:
+
+- Latency: time to first token, total time, tokens per second.
+- Cost: tokens per job, and API cost (the local model costs only hardware).
+- Quality, without labelled data:
+  - citation validity: the share of cited log lines that really exist (from the verifier)
+  - agreement: how often the two models choose the same failure category
+  - reruns: if the same job later passed on the same commit, the failure was likely flaky, which is a free weak label
+  - a small hand-checked set (about 20–30 failures) for a sanity check
+- Effect of the edge filter: each model run on the full log vs the filtered log.
+
+Result: a clear picture of when the local model is good enough and when the cloud model is worth its cost and latency.
+
+7. Data and feasibility
+
+- Data source: the Metal3 public Prow instance at https://prow.apps.test.metal3.io (no login).
+  - About 100 jobs per 11-day window, with a few percent failing (presubmit and periodic jobs).
+  - Raw build logs download through Prow's temporary signed links. The request must send the header x-amz-checksum-mode: ENABLED, and each link expires after 10 minutes.
+  - For more failures, page back through job history or run the collector continuously during the project.
+- Tools: OpenTelemetry, Jaeger, Prometheus, Grafana and Docker Compose, all used in the course tutorials (tracing and monitoring).
+
+8. Plan
+
+- Topic presentation: this proposal, plus one real Metal3 failure and its LLM verdict.
+- Checkpoint 1: collector and filter working, logs stored locally, first Grafana CI-health dashboard.
+- Checkpoint 2: LLM gateway (local + Claude) and verifier, end-to-end traces in Jaeger, LLM telemetry dashboard.
+- Final demo: fallback to the local model, failure-injection scenario, polished dashboards.
+- Final delivery: public Git repo with code, setup instructions and a short report.
+
+9. Demo story (about 5 minutes)
+
+1. Grafana shows Metal3 CI health: failures by repo and job, and flaky jobs.
+2. Click a failed job. Jaeger shows its trace through fetch → filter → LLM → verify.
+3. Show the LLM verdict with the log lines it cited, each marked found or not found.
+4. Show the local vs Claude panel: latency, tokens, cost, citation validity and agreement, side by side.
+5. Take down the cloud LLM. The system falls back to the local model, and the dashboard shows it.
+
+10. Limitations
+
+- Accuracy of the classification is not the goal. The focus is on observability and trust signals.
+- The "edge" side is a deployment framing (filtering near the data source), not a physical edge device.
+- The collector depends on Prow's web endpoints. To make the demo reproducible, save a snapshot of logs early.
+
+11. Presentation outline (about 8 slides)
+
+1. Title: project name and author.
+2. Problem: noisy CI failures, and LLM answers as a black box.
+3. Research question: plus fit with the course focus areas.
+4. Architecture: the diagram in section 4.
+5. Related work and what this adds: section 5.
+6. Local vs Claude: what is measured (section 6).
+7. Data and feasibility: Metal3 Prow numbers and one real failure example.
+8. Plan and demo: milestones and the demo story.

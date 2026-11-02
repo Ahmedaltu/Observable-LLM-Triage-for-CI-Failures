@@ -1,0 +1,3 @@
+From now on, run Compose from inside project/:
+cd project && docker compose up -d     # start
+docker compose down                    # stop
