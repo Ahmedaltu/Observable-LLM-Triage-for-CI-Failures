@@ -346,9 +346,9 @@
   },
   {
    "id": 6,
-   "title": "Total cost",
-   "type": "stat",
-   "description": "Local models and the free OpenRouter tier cost $0.",
+   "title": "Cost per failure, at list price",
+   "type": "bargauge",
+   "description": "What one triaged failure would cost if paid for. API: the tokens priced at the paid variant of the same model ($0.60 / $2.40 per M tokens in / out, OpenRouter, Nov 2026); we use the free tier, so nothing is billed. VM models: the answer's latency at the VM's hourly rate ($0.295/h, e2-standard-8), busy time only. Laptop models: $0.",
    "datasource": {
     "type": "prometheus",
     "uid": "prometheus"
@@ -362,8 +362,8 @@
    "targets": [
     {
      "refId": "A",
-     "expr": "sum(metal3_triage_cost_usd)",
-     "legendFormat": "",
+     "expr": "metal3_triage_cost_usd{stat=\"per_failure\"}",
+     "legendFormat": "{{model}}",
      "instant": true,
      "range": false
     }
@@ -371,11 +371,23 @@
    "fieldConfig": {
     "defaults": {
      "min": 0,
-     "unit": "currencyUSD"
+     "unit": "currencyUSD",
+     "decimals": 4
     },
     "overrides": []
    },
-   "options": {}
+   "options": {
+    "orientation": "horizontal",
+    "displayMode": "basic",
+    "showUnfilled": true,
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    }
+   }
   },
   {
    "id": 7,

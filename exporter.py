@@ -42,6 +42,19 @@ def metrics(jobs):
     return "\n".join(out) + "\n"
 
 
+# We run the free OpenRouter tier and a VM we pay for by the hour, so "cost" here is what each answer would cost at list
+# price: the paid variant of the same model (same tokens), or the VM's hourly rate for the time the answer took.
+API_PRICE = {"openrouter-nemotron-3-ultra-550b-a55b": (0.60, 2.40)}  # $ per M tokens in, out; OpenRouter, 2026-11-02
+VM_MODELS = ("ollama-qwen3", "ollama-gemma3")  # ran on the GCP VM; llama3 and 3B ran on the laptop, no cloud cost
+VM_PER_HOUR = 0.295  # e2-standard-8, europe-north1, on demand. ponytail: busy time only; idle VM hours are not spread over answers
+
+
+def list_cost(r):
+    if r["model"] in API_PRICE:
+        p_in, p_out = API_PRICE[r["model"]]
+        return (r["input_tokens"] * p_in + r["output_tokens"] * p_out) / 1e6
+    return r["latency_s"] * VM_PER_HOUR / 3600 if r["model"].startswith(VM_MODELS) else 0.0
+
 def llm_metrics(results, labels, serve_runs):
     """results: triage-*.json dicts with "job" added; labels: {job: category}; serve_runs: {run: [jsonl records]}."""
     from labels import accuracy
@@ -73,8 +86,12 @@ def llm_metrics(results, labels, serve_runs):
     for m, rs in sorted(by_model.items()):
         out += [f'metal3_triage_tokens{{model="{m}",dir="input"}} {sum(r["input_tokens"] for r in rs)}',
                 f'metal3_triage_tokens{{model="{m}",dir="output"}} {sum(r["output_tokens"] for r in rs)}']
-    out += ["# HELP metal3_triage_cost_usd Total API cost per model.", "# TYPE metal3_triage_cost_usd gauge"]
-    out += [f'metal3_triage_cost_usd{{model="{m}"}} {sum(r["cost_usd"] for r in rs)}' for m, rs in sorted(by_model.items())]
+    out += ["# HELP metal3_triage_cost_usd Cost at list price (see list_cost), total and mean per failure, per model.",
+            "# TYPE metal3_triage_cost_usd gauge"]
+    for m, rs in sorted(by_model.items()):
+        c = [list_cost(r) for r in rs]
+        out += [f'metal3_triage_cost_usd{{model="{m}",stat="total"}} {sum(c):.6f}',
+                f'metal3_triage_cost_usd{{model="{m}",stat="per_failure"}} {statistics.mean(c):.6f}']
     out += ["# HELP metal3_triage_accuracy Share of hand-labelled failures the model got right.", "# TYPE metal3_triage_accuracy gauge"]
     for m, rs in sorted(by_model.items()):
         right, n = accuracy(labels, {r["job"]: r["category"] for r in rs})

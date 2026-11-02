@@ -52,20 +52,21 @@ Data: 43 failed Metal3 jobs collected from Prow on 27–31 October 2026, labelle
 
 ### Model comparison
 
-| Model | Runs on | Correct on the 8-failure test set | Correct on the 22 clear-cut failures | Cited lines that exist | Median latency |
-|---|---|---|---|---|---|
-| **qwen3 8B, thinking on** | GCP VM, CPU | **7/8** | n/a | 30/30 | 126 s |
-| Nemotron 3 Ultra 550B | OpenRouter | 6/8 | **20/22** | 173/173 | 7 s |
-| gemma3 12B | GCP VM, CPU | 5/8 | n/a | 26/26 | 52 s |
-| qwen3 8B, thinking off | GCP VM, CPU | 4/8 | 10/20 | 143/143 | 21 s |
-| llama3 8B | laptop, CPU | 4/8 | 8/22 | 187/187 | 30 s |
-| llama3.2 3B | laptop, CPU | 3/8 | 13/22 | 113/127 (89%) | 11 s |
+| Model | Runs on | Correct on the 8-failure test set | Correct on the 22 clear-cut failures | Cited lines that exist | Median latency | Cost per failure, list price |
+|---|---|---|---|---|---|---|
+| **qwen3 8B, thinking on** | GCP VM, CPU | **7/8** | n/a | 30/30 | 126 s | $0.0130 |
+| Nemotron 3 Ultra 550B | OpenRouter | 6/8 | **20/22** | 173/173 | 7 s | $0.0017 |
+| gemma3 12B | GCP VM, CPU | 5/8 | n/a | 26/26 | 52 s | $0.0047 |
+| qwen3 8B, thinking off | GCP VM, CPU | 4/8 | 10/20 | 143/143 | 21 s | $0.0020 |
+| llama3 8B | laptop, CPU | 4/8 | 8/22 | 187/187 | 30 s | n/a (laptop) |
+| llama3.2 3B | laptop, CPU | 3/8 | 13/22 | 113/127 (89%) | 11 s | n/a (laptop) |
 
 What stands out:
 
 - **Reasoning mattered more than size.** qwen3 8B went from 4/8 to 7/8 with thinking on, ahead of the bigger gemma3 12B. The cost is time: about 800 output tokens, mostly reasoning, at about 7 tokens/s on CPU.
 - **llama3 8B was biased.** It labels almost every failure `code_bug`, which is why it scored below the 3B model.
 - **Only the 3B model invented evidence.** 11% of its cited lines were not in the log it was shown.
+- **Self-hosting on CPU cost more, not less.** We used OpenRouter's free tier, so nothing was billed; the cost column prices the same tokens at the paid variant of the same model ($0.60 / $2.40 per million tokens in / out, November 2026). For the VM models it is the answer's latency at the VM's on-demand rate ($0.295/h for an e2-standard-8 in europe-north1). On that basis qwen3 with thinking costs about 8× as much per failure as the API, and that counts only busy time: the VM also costs about $7 a day when idle. What self-hosting buys is that CI logs stay on your own infrastructure.
 - **The 8-failure test set has one example of each kind of clear-cut failure.** It was also used to pick the model, so qwen3's 7/8 is optimistic. Failures collected later are the fair test.
 
 ### Edge filter
