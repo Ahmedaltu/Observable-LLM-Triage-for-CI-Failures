@@ -34,6 +34,14 @@ flowchart LR
 
 Each triaged failure is one trace in Jaeger: a root span with the Prow job details, then `filter`, one `llm` span per attempt (a failed attempt is marked as an error), then `verify`. LLM spans carry the OpenTelemetry GenAI attributes (`gen_ai.request.model`, `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`) plus latency, time to first token and tokens per second.
 
+![Jaeger trace of one triaged failure](docs/jaeger-trace.png)
+
+*One failure in Jaeger, taken with the model server switched off. The server attempt (red) fails, the API model answers in 23.6 s, and `verify` checks its citations.*
+
+![Grafana LLM triage dashboard](docs/grafana-triage.png)
+
+*The LLM triage dashboard. The watcher panel is red because the watcher had been stopped for two days when this was taken. Accuracy here counts all labelled failures, including merge conflicts, so it differs from the tables below.*
+
 ## Results
 
 Data: 43 failed Metal3 jobs collected from Prow on 27–31 October 2026, labelled by hand. 21 of them are merge conflicts, which the category list does not cover well, so accuracy is reported on the 22 failures with a clear answer.
