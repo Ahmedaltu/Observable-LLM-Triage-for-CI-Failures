@@ -12,10 +12,8 @@ Writes data/failures/<job>/triage-<model>.json; already-triaged (job, model) pai
 """
 import json
 import os
-import socket
 import sys
 import time
-import urllib.parse
 import urllib.request
 from contextlib import contextmanager
 from pathlib import Path
@@ -182,9 +180,9 @@ def trace_id(span):
 
 
 def ask_server(log, url, model, timeout, think):
-    # WSL drops (not refuses) connections to a dead localhost port; don't wait SERVER_TIMEOUT to notice
-    u = urllib.parse.urlsplit(url)
-    socket.create_connection((u.hostname, u.port), timeout=2).close()
+    # health check that Ollama itself must answer: the socat link accepts connections even when the VM or
+    # tunnel behind it is dead, so a bare TCP connect passed and the real request hung for minutes
+    urllib.request.urlopen(url + "/api/version", timeout=2).close()
     return ask_ollama(log, url, model, timeout, think)
 
 

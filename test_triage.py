@@ -46,6 +46,21 @@ assert spans["llm edge llama3.2:3b"].attributes["gen_ai.usage.input_tokens"] == 
 assert spans["llm edge llama3.2:3b"].attributes["llm.ttft_s"] == 1.5
 assert spans["filter"].attributes["filter.lines_in"] == 301
 assert "ci.pr" not in spans["triage unit-1"].attributes                          # periodic: no PR, no None attribute
+# ask_server(): link up but nothing answers behind it (socat with a dead tunnel) -> fails in ~2 s, not SERVER_TIMEOUT
+import socket
+import time
+
+link = socket.socket()
+link.bind(("127.0.0.1", 0))
+link.listen()  # the kernel accepts connections; nobody ever replies
+t0 = time.time()
+try:
+    triage.ask_server("log", f"http://127.0.0.1:{link.getsockname()[1]}", "m", 300, False)
+    raise AssertionError("dead server answered")
+except OSError:
+    pass
+assert time.time() - t0 < 5
+link.close()
 # serve(): server down -> API model answers, then the circuit breaker skips the server for the next job
 (job.parent / "unit-2").mkdir()
 for f in ("meta.json", "build-log.txt"):
