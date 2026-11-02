@@ -40,7 +40,7 @@ Each triaged failure is one trace in Jaeger: a root span with the Prow job detai
 
 ![Grafana CI health dashboard](docs/grafana-ci-health.png)
 
-*The CI health dashboard, built from the collector's snapshots of all Metal3 Prow jobs: failures and failure rate per repo and job, and flaky jobs (failed, then passed on the same commit). The gaps in the time series are periods when the stack was not running.*
+*The CI health dashboard, built from the collector's snapshots of all Metal3 Prow jobs: failures and failure rate per repo and job, and flaky jobs (the same job both failed and passed on the same commit). The gaps in the time series are periods when the stack was not running.*
 
 ![Grafana LLM triage dashboard](docs/grafana-triage.png)
 
