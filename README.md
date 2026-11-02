@@ -25,7 +25,7 @@ flowchart LR
 | Collect | `collector.py` | Reads Prow's `data.js`, saves the build log of each new failed job to `data/failures/<job>-<build>/`, and keeps an hourly snapshot of all jobs for the CI-health dashboard. |
 | Filter | `logfilter.py` | Keeps error lines with 3 lines of context, the last 10 lines, and the original line numbers. Drops info-level logs and coverage output. |
 | Triage | `triage.py` | Sends the filtered log to the model and gets back JSON `{category, summary, cited_lines}`. The category is one of `flaky_test`, `infra_timeout`, `code_bug`, `config_error`, `unknown`. |
-| Fallback | `triage.py serve` | Self-hosted model first. If it is unreachable or slower than 300 s, the cloud API answers. A circuit breaker skips a dead server for 30 s, and a 2 s connect check catches dead links fast. |
+| Fallback | `triage.py serve` | Self-hosted model first. If it is unreachable or slower than 300 s, the cloud API answers. A circuit breaker skips a dead server for 30 s, and a 2 s health check (Ollama must answer `/api/version`) catches a dead link or VM fast. |
 | Watch | `triage.py watch` | Runs collect, filter and triage every 5 minutes, only for failures it has not seen. Reports its own liveness. |
 | Verify | `verify.py` | Checks every cited line number against the log the model was shown. Made-up lines lower the citation validity. |
 | Labels | `labels.py` | Hand labels (`data/labels.csv`) and per-model accuracy. |
