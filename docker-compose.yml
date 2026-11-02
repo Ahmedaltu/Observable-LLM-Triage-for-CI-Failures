@@ -14,6 +14,19 @@ services:
     # :11436 = `ssh -N -L 11436:localhost:11434 tuwai@<VM_IP>` to the GCP VM; LLM_SERVER_TARGET=localhost:11434 for local Ollama
     command: TCP-LISTEN:11435,fork,reuseaddr TCP:${LLM_SERVER_TARGET:-localhost:11436}
 
+  watcher:  # polls Prow every 5 min and triages new failures (triage.py watch)
+    image: python:3.12-slim
+    network_mode: host  # same localhost as the host: llm-server :11435, Jaeger :4318
+    working_dir: /app
+    volumes:
+      - .:/app  # writes data/failures, data/serve.jsonl, data/watch.json
+    environment:
+      - OPENROUTER_API_KEY  # passed through from the shell running `docker compose up`; never written here
+      - PYTHONUNBUFFERED=1
+    # ponytail: pip install on every start (~10 s); build an image if that ever matters
+    command: sh -c "pip install -q --root-user-action=ignore -r requirements.txt && python3 triage.py watch"
+    restart: unless-stopped
+
   jaeger:  # ponytail: in-memory storage, traces are gone after a restart; add badger storage if they must persist
     image: jaegertracing/all-in-one:1.62.0
     ports:

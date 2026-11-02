@@ -98,8 +98,8 @@ export OPENROUTER_API_KEY=...                         # keep it out of the repo
 ssh -N -L 11436:localhost:11434 <user>@<vm-ip> &
 # (to use a local Ollama instead: LLM_SERVER_TARGET=localhost:11434 docker compose up -d)
 
-docker compose up -d                                  # exporter, Prometheus, Grafana, Jaeger, llm-server link
-.venv/bin/python triage.py watch                      # poll Prow every 5 min and triage new failures
+docker compose up -d   # watcher (polls Prow every 5 min, triages new failures), exporter, Prometheus, Grafana, Jaeger, llm-server link
+                       # run it from the shell that has OPENROUTER_API_KEY: the watcher takes the key from there
 ```
 
 - Grafana: http://localhost:3000 (admin / admin). Dashboards *Metal3 CI health* and *Metal3 LLM triage*.
