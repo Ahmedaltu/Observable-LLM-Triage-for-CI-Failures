@@ -1,0 +1,11 @@
+...
+280: + echo one of the go.mod and/or go.sum files changed
+281: one of the go.mod and/or go.sum files changed
+282: + echo  M test/go.mod
+283:  M test/go.sum
+284:  M test/go.mod
+285:  M test/go.sum
+286: + echo Please run 'go mod tidy' and commit the changes
+287: Please run 'go mod tidy' and commit the changes
+288: + exit 1
+289: + rm -rf /tmp/gomod.9TxEQp

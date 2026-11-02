@@ -2,3 +2,5 @@ __pycache__/
 data/cron.log
 .venv/
 data/watch.json
+data/serve.jsonl
+data/snapshots/  # hourly, ~2.4 MB/day; the snapshots committed before this line stay tracked
