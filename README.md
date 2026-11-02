@@ -34,9 +34,9 @@ flowchart LR
 
 Each triaged failure is one trace in Jaeger: a root span with the Prow job details, then `filter`, one `llm` span per attempt (a failed attempt is marked as an error), then `verify`. LLM spans carry the OpenTelemetry GenAI attributes (`gen_ai.request.model`, `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`) plus latency, time to first token and tokens per second.
 
-![Jaeger trace of one triaged failure](docs/jaeger-trace.png)
+![Jaeger trace of one watcher poll](docs/jaeger-trace.png)
 
-*One failure in Jaeger, taken with the model server switched off. The server attempt (red) fails, the API model answers in 23.6 s, and `verify` checks its citations.*
+*One watcher poll in Jaeger, taken with the model server switched off. `collect` finds two new failures. For the first, the server attempt (red) fails its 2 s health check and the API model answers; for the second, the circuit breaker skips the server and goes straight to the API. Each answer ends with `verify` checking its citations.*
 
 ![Grafana CI health dashboard](docs/grafana-ci-health.png)
 
@@ -44,7 +44,7 @@ Each triaged failure is one trace in Jaeger: a root span with the Prow job detai
 
 ![Grafana LLM triage dashboard](docs/grafana-triage.png)
 
-*The LLM triage dashboard. The watcher panel is red because the watcher had been stopped for two days when this was taken. Accuracy here counts all labelled failures, including merge conflicts, so it differs from the tables below.*
+*The LLM triage dashboard. Accuracy here counts all labelled failures, including merge conflicts, so it differs from the tables below.*
 
 ## Results
 
