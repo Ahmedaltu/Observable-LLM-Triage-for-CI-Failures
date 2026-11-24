@@ -1,0 +1,29 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "config_error",
+  "summary": "The CI environment is using Go 1.26.10, but the project requires Go >= 1.27.0 as specified in go.mod",
+  "cited_lines": [
+    4,
+    5
+  ],
+  "latency_s": 46.58,
+  "input_tokens": 367,
+  "output_tokens": 274,
+  "cost_usd": 0.0,
+  "ttft_s": 6.97,
+  "tokens_per_s": 7.0,
+  "citations": [
+    {
+      "line": 4,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)"
+    },
+    {
+      "line": 5,
+      "found": true,
+      "text": "make[1]: *** [Makefile:161: hack/tools/bin/controller-gen] Error 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "6b99c1a0a51a0e4d7f601e9d02f2dc36"
+}

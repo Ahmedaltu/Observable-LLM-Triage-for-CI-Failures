@@ -1,0 +1,29 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "config_error",
+  "summary": "The CI environment is using an outdated Go version (1.25.14) instead of the required 1.27.0.",
+  "cited_lines": [
+    203,
+    204
+  ],
+  "latency_s": 101.06,
+  "input_tokens": 438,
+  "output_tokens": 625,
+  "cost_usd": 0.0,
+  "ttft_s": 0.16,
+  "tokens_per_s": 6.2,
+  "citations": [
+    {
+      "line": 203,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)"
+    },
+    {
+      "line": 204,
+      "found": true,
+      "text": "make: *** [Makefile:483: modules] Error 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "988c94cd174e1ef9296994b103a9e641"
+}

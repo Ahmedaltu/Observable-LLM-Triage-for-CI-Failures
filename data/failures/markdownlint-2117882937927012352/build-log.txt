@@ -1,0 +1,10 @@
++ IS_CONTAINER=TRUE
++ CONTAINER_RUNTIME=podman
++ '[' TRUE '!=' false ]
++ markdownlint-cli2 '**/*.md' '#.github'
+markdownlint-cli2 v0.14.0 (markdownlint v0.35.0)
+Finding: **/*.md !.github !CLAUDE.md
+Linting: 66 file(s)
+Summary: 2 error(s)
+test/e2e/README.md:71:81 MD013/line-length Line length [Expected: 80; Actual: 84]
+test/e2e/README.md:72:81 MD013/line-length Line length [Expected: 80; Actual: 85]

@@ -42,3 +42,15 @@ unit-2116222736735932416,config_error,"go version: dependency bump needs go 1.27
 unit-2116227764028706816,code_bug,"merge conflict: PR does not apply to base, author must rebase"
 yamllint-2116180678415486976,code_bug,"merge conflict: PR does not apply to base, author must rebase"
 yamllint-2116227764158730240,code_bug,"merge conflict: PR does not apply to base, author must rebase"
+build-2117695187550474240,config_error,"go version: dependency bump needs go 1.27, CI image has 1.25"
+build-2117695299760689152,config_error,"go version: dependency bump needs go 1.27, CI image has 1.25"
+generate-2117695171981217792,config_error,"go version: dependency bump needs go 1.27, CI image has 1.25"
+golangci-lint-2117695187344953344,config_error,"go version: dependency bump needs go 1.27, CI image has 1.25"
+golangci-lint-2117695299685191680,config_error,"go version: dependency bump needs go 1.27, CI image has 1.25"
+gomod-2117695171935080448,config_error,"go version: dependency bump needs go 1.27, CI image has 1.25"
+gomod-2117695187181375488,config_error,"go version: dependency bump needs go 1.27, CI image has 1.25"
+gomod-2117695299567751168,config_error,"go version: dependency bump needs go 1.27, CI image has 1.25"
+clean-artifactory-cache-2117829257118879744,config_error,curl gets an empty argument: job/script variable not set
+gomod-2117931872821448704,code_bug,go.mod/go.sum not tidy in the PR
+markdownlint-2117882937927012352,code_bug,markdown lint: lines too long in the PR
+unit-2117831499532210176,code_bug,"unit test fails: TestWithIronicOverrides expects version 0.0, gets 39.0 on release-0.12"

@@ -1,0 +1,23 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "config_error",
+  "summary": "The CI job failed because the required Go version (1.27.0) is not met, the environment is using Go 1.26.5.",
+  "cited_lines": [
+    299
+  ],
+  "latency_s": 108.48,
+  "input_tokens": 737,
+  "output_tokens": 540,
+  "cost_usd": 0.0,
+  "ttft_s": 22.55,
+  "tokens_per_s": 6.3,
+  "citations": [
+    {
+      "line": 299,
+      "found": true,
+      "text": "level=error msg=\"Running error: context loading failed: failed to load packages: failed to load packages: failed to load with go/packages: err: exit status 1: stderr: go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)\\n\""
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "2de9d2e611da43c1db169a3730269ab0"
+}

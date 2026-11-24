@@ -1,0 +1,10 @@
+1: + IS_CONTAINER=TRUE
+2: + CONTAINER_RUNTIME=podman
+3: + '[' TRUE '!=' false ]
+4: + markdownlint-cli2 '**/*.md' '#.github'
+5: markdownlint-cli2 v0.14.0 (markdownlint v0.35.0)
+6: Finding: **/*.md !.github !CLAUDE.md
+7: Linting: 66 file(s)
+8: Summary: 2 error(s)
+9: test/e2e/README.md:71:81 MD013/line-length Line length [Expected: 80; Actual: 84]
+10: test/e2e/README.md:72:81 MD013/line-length Line length [Expected: 80; Actual: 85]

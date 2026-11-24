@@ -1,0 +1,23 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "infra_timeout",
+  "summary": "The CI infrastructure is using Go 1.25.14, but the project requires Go >= 1.27.0 as specified in go.mod.",
+  "cited_lines": [
+    148
+  ],
+  "latency_s": 107.32,
+  "input_tokens": 785,
+  "output_tokens": 558,
+  "cost_usd": 0.0,
+  "ttft_s": 16.6,
+  "tokens_per_s": 6.2,
+  "citations": [
+    {
+      "line": 148,
+      "found": true,
+      "text": "level=error msg=\"Running error: context loading failed: failed to load packages: failed to load packages: failed to load with go/packages: err: exit status 1: stderr: go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)\\n\""
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "bcf31005c7788a1f6c8a911757d07486"
+}

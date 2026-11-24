@@ -1,0 +1,57 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "config_error",
+  "summary": "The CI job failed because go.mod and go.sum files have uncommitted changes; the check script requires running 'go mod tidy' to synchronize dependencies.",
+  "cited_lines": [
+    384,
+    385,
+    386,
+    387,
+    388,
+    389,
+    390
+  ],
+  "latency_s": 7.21,
+  "input_tokens": 339,
+  "output_tokens": 316,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 384,
+      "found": true,
+      "text": "+ echo  M test/go.mod"
+    },
+    {
+      "line": 385,
+      "found": true,
+      "text": " M test/go.sum"
+    },
+    {
+      "line": 386,
+      "found": true,
+      "text": " M test/go.mod"
+    },
+    {
+      "line": 387,
+      "found": true,
+      "text": " M test/go.sum"
+    },
+    {
+      "line": 388,
+      "found": true,
+      "text": "+ echo Please run 'go mod tidy' and commit the changes"
+    },
+    {
+      "line": 389,
+      "found": true,
+      "text": "Please run 'go mod tidy' and commit the changes"
+    },
+    {
+      "line": 390,
+      "found": true,
+      "text": "+ exit 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "7658b9f76ad8ddd26de269a3031463a0"
+}

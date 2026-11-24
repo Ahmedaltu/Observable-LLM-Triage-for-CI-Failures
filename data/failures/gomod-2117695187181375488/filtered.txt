@@ -1,0 +1,11 @@
+...
+195: go: downloading gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7
+196: go: downloading github.com/google/pprof v0.0.0-20250403155104-27863c87afa6
+197: cd hack/tools && /usr/local/go/bin/go mod verify
+198: all modules verified
+199: cd api && /usr/local/go/bin/go mod tidy
+200: cd api && /usr/local/go/bin/go mod verify
+201: all modules verified
+202: cd test && /usr/local/go/bin/go mod tidy
+203: go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)
+204: make: *** [Makefile:483: modules] Error 1

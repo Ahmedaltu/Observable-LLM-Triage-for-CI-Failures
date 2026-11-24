@@ -1,0 +1,11 @@
+...
+70: + cksum config/certmanager/certificate.yaml config/certmanager/kustomization.yaml config/certmanager/kustomizeconfig.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3clusters.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3clustertemplates.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3dataclaims.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3datas.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3datatemplates.yaml config/crd/bases/infr
+71: + export VERBOSE=--verbose
+72: + make generate
+73: make generate-go
+74: make[1]: Entering directory '/home/prow/go/src/github.com/metal3-io/cluster-api-provider-metal3'
+75: cd hack/tools && /usr/local/go/bin/go build -tags=tools -o bin/controller-gen sigs.k8s.io/controller-tools/cmd/controller-gen
+76: go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)
+77: make[1]: *** [Makefile:389: /home/prow/go/src/github.com/metal3-io/cluster-api-provider-metal3/hack/tools/bin/controller-gen] Error 1
+78: make[1]: Leaving directory '/home/prow/go/src/github.com/metal3-io/cluster-api-provider-metal3'
+79: make: *** [Makefile:490: generate] Error 2

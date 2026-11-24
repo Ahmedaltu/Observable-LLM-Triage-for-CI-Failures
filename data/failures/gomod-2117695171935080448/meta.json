@@ -1,0 +1,37 @@
+{
+  "type": "presubmit",
+  "refs": {
+    "org": "metal3-io",
+    "repo": "cluster-api-provider-metal3",
+    "repo_link": "https://github.com/metal3-io/cluster-api-provider-metal3",
+    "base_ref": "release-1.13",
+    "base_sha": "7efb89f5ee00a11136e0861f98b4ad1d65d4fe1f",
+    "base_link": "https://github.com/metal3-io/cluster-api-provider-metal3/commit/7efb89f5ee00a11136e0861f98b4ad1d65d4fe1f",
+    "pulls": [
+      {
+        "number": 3831,
+        "author": "dependabot[bot]",
+        "sha": "d8aa8881a48ecc205ada512c088a611959cd0140",
+        "title": ":seedling: Bump sigs.k8s.io/kustomize/kustomize/v5 from 5.8.1 to 5.8.3 in /hack/tools",
+        "head_ref": "dependabot/go_modules/hack/tools/release-1.13/sigs.k8s.io/kustomize/kustomize/v5-5.8.3",
+        "link": "https://github.com/metal3-io/cluster-api-provider-metal3/pull/3831",
+        "commit_link": "https://github.com/metal3-io/cluster-api-provider-metal3/pull/3831/commits/d8aa8881a48ecc205ada512c088a611959cd0140",
+        "author_link": "https://github.com/apps/dependabot"
+      }
+    ]
+  },
+  "refs_key": "release-1.13:7efb89f5ee00a11136e0861f98b4ad1d65d4fe1f,3831:d8aa8881a48ecc205ada512c088a611959cd0140",
+  "job": "gomod",
+  "build_id": "2117695171935080448",
+  "context": "gomod",
+  "started": "1793732848",
+  "finished": "2026-11-03T19:07:57Z",
+  "duration": "29s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/pr-logs/pull/metal3-io_cluster-api-provider-metal3/3831/gomod/2117695171935080448",
+  "pod_name": "01671b4f-407d-4c0f-ab48-891e113c8eb2",
+  "agent": "kubernetes",
+  "prow_job": "01671b4f-407d-4c0f-ab48-891e113c8eb2",
+  "fetch_s": 0.46
+}

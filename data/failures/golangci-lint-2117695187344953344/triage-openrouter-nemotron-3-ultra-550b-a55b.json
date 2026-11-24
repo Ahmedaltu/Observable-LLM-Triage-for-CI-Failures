@@ -1,0 +1,21 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "config_error",
+  "summary": "The CI job fails because the Go version in the environment (1.25.14) is older than the minimum required by go.mod (>=1.27.0).",
+  "cited_lines": [
+    148
+  ],
+  "latency_s": 6.99,
+  "input_tokens": 820,
+  "output_tokens": 292,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 148,
+      "found": true,
+      "text": "level=error msg=\"Running error: context loading failed: failed to load packages: failed to load packages: failed to load with go/packages: err: exit status 1: stderr: go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)\\n\""
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "68b46aa948ccf31a532a3775d0ce8d0b"
+}

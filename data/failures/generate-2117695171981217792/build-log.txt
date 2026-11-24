@@ -1,0 +1,79 @@
++ IS_CONTAINER=TRUE
++ ARTIFACTS=/logs/artifacts
++ CONTAINER_RUNTIME=podman
++ WORKDIR=/workdir
++ [ TRUE != false ]
++ git config --global safe.directory /workdir
++ export XDG_CACHE_HOME=/tmp/.cache
++ git ls-files config
++ git ls-files
++ grep zz_generated
++ INPUT_FILES=config/certmanager/certificate.yaml
+config/certmanager/kustomization.yaml
+config/certmanager/kustomizeconfig.yaml
+config/crd/bases/infrastructure.cluster.x-k8s.io_metal3clusters.yaml
+config/crd/bases/infrastructure.cluster.x-k8s.io_metal3clustertemplates.yaml
+config/crd/bases/infrastructure.cluster.x-k8s.io_metal3dataclaims.yaml
+config/crd/bases/infrastructure.cluster.x-k8s.io_metal3datas.yaml
+config/crd/bases/infrastructure.cluster.x-k8s.io_metal3datatemplates.yaml
+config/crd/bases/infrastructure.cluster.x-k8s.io_metal3machines.yaml
+config/crd/bases/infrastructure.cluster.x-k8s.io_metal3machinetemplates.yaml
+config/crd/bases/infrastructure.cluster.x-k8s.io_metal3remediations.yaml
+config/crd/bases/infrastructure.cluster.x-k8s.io_metal3remediationtemplates.yaml
+config/crd/kustomization.yaml
+config/crd/kustomizeconfig.yaml
+config/crd/patches/cainjection_in_metal3clusters.yaml
+config/crd/patches/cainjection_in_metal3dataclaims.yaml
+config/crd/patches/cainjection_in_metal3datas.yaml
+config/crd/patches/cainjection_in_metal3datatemplates.yaml
+config/crd/patches/cainjection_in_metal3machines.yaml
+config/crd/patches/cainjection_in_metal3machinetemplates.yaml
+config/crd/patches/cainjection_in_metal3remediations.yaml
+config/crd/patches/cainjection_in_metal3remediationtemplates.yaml
+config/crd/patches/skipcrdnamecheck_in_metal3datas.yaml
+config/crd/patches/webhook_in_metal3clusters.yaml
+config/crd/patches/webhook_in_metal3dataclaims.yaml
+config/crd/patches/webhook_in_metal3datas.yaml
+config/crd/patches/webhook_in_metal3datatemplates.yaml
+config/crd/patches/webhook_in_metal3machines.yaml
+config/crd/patches/webhook_in_metal3machinetemplates.yaml
+config/crd/patches/webhook_in_metal3remediations.yaml
+config/crd/patches/webhook_in_metal3remediationtemplates.yaml
+config/default/capm3/kustomization.yaml
+config/default/capm3/kustomizeconfig.yaml
+config/default/capm3/manager_image_patch.yaml
+config/default/capm3/manager_pull_policy_patch.yaml
+config/default/capm3/manager_webhook_patch.yaml
+config/default/capm3/namespace.yaml
+config/default/capm3/webhookcainjection_patch.yaml
+config/default/kustomization.yaml
+config/manager/kustomization.yaml
+config/manager/manager.yaml
+config/rbac/kustomization.yaml
+config/rbac/leader_election_role.yaml
+config/rbac/leader_election_role_binding.yaml
+config/rbac/role.yaml
+config/rbac/role_binding.yaml
+config/rbac/service_account.yaml
+config/webhook/kustomization.yaml
+config/webhook/manifests.yaml
+config/webhook/service.yaml api/v1beta1/zz_generated.conversion.go
+api/v1beta1/zz_generated.deepcopy.go
+api/v1beta2/zz_generated.deepcopy.go
+baremetal/mocks/zz_generated.manager_factory.go
+baremetal/mocks/zz_generated.metal3cluster_manager.go
+baremetal/mocks/zz_generated.metal3data_manager.go
+baremetal/mocks/zz_generated.metal3datatemplate_manager.go
+baremetal/mocks/zz_generated.metal3machine_manager.go
+baremetal/mocks/zz_generated.metal3machinetemplate_manager.go
+baremetal/mocks/zz_generated.metal3remediation_manager.go
++ cksum config/certmanager/certificate.yaml config/certmanager/kustomization.yaml config/certmanager/kustomizeconfig.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3clusters.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3clustertemplates.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3dataclaims.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3datas.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3datatemplates.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3machines.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3machinetemplates.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3remediations.yaml config/crd/bases/infrastructure.cluster.x-k8s.io_metal3remediationtemplates.yaml config/crd/kustomization.yaml config/crd/kustomizeconfig.yaml config/crd/patches/cainjection_in_metal3clusters.yaml config/crd/patches/cainjection_in_metal3dataclaims.yaml config/crd/patches/cainjection_in_metal3datas.yaml config/crd/patches/cainjection_in_metal3datatemplates.yaml config/crd/patches/cainjection_in_metal3machines.yaml config/crd/patches/cainjection_in_metal3machinetemplates.yaml config/crd/patches/cainjection_in_metal3remediations.yaml config/crd/patches/cainjection_in_metal3remediationtemplates.yaml config/crd/patches/skipcrdnamecheck_in_metal3datas.yaml config/crd/patches/webhook_in_metal3clusters.yaml config/crd/patches/webhook_in_metal3dataclaims.yaml config/crd/patches/webhook_in_metal3datas.yaml config/crd/patches/webhook_in_metal3datatemplates.yaml config/crd/patches/webhook_in_metal3machines.yaml config/crd/patches/webhook_in_metal3machinetemplates.yaml config/crd/patches/webhook_in_metal3remediations.yaml config/crd/patches/webhook_in_metal3remediationtemplates.yaml config/default/capm3/kustomization.yaml config/default/capm3/kustomizeconfig.yaml config/default/capm3/manager_image_patch.yaml config/default/capm3/manager_pull_policy_patch.yaml config/default/capm3/manager_webhook_patch.yaml config/default/capm3/namespace.yaml config/default/capm3/webhookcainjection_patch.yaml config/default/kustomization.yaml config/manager/kustomization.yaml config/manager/manager.yaml config/rbac/kustomization.yaml config/rbac/leader_election_role.yaml config/rbac/leader_election_role_binding.yaml config/rbac/role.yaml config/rbac/role_binding.yaml config/rbac/service_account.yaml config/webhook/kustomization.yaml config/webhook/manifests.yaml config/webhook/service.yaml api/v1beta1/zz_generated.conversion.go api/v1beta1/zz_generated.deepcopy.go api/v1beta2/zz_generated.deepcopy.go baremetal/mocks/zz_generated.manager_factory.go baremetal/mocks/zz_generated.metal3cluster_manager.go baremetal/mocks/zz_generated.metal3data_manager.go baremetal/mocks/zz_generated.metal3datatemplate_manager.go baremetal/mocks/zz_generated.metal3machine_manager.go baremetal/mocks/zz_generated.metal3machinetemplate_manager.go baremetal/mocks/zz_generated.metal3remediation_manager.go
++ export VERBOSE=--verbose
++ make generate
+make generate-go
+make[1]: Entering directory '/home/prow/go/src/github.com/metal3-io/cluster-api-provider-metal3'
+cd hack/tools && /usr/local/go/bin/go build -tags=tools -o bin/controller-gen sigs.k8s.io/controller-tools/cmd/controller-gen
+go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)
+make[1]: *** [Makefile:389: /home/prow/go/src/github.com/metal3-io/cluster-api-provider-metal3/hack/tools/bin/controller-gen] Error 1
+make[1]: Leaving directory '/home/prow/go/src/github.com/metal3-io/cluster-api-provider-metal3'
+make: *** [Makefile:490: generate] Error 2

@@ -1,0 +1,23 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "config_error",
+  "summary": "The CI job failed because the required Go version (1.27.0) specified in go.mod is not met by the current Go version (1.25.14) in the environment.",
+  "cited_lines": [
+    106
+  ],
+  "latency_s": 179.62,
+  "input_tokens": 458,
+  "output_tokens": 408,
+  "cost_usd": 0.0,
+  "ttft_s": 117.52,
+  "tokens_per_s": 6.6,
+  "citations": [
+    {
+      "line": 106,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "b9c182513c3b8a92988145970e52b6f1"
+}

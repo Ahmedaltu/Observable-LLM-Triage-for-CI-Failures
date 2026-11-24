@@ -1,0 +1,39 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "code_bug",
+  "summary": "Unit test TestWithIronicOverrides fails because it expects InstalledVersion Major:0 but the code returns Major:39 (matching the release-39.0 image tag), indicating the test expectations were not updated for the new Ironic version.",
+  "cited_lines": [
+    94,
+    95,
+    114,
+    115
+  ],
+  "latency_s": 38.62,
+  "input_tokens": 1246,
+  "output_tokens": 1122,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 94,
+      "found": true,
+      "text": "            \t            \texpected: ironic.VersionInfo{InstalledVersion:v1alpha1.Version{Major:0, Minor:0}, IronicImage:\"quay.io/metal3-io/ironic:latest\", RamdiskDownloaderImage:\"quay.io/metal3-io/ironic-ipa-downloader:latest\", AgentBranch:\"\", KeepalivedImage:\"quay.io/metal3-io/keepalived:latest\"}"
+    },
+    {
+      "line": 95,
+      "found": true,
+      "text": "            \t            \tactual  : ironic.VersionInfo{InstalledVersion:v1alpha1.Version{Major:39, Minor:0}, IronicImage:\"quay.io/metal3-io/ironic:release-39.0\", RamdiskDownloaderImage:\"quay.io/metal3-io/ironic-ipa-downloader:latest\", AgentBranch:\"\", KeepalivedImage:\"quay.io/metal3-io/keepalived:latest\"}"
+    },
+    {
+      "line": 114,
+      "found": true,
+      "text": "            \t            \texpected: ironic.VersionInfo{InstalledVersion:v1alpha1.Version{Major:0, Minor:0}, IronicImage:\"myorg/ironic:tag\", RamdiskDownloaderImage:\"myorg/ramdisk-downloader:tag\", AgentBranch:\"stable/x.y\", KeepalivedImage:\"myorg/keepalived:tag\"}"
+    },
+    {
+      "line": 115,
+      "found": true,
+      "text": "            \t            \tactual  : ironic.VersionInfo{InstalledVersion:v1alpha1.Version{Major:39, Minor:0}, IronicImage:\"myorg/ironic:tag\", RamdiskDownloaderImage:\"myorg/ramdisk-downloader:tag\", AgentBranch:\"stable/x.y\", KeepalivedImage:\"myorg/keepalived:tag\"}"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "3e4066ceafd3c5551a9623740de4a62a"
+}

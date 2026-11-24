@@ -1,0 +1,23 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "config_error",
+  "summary": "The CI job failed because it's using Go 1.25.14, but the project requires Go >= 1.27.0 as specified in go.mod",
+  "cited_lines": [
+    106
+  ],
+  "latency_s": 56.13,
+  "input_tokens": 458,
+  "output_tokens": 360,
+  "cost_usd": 0.0,
+  "ttft_s": 0.15,
+  "tokens_per_s": 6.4,
+  "citations": [
+    {
+      "line": 106,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "f6e75f61cef5e41f74d9c874397106a1"
+}

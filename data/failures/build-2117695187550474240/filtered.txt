@@ -1,0 +1,11 @@
+...
+98: go: downloading github.com/go-logr/stdr v1.2.2
+99: go: downloading go.opentelemetry.io/auto/sdk v1.2.1
+100: go: downloading github.com/cenkalti/backoff/v5 v5.0.3
+101: go: downloading github.com/grpc-ecosystem/grpc-gateway/v2 v2.29.0
+102: go: downloading github.com/antlr4-go/antlr/v4 v4.13.1
+103: go: downloading golang.org/x/exp v0.0.0-20240823005443-9b4947da3948
+104: cd api && /usr/local/go/bin/go build ./...
+105: cd test && /usr/local/go/bin/go build ./...
+106: go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)
+107: make: *** [Makefile:377: build-e2e] Error 1

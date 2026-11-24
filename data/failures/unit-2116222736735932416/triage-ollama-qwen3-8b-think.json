@@ -1,0 +1,23 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "code_bug",
+  "summary": "Go version mismatch causing test failure",
+  "cited_lines": [
+    14396
+  ],
+  "latency_s": 190.11,
+  "input_tokens": 2050,
+  "output_tokens": 539,
+  "cost_usd": 0.0,
+  "ttft_s": 88.11,
+  "tokens_per_s": 5.3,
+  "citations": [
+    {
+      "line": 14396,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "c32b0f40b9ed98e179687e82ca5b7322"
+}

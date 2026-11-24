@@ -1,0 +1,37 @@
+{
+  "type": "presubmit",
+  "refs": {
+    "org": "metal3-io",
+    "repo": "cluster-api-provider-metal3",
+    "repo_link": "https://github.com/metal3-io/cluster-api-provider-metal3",
+    "base_ref": "main",
+    "base_sha": "cffb27e5d28973a041ac0dd7ef1c6b9181f7ed11",
+    "base_link": "https://github.com/metal3-io/cluster-api-provider-metal3/commit/cffb27e5d28973a041ac0dd7ef1c6b9181f7ed11",
+    "pulls": [
+      {
+        "number": 3873,
+        "author": "adilGhaffarDev",
+        "sha": "b5eed1cedc0c22e8c8171efcd1733bea3b2c5026",
+        "title": ":seedling: Bump CAPI to v1.15.0-beta.0",
+        "head_ref": "bump-capi-v1.15.0-beta.0/adil",
+        "link": "https://github.com/metal3-io/cluster-api-provider-metal3/pull/3873",
+        "commit_link": "https://github.com/metal3-io/cluster-api-provider-metal3/pull/3873/commits/b5eed1cedc0c22e8c8171efcd1733bea3b2c5026",
+        "author_link": "https://github.com/adilGhaffarDev"
+      }
+    ]
+  },
+  "refs_key": "main:cffb27e5d28973a041ac0dd7ef1c6b9181f7ed11,3873:b5eed1cedc0c22e8c8171efcd1733bea3b2c5026",
+  "job": "gomod",
+  "build_id": "2117931872821448704",
+  "context": "gomod",
+  "started": "1793789282",
+  "finished": "2026-11-04T10:48:46Z",
+  "duration": "44s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/pr-logs/pull/metal3-io_cluster-api-provider-metal3/3873/gomod/2117931872821448704",
+  "pod_name": "dc871fb3-1b40-4197-8798-d135d9d65105",
+  "agent": "kubernetes",
+  "prow_job": "dc871fb3-1b40-4197-8798-d135d9d65105",
+  "fetch_s": 0.48
+}

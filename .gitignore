@@ -5,3 +5,6 @@ data/watch.json
 data/serve.jsonl
 # hourly, ~2.4 MB/day; the snapshots committed before this rule stay tracked
 data/snapshots/
+# personal notes, not part of the project
+docs/value-qa.md
+agent-mode-plan.md

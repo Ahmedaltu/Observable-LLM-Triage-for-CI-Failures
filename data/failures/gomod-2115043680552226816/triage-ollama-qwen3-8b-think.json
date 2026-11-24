@@ -1,0 +1,29 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "config_error",
+  "summary": "The CI job failed because it's using Go 1.26.10, but the project requires Go 1.27.0 or higher.",
+  "cited_lines": [
+    150,
+    151
+  ],
+  "latency_s": 64.9,
+  "input_tokens": 427,
+  "output_tokens": 386,
+  "cost_usd": 0.0,
+  "ttft_s": 9.22,
+  "tokens_per_s": 7.0,
+  "citations": [
+    {
+      "line": 150,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.10; GOTOOLCHAIN=local)"
+    },
+    {
+      "line": 151,
+      "found": true,
+      "text": "make: *** [Makefile:204: modules] Error 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "ae4705fc36c264e3539484186f17e4cf"
+}

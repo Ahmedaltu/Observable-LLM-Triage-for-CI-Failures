@@ -1,0 +1,27 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "config_error",
+  "summary": "The CI environment runs Go 1.25.14 but the project's go.mod requires Go >= 1.27.0, causing the build to fail during controller-gen compilation.",
+  "cited_lines": [
+    76,
+    77
+  ],
+  "latency_s": 8.54,
+  "input_tokens": 576,
+  "output_tokens": 310,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 76,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)"
+    },
+    {
+      "line": 77,
+      "found": true,
+      "text": "make[1]: *** [Makefile:389: /home/prow/go/src/github.com/metal3-io/cluster-api-provider-metal3/hack/tools/bin/controller-gen] Error 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "8ba378e885c4c20a3dbb153142673d88"
+}

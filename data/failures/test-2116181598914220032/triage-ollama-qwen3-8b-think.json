@@ -1,0 +1,35 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "code_bug",
+  "summary": "The code has a variable shadowing issue that triggers the govet linter error.",
+  "cited_lines": [
+    296,
+    297,
+    300
+  ],
+  "latency_s": 111.31,
+  "input_tokens": 932,
+  "output_tokens": 500,
+  "cost_usd": 0.0,
+  "ttft_s": 29.92,
+  "tokens_per_s": 6.2,
+  "citations": [
+    {
+      "line": 296,
+      "found": true,
+      "text": "config/base/webhook/matchconditions_test.go:49:5: shadow: declaration of \"err\" shadows declaration at line 35 (govet)"
+    },
+    {
+      "line": 297,
+      "found": true,
+      "text": "\tif err := yaml.Unmarshal(data, &manifest); err != nil {"
+    },
+    {
+      "line": 300,
+      "found": true,
+      "text": "* govet: 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "9ce17c981fcb5a0f337d7a0aa378c439"
+}

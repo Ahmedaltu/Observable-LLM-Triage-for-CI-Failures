@@ -1,0 +1,37 @@
+{
+  "type": "presubmit",
+  "refs": {
+    "org": "metal3-io",
+    "repo": "baremetal-operator",
+    "repo_link": "https://github.com/metal3-io/baremetal-operator",
+    "base_ref": "main",
+    "base_sha": "2e673f6dc837fcb64c8160a016ae15310f19407d",
+    "base_link": "https://github.com/metal3-io/baremetal-operator/commit/2e673f6dc837fcb64c8160a016ae15310f19407d",
+    "pulls": [
+      {
+        "number": 3620,
+        "author": "nuhakala",
+        "sha": "c2d65c5abe97584a2813905db592e270fca806c0",
+        "title": ":seedling: Add support for IPv6 only e2e setup",
+        "head_ref": "nuhakala/ipv6-e2e-test",
+        "link": "https://github.com/metal3-io/baremetal-operator/pull/3620",
+        "commit_link": "https://github.com/metal3-io/baremetal-operator/pull/3620/commits/c2d65c5abe97584a2813905db592e270fca806c0",
+        "author_link": "https://github.com/nuhakala"
+      }
+    ]
+  },
+  "refs_key": "main:2e673f6dc837fcb64c8160a016ae15310f19407d,3620:c2d65c5abe97584a2813905db592e270fca806c0",
+  "job": "markdownlint",
+  "build_id": "2117882937927012352",
+  "context": "markdownlint",
+  "started": "1793777615",
+  "finished": "2026-11-04T07:33:54Z",
+  "duration": "19s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/pr-logs/pull/metal3-io_baremetal-operator/3620/markdownlint/2117882937927012352",
+  "pod_name": "b1b2ac7c-a6c9-4a3c-821b-9a9f41be0702",
+  "agent": "kubernetes",
+  "prow_job": "b1b2ac7c-a6c9-4a3c-821b-9a9f41be0702",
+  "fetch_s": 1.68
+}

@@ -48,26 +48,29 @@ Each triaged failure is one trace in Jaeger: a root span with the Prow job detai
 
 ## Results
 
-Data: 43 failed Metal3 jobs collected from Prow on 27–31 October 2026, labelled by hand. 21 of them are merge conflicts, which the category list does not cover well, so accuracy is reported on the 22 failures with a clear answer.
+Data: 43 failed Metal3 jobs collected from Prow on 27–31 October 2026, labelled by hand. 21 of them are merge conflicts, which the category list does not cover well, so accuracy is reported on the 22 failures with a clear answer. 12 more failures collected on 3–4 November, after the models were chosen, are a held-out set. 8 of them share one cause (three dependabot PRs hitting the same Go version mismatch in five jobs), so they hold 5 distinct causes.
 
 ### Model comparison
 
-| Model | Runs on | Correct on the 8-failure test set | Correct on the 22 clear-cut failures | Cited lines that exist | Median latency | Cost per failure, list price |
-|---|---|---|---|---|---|---|
-| **qwen3 8B, thinking on** | GCP VM, CPU | **7/8** | n/a | 30/30 | 126 s | $0.0130 |
-| Nemotron 3 Ultra 550B | OpenRouter | 6/8 | **20/22** | 173/173 | 7 s | $0.0017 |
-| gemma3 12B | GCP VM, CPU | 5/8 | n/a | 26/26 | 52 s | $0.0047 |
-| qwen3 8B, thinking off | GCP VM, CPU | 4/8 | 10/20 | 143/143 | 21 s | $0.0020 |
-| llama3 8B | laptop, CPU | 4/8 | 8/22 | 187/187 | 30 s | n/a (laptop) |
-| llama3.2 3B | laptop, CPU | 3/8 | 13/22 | 113/127 (89%) | 11 s | n/a (laptop) |
+| Model | Runs on | Correct on the 8-failure test set | Correct on the 22 clear-cut failures | Correct on the 12 held-out failures | Cited lines that exist | Median latency | Cost per failure, list price |
+|---|---|---|---|---|---|---|---|
+| **qwen3 8B, thinking on** | GCP VM, CPU | **7/8** | **20/22** | 10/12 | 88/89 | 104 s | $0.0105 |
+| Nemotron 3 Ultra 550B | OpenRouter | 6/8 | **20/22** | 10/12 | 173/173 | 7 s | $0.0016 |
+| gemma3 12B | GCP VM, CPU | 5/8 | n/a | n/a | 26/26 | 52 s | $0.0047 |
+| qwen3 8B, thinking off | GCP VM, CPU | 4/8 | 10/20 | n/a | 143/143 | 21 s | $0.0020 |
+| llama3 8B | laptop, CPU | 4/8 | 8/22 | n/a | 187/187 | 30 s | n/a (laptop) |
+| llama3.2 3B | laptop, CPU | 3/8 | 13/22 | n/a | 113/127 (89%) | 11 s | n/a (laptop) |
 
 What stands out:
 
-- **Reasoning mattered more than size.** qwen3 8B went from 4/8 to 7/8 with thinking on, ahead of the bigger gemma3 12B. The cost is time: about 800 output tokens, mostly reasoning, at about 7 tokens/s on CPU.
+- **Reasoning mattered more than size.** qwen3 8B went from 4/8 to 7/8 with thinking on, ahead of the bigger gemma3 12B, and then tied the 550B API model on all 34 clear-cut failures (30/34 each, 20/22 and 10/12). The cost is time: about 800 output tokens, mostly reasoning, at about 7 tokens/s on CPU, so 15× slower than the API.
 - **llama3 8B was biased.** It labels almost every failure `code_bug`, which is why it scored below the 3B model.
-- **Only the 3B model invented evidence.** 11% of its cited lines were not in the log it was shown.
-- **Self-hosting on CPU cost more, not less.** We used OpenRouter's free tier, so nothing was billed; the cost column prices the same tokens at the paid variant of the same model ($0.60 / $2.40 per million tokens in / out, November 2026). For the VM models it is the answer's latency at the VM's on-demand rate ($0.295/h for an e2-standard-8 in europe-north1). On that basis qwen3 with thinking costs about 8× as much per failure as the API, and that counts only busy time: the VM also costs about $7 a day when idle. What self-hosting buys is that CI logs stay on your own infrastructure.
-- **The 8-failure test set has one example of each kind of clear-cut failure.** It was also used to pick the model, so qwen3's 7/8 is optimistic. Failures collected later are the fair test.
+- **Only the 3B model invented evidence.** 11% of its cited lines were not in the log it was shown. qwen3's one bad citation was a misread: it cited 479 from `Makefile:479` as a log line.
+- **Same log, different answer.** Two byte-identical golangci-lint logs got `config_error` from qwen3 once and `infra_timeout` the other time; its latency on identical logs ranged from 56 s to 284 s. Nemotron answered `unknown` to a curl error it had classed right three times before. A single accuracy number hides this; per-answer traces show it.
+- **Some mistakes are systematic.** Nemotron called a PR that left `go.mod` untidy a `config_error` in both the original and the held-out set: it reads anything touching `go.mod` as configuration, while the fix belongs to the PR author.
+- **Eight red jobs, one cause.** In the held-out set, 8 failures across five jobs and three PRs came from one Go version mismatch, and both models said so for each. Prow shows eight failures; the summaries show one problem.
+- **Self-hosting on CPU cost more, not less.** We used OpenRouter's free tier, so nothing was billed; the cost column prices the same tokens at the paid variant of the same model ($0.60 / $2.40 per million tokens in / out, November 2026). For the VM models it is the answer's latency at the VM's on-demand rate ($0.295/h for an e2-standard-8 in europe-north1). On that basis qwen3 with thinking costs about 6.5× as much per failure as the API, and that counts only busy time: the VM also costs about $7 a day when idle. What self-hosting buys is that CI logs stay on your own infrastructure.
+- **The 8-failure test set has one example of each kind of clear-cut failure.** It was also used to pick the model, so qwen3's 7/8 was optimistic. On the held-out failures its lead over the API model disappears.
 
 ### Edge filter
 
@@ -113,7 +116,7 @@ python3 collector.py && python3 logfilter.py          # one collection by hand
 .venv/bin/python triage.py openrouter                 # batch-run one model on every failure
 OLLAMA_URL=http://localhost:11436 OLLAMA_MODEL=qwen3:8b OLLAMA_THINK=1 .venv/bin/python triage.py ollama
 .venv/bin/python failover_test.py                     # failure injection
-python3 labels.py                                     # label failures by hand; `labels.py score` for accuracy
+.venv/bin/python labels.py                            # label failures by hand; `labels.py score` for accuracy
 ```
 
 Tests (no models or network needed):
@@ -125,8 +128,8 @@ for t in test_logfilter test_verify test_labels test_exporter; do python3 $t.py;
 
 ## Limitations
 
-- **Small data.** 43 failures from four days, with 21 merge conflicts. The model test set has only 8 failures, run once.
-- **Labels were drafted by Claude and reviewed by the author.** They are not blind: the drafter had seen the models' answers.
+- **Small data.** 55 failures, with 21 merge conflicts. The model test set has only 8 failures, run once, and the 12 held-out failures hold only 5 distinct causes.
+- **Labels were drafted by Claude and reviewed by the author.** They are not blind: the drafter had seen the models' answers. For the held-out set it had seen Nemotron's answers, not qwen3's.
 - **CPU only.** All self-hosted latencies are CPU numbers. A GPU would make qwen3 with thinking roughly ten times faster.
 - **Polling, not events.** Prow can push job events, but only to whoever runs the cluster. An outsider can only poll the public `data.js`.
 - **The watcher runs on a laptop.** It stops when the laptop sleeps, and the SSH tunnel drops with it.

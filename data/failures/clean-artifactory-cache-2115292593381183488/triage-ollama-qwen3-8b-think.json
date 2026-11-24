@@ -1,0 +1,29 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "config_error",
+  "summary": "The CI job's script uses curl with incorrect command-line arguments, leading to a syntax error.",
+  "cited_lines": [
+    1,
+    2
+  ],
+  "latency_s": 95.39,
+  "input_tokens": 237,
+  "output_tokens": 633,
+  "cost_usd": 0.0,
+  "ttft_s": 1.78,
+  "tokens_per_s": 6.8,
+  "citations": [
+    {
+      "line": 1,
+      "found": true,
+      "text": "curl: option : blank argument where content is expected"
+    },
+    {
+      "line": 2,
+      "found": true,
+      "text": "curl: try 'curl --help' or 'curl --manual' for more information"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "ef215f89c6aeb56103e1a2549502f1e7"
+}

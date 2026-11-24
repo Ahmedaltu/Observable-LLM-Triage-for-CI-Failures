@@ -1,0 +1,47 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "code_bug",
+  "summary": "The code incorrectly sets the Major version to 39 instead of 0 in the version test.",
+  "cited_lines": [
+    94,
+    114,
+    122,
+    123,
+    124
+  ],
+  "latency_s": 141.43,
+  "input_tokens": 1149,
+  "output_tokens": 565,
+  "cost_usd": 0.0,
+  "ttft_s": 41.03,
+  "tokens_per_s": 5.6,
+  "citations": [
+    {
+      "line": 94,
+      "found": true,
+      "text": "            \t            \texpected: ironic.VersionInfo{InstalledVersion:v1alpha1.Version{Major:0, Minor:0}, IronicImage:\"quay.io/metal3-io/ironic:latest\", RamdiskDownloaderImage:\"quay.io/metal3-io/ironic-ipa-downloader:latest\", AgentBranch:\"\", KeepalivedImage:\"quay.io/metal3-io/keepalived:latest\"}"
+    },
+    {
+      "line": 114,
+      "found": true,
+      "text": "            \t            \texpected: ironic.VersionInfo{InstalledVersion:v1alpha1.Version{Major:0, Minor:0}, IronicImage:\"myorg/ironic:tag\", RamdiskDownloaderImage:\"myorg/ramdisk-downloader:tag\", AgentBranch:\"stable/x.y\", KeepalivedImage:\"myorg/keepalived:tag\"}"
+    },
+    {
+      "line": 122,
+      "found": true,
+      "text": "            \t            \t-  Major: (int) 0,"
+    },
+    {
+      "line": 123,
+      "found": true,
+      "text": "            \t            \t+  Major: (int) 39,"
+    },
+    {
+      "line": 124,
+      "found": true,
+      "text": "            \t            \t   Minor: (int) 0"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "082030e36d96348ab3b9499766d62443"
+}

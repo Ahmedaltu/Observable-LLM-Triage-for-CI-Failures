@@ -1,0 +1,29 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "code_bug",
+  "summary": "The commit introduced markdown lines exceeding 80 characters, triggering the markdownlint-cli2 linter errors.",
+  "cited_lines": [
+    9,
+    10
+  ],
+  "latency_s": 62.27,
+  "input_tokens": 383,
+  "output_tokens": 363,
+  "cost_usd": 0.0,
+  "ttft_s": 7.65,
+  "tokens_per_s": 6.7,
+  "citations": [
+    {
+      "line": 9,
+      "found": true,
+      "text": "test/e2e/README.md:71:81 MD013/line-length Line length [Expected: 80; Actual: 84]"
+    },
+    {
+      "line": 10,
+      "found": true,
+      "text": "test/e2e/README.md:72:81 MD013/line-length Line length [Expected: 80; Actual: 85]"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "115369e6d33e9c4061e05681cc7d12b4"
+}

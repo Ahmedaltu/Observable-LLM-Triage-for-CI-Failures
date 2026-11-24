@@ -1,0 +1,23 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "config_error",
+  "summary": "The CI environment uses Go 1.26.5, but the project requires Go >= 1.27.0 as specified in go.mod",
+  "cited_lines": [
+    2
+  ],
+  "latency_s": 76.23,
+  "input_tokens": 302,
+  "output_tokens": 494,
+  "cost_usd": 0.0,
+  "ttft_s": 4.29,
+  "tokens_per_s": 6.9,
+  "citations": [
+    {
+      "line": 2,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.26.5; GOTOOLCHAIN=local)"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "02c360c09fa9f79c9d9d76ffccdf6c24"
+}

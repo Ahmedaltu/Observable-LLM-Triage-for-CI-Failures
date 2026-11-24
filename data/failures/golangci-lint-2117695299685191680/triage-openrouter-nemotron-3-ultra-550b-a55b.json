@@ -1,0 +1,21 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "config_error",
+  "summary": "The CI job runs Go 1.25.14 while the project's go.mod requires Go >= 1.27.0, causing golangci-lint to fail when loading packages.",
+  "cited_lines": [
+    148
+  ],
+  "latency_s": 9.4,
+  "input_tokens": 820,
+  "output_tokens": 372,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 148,
+      "found": true,
+      "text": "level=error msg=\"Running error: context loading failed: failed to load packages: failed to load packages: failed to load with go/packages: err: exit status 1: stderr: go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)\\n\""
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "4bf0708b9dc129ab498531e7e9ba8ed5"
+}

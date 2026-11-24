@@ -1,0 +1,37 @@
+{
+  "type": "presubmit",
+  "refs": {
+    "org": "metal3-io",
+    "repo": "ironic-standalone-operator",
+    "repo_link": "https://github.com/metal3-io/ironic-standalone-operator",
+    "base_ref": "release-0.12",
+    "base_sha": "8cce885fd00270089dc05ba42a56dc5d6d2890fc",
+    "base_link": "https://github.com/metal3-io/ironic-standalone-operator/commit/8cce885fd00270089dc05ba42a56dc5d6d2890fc",
+    "pulls": [
+      {
+        "number": 935,
+        "author": "dependabot[bot]",
+        "sha": "0676d69d8a981aebe60955585783720477d346b0",
+        "title": ":seedling: Bump the kubernetes group across 3 directories with 4 updates",
+        "head_ref": "dependabot/go_modules/release-0.12/kubernetes-7c3f601fa3",
+        "link": "https://github.com/metal3-io/ironic-standalone-operator/pull/935",
+        "commit_link": "https://github.com/metal3-io/ironic-standalone-operator/pull/935/commits/0676d69d8a981aebe60955585783720477d346b0",
+        "author_link": "https://github.com/apps/dependabot"
+      }
+    ]
+  },
+  "refs_key": "release-0.12:8cce885fd00270089dc05ba42a56dc5d6d2890fc,935:0676d69d8a981aebe60955585783720477d346b0",
+  "job": "unit",
+  "build_id": "2117831499532210176",
+  "context": "unit",
+  "started": "1793765351",
+  "finished": "2026-11-04T04:11:30Z",
+  "duration": "2m19s",
+  "state": "failure",
+  "description": "Job failed.",
+  "url": "https://prow.apps.test.metal3.io/view/s3/prow-logs/pr-logs/pull/metal3-io_ironic-standalone-operator/935/unit/2117831499532210176",
+  "pod_name": "c18a3242-dd30-4fbb-bc7a-1ab905025e44",
+  "agent": "kubernetes",
+  "prow_job": "c18a3242-dd30-4fbb-bc7a-1ab905025e44",
+  "fetch_s": 0.45
+}

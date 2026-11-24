@@ -1,0 +1,95 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "code_bug",
+  "summary": "The code has variable shadowing issues that violate Go best practices, causing the lint check to fail.",
+  "cited_lines": [
+    363,
+    364,
+    365,
+    366,
+    367,
+    368,
+    369,
+    370,
+    371,
+    372,
+    373,
+    374,
+    375
+  ],
+  "latency_s": 254.06,
+  "input_tokens": 1141,
+  "output_tokens": 1228,
+  "cost_usd": 0.0,
+  "ttft_s": 39.3,
+  "tokens_per_s": 5.7,
+  "citations": [
+    {
+      "line": 363,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/pool.go:308:5: shadow: declaration of \"err\" shadows declaration at line 302 (govet)"
+    },
+    {
+      "line": 364,
+      "found": true,
+      "text": "\tif err := pool.Refresh(0); err != nil { // pick up files added outside libvirt"
+    },
+    {
+      "line": 365,
+      "found": true,
+      "text": "\t   ^"
+    },
+    {
+      "line": 366,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:161:6: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 367,
+      "found": true,
+      "text": "\t\tif err := domain.Destroy(); err != nil {"
+    },
+    {
+      "line": 368,
+      "found": true,
+      "text": "\t\t   ^"
+    },
+    {
+      "line": 369,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:168:5: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 370,
+      "found": true,
+      "text": "\tif err := domain.UndefineFlags(libvirt.DOMAIN_UNDEFINE_NVRAM); err != nil {"
+    },
+    {
+      "line": 371,
+      "found": true,
+      "text": "\t   ^"
+    },
+    {
+      "line": 372,
+      "found": true,
+      "text": "test/vbmctl/pkg/libvirt/vm.go:179:6: shadow: declaration of \"err\" shadows declaration at line 128 (govet)"
+    },
+    {
+      "line": 373,
+      "found": true,
+      "text": "\t\tif err := m.deleteVMVolumes(ctx, name); err != nil {"
+    },
+    {
+      "line": 374,
+      "found": true,
+      "text": "\t\t   ^"
+    },
+    {
+      "line": 375,
+      "found": true,
+      "text": "4 issues:"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "02bd719e94bcf8f748d145331d1cc99c"
+}

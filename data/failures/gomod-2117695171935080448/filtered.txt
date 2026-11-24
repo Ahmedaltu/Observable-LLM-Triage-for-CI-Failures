@@ -1,0 +1,11 @@
+...
+147: go: downloading github.com/cenkalti/backoff/v5 v5.0.3
+148: go: downloading github.com/grpc-ecosystem/grpc-gateway/v2 v2.29.0
+149: go: downloading go.opentelemetry.io/auto/sdk v1.2.1
+150: go: downloading github.com/golang/protobuf v1.5.4
+151: go: downloading gonum.org/v1/gonum v0.17.0
+152: /usr/local/go/bin/go mod verify
+153: all modules verified
+154: cd hack/tools && /usr/local/go/bin/go mod tidy
+155: go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)
+156: make: *** [Makefile:479: modules] Error 1

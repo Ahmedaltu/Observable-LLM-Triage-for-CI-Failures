@@ -1,0 +1,27 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "config_error",
+  "summary": "The CI job fails because the Go version in the environment (1.25.14) is older than the minimum required by go.mod (>=1.27.0).",
+  "cited_lines": [
+    106,
+    107
+  ],
+  "latency_s": 4.45,
+  "input_tokens": 472,
+  "output_tokens": 274,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 106,
+      "found": true,
+      "text": "go: go.mod requires go >= 1.27.0 (running go 1.25.14; GOTOOLCHAIN=local)"
+    },
+    {
+      "line": 107,
+      "found": true,
+      "text": "make: *** [Makefile:377: build-e2e] Error 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "1a90bcbfd5e0d5a3df437dcaddb65d69"
+}

@@ -1,0 +1,27 @@
+{
+  "model": "openrouter-nemotron-3-ultra-550b-a55b",
+  "category": "code_bug",
+  "summary": "Markdown lint fails because two lines in test/e2e/README.md exceed the 80-character limit (84 and 85 characters).",
+  "cited_lines": [
+    9,
+    10
+  ],
+  "latency_s": 8.65,
+  "input_tokens": 389,
+  "output_tokens": 244,
+  "cost_usd": 0.0,
+  "citations": [
+    {
+      "line": 9,
+      "found": true,
+      "text": "test/e2e/README.md:71:81 MD013/line-length Line length [Expected: 80; Actual: 84]"
+    },
+    {
+      "line": 10,
+      "found": true,
+      "text": "test/e2e/README.md:72:81 MD013/line-length Line length [Expected: 80; Actual: 85]"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "20f776cfc5b5731bb673da8e8f1d29cc"
+}

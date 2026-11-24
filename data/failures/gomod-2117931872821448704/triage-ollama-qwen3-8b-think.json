@@ -1,0 +1,41 @@
+{
+  "model": "ollama-qwen3:8b-think",
+  "category": "config_error",
+  "summary": "The CI job failed due to inconsistent go.mod/go.sum files requiring 'go mod tidy' before proceeding.",
+  "cited_lines": [
+    381,
+    382,
+    389,
+    390
+  ],
+  "latency_s": 123.98,
+  "input_tokens": 334,
+  "output_tokens": 746,
+  "cost_usd": 0.0,
+  "ttft_s": 5.93,
+  "tokens_per_s": 6.3,
+  "citations": [
+    {
+      "line": 381,
+      "found": true,
+      "text": " M test/go.sum ]"
+    },
+    {
+      "line": 382,
+      "found": true,
+      "text": "+ echo one of the go.mod and/or go.sum files changed"
+    },
+    {
+      "line": 389,
+      "found": true,
+      "text": "Please run 'go mod tidy' and commit the changes"
+    },
+    {
+      "line": 390,
+      "found": true,
+      "text": "+ exit 1"
+    }
+  ],
+  "citation_validity": 1.0,
+  "trace_id": "bb19ba623a36f6d9bdf7792424100e67"
+}
